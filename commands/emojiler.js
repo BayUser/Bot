@@ -15,8 +15,8 @@ x.animated ? animEmotes.push(`<a:${x.name}:${x.id}>`) : staticEmotes.push(`<:${x
 })
 const embed = new EmbedBuilder()
 .setTimestamp()
-.setColor('#ff0000')
-.setTitle(`Godzilla - Emoji List!`)
+.setColor('#000000')
+.setTitle(`Emoji List!`)
 .setDescription(`${animEmotes} ${staticEmotes}`)
 interaction.reply({embeds: [embed]})
   }

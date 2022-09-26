@@ -9,10 +9,10 @@ module.exports = {
   run: async(client, interaction) => {
     if(!interaction.member.permissions.has(PermissionsBitField.Flags.ManageRoles)) return interaction.reply({content: "Rolleri Yönet Yetkin Yok!", ephemeral: true})
     const embed = new EmbedBuilder()
-    .setColor("Red")
+    .setColor("#000000")
     .setDescription("✅ **Sistem Kapatıldı** \n Küfür Edildiğinde Bot Artık Onları Sansürlemicek.")
     const embed2 = new EmbedBuilder()
-    .setColor("Red")
+    .setColor("#000000")
    .setDescription("✅ **Sistem Açıldı** \n Küfür Edildiğinde Bot Artık Onları Sansürlicek.")
  
  let küfür = db.fetch(`kufurengel_${interaction.guild.id}`);

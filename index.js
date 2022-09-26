@@ -45,12 +45,12 @@ console.log(`[EVENT] ${name} eventi yüklendi.`)
 });
 
 
-client.login(TOKEN)
+client.login(process.env.token)
 
 client.on("guildMemberAdd", member => {
   const kanal = db.get(`hgbb_${member.guild.id}`)
   if(!kanal) return;
-  member.guild.channels.cache.get(kanal).send({content: `:inbox_tray: | ${member} sunucuya katıldı! Sunucumuz **${member.guild.memberCount}** kişi oldu.`})
+  member.guild.channels.cache.get(kanal).send({content: `<:join:1018637625193676893> | ${member} sunucuya katıldı! Sunucumuz **${member.guild.memberCount}** kişi oldu.`})
 })
 
 client.on("messageCreate", async message => {
@@ -85,7 +85,7 @@ client.on("guildMemberAdd", member => {
 client.on("guildMemberRemove", member => {
   const kanal = db.get(`hgbb_${member.guild.id}`)
   if(!kanal) return;
-  member.guild.channels.cache.get(kanal).send({content: `:outbox_tray: | ${member} sunucudan ayrıldı! Sunucumuz **${member.guild.memberCount}** kişi oldu.`})
+  member.guild.channels.cache.get(kanal).send({content: `<:leave:1018637599952339015> | ${member} sunucudan ayrıldı! Sunucumuz **${member.guild.memberCount}** kişi oldu.`})
 })
 
 client.on("messageCreate", (message) => {
@@ -170,23 +170,26 @@ client.on("interactionCreate", async interaction => {
   let message = await interaction.channel.messages.fetch(interaction.message.id)  
   if(interaction.customId == "moderasyon") {
 const embed = new Discord.EmbedBuilder()
-.setTitle("Godzilla - Yardım Menüsü!")
-.setDescription("/ban-list - **Banlı Kullanıcıları Gösterir!**\n/ban - **Bir Üyeyi Yasaklarsın!**\n/emojiler - **Emojileri Görürsün!**\n/forceban - **ID İle Bir Kullanıcıyı Yasaklarsın!**\n/giriş-çıkış - **Giriş çıkış kanalını ayarlarsın!**\n/kanal-açıklama - **Kanalın Açıklamasını Değiştirirsin!**\n/kick - **Bir Üyeyi Atarsın!**\n/küfür-engel - **Küfür Engel Sistemini Açıp Kapatırsın!**\n/oto-rol - **Otorolü Ayarlarsın!**\n/oto-tag - **Oto Tagı Ayarlarsın!**\n/oylama - **Oylama Açarsın!**\n/reklam-engel - **Reklam Engel Sistemini Açarsın!**\n/rol-al - **Rol Alırsın**\n/rol-oluştur - **Rol Oluşturursun!**\n/rol-ver - **Rol Verirsin!**\n/sa-as - **Selam Sistemine Bakarsın!**\n/temizle - **Mesaj Silersin!**\n/unban - **Bir üyenin yasağını kaldırırsın!**")
-.setColor("Random")
+.setTitle("Moderasyon Yardım Menüsü!")
+.setThumbnail('https://media.discordapp.net/attachments/1022843509016895568/1023671325878931550/IMG_6557.png?width=433&height=433')
+.setDescription("<:aktif:1018637501092605992> /ban-list - **Banlı Kullanıcıları Gösterir!**\n<:aktif:1018637501092605992> /ban - **Bir Üyeyi Yasaklarsın!**\n<:aktif:1018637501092605992> /emojiler - **Emojileri Görürsün!**\n<:aktif:1018637501092605992> /forceban - **ID İle Bir Kullanıcıyı Yasaklarsın!**\n<:aktif:1018637501092605992> /giriş-çıkış - **Giriş çıkış kanalını ayarlarsın!**\n<:aktif:1018637501092605992> /kanal-açıklama - **Kanalın Açıklamasını Değiştirirsin!**\n<:aktif:1018637501092605992> /kick - **Bir Üyeyi Atarsın!**\n<:aktif:1018637501092605992> /küfür-engel - **Küfür Engel Sistemini Açıp Kapatırsın!**\n<:aktif:1018637501092605992> /oto-rol - **Otorolü Ayarlarsın!**\n<:aktif:1018637501092605992> /oto-tag - **Oto Tagı Ayarlarsın!**\n<:aktif:1018637501092605992> /oylama - **Oylama Açarsın!**\n<:aktif:1018637501092605992> /reklam-engel - **Reklam Engel Sistemini Açarsın!**\n<:aktif:1018637501092605992> /rol-al - **Rol Alırsın**\n<:aktif:1018637501092605992> /rol-oluştur - **Rol Oluşturursun!**\n<:aktif:1018637501092605992> /rol-ver - **Rol Verirsin!**\n<:aktif:1018637501092605992> /sa-as - **Selam Sistemine Bakarsın!**\n<:aktif:1018637501092605992> /temizle - **Mesaj Silersin!**\n<:aktif:1018637501092605992> /unban - **Bir üyenin yasağını kaldırırsın!**")
+.setColor("#000000")
 interaction.reply({embeds: [embed], components: [], ephemeral: true})
   }
   if(interaction.customId == "kayıt") {
     const embed = new Discord.EmbedBuilder()
-    .setTitle("Godzilla - Yardım Menüsü!")
-    .setDescription("/kayıtlı-rol - **Kayıtlı Rolünü Ayarlarsın!**\n/kayıt-et - **Bir Üyeyi Kayıt Edersin!**")
-    .setColor("Random")
+    .setTitle("Kayıt Yardım Menüsü!")
+    .setThumbnail('https://media.discordapp.net/attachments/1022843509016895568/1023671325878931550/IMG_6557.png?width=433&height=433')
+    .setDescription("<:aktif:1018637501092605992> /kayıtlı-rol - **Kayıtlı Rolünü Ayarlarsın!**\n<:aktif:1018637501092605992> /kayıt-et - **Bir Üyeyi Kayıt Edersin!**")
+    .setColor("#000000")
     interaction.reply({embeds: [embed], components: [], ephemeral: true})
   }
   if(interaction.customId == "kullanıcı") {
     const embed = new Discord.EmbedBuilder()
-    .setTitle("Godzilla - Yardım Menüsü!")
-    .setDescription("/avatar - **Bir Kullanıcının Avatarına Bakarsın!**\n/afk - **Sebepli Afk Olursun!**\n/emoji-yazı - **Bota Emoji İle Yazı Yazdırırsın!**\n/istatistik - **Bot istatistiklerini gösterir!**\n/kurucu-kim - **Kurucuyu Gösterir!**\n/ping - **Botun pingini gösterir!**\n/yardım - **Yardım Menüsünü Gösterir!**")
-    .setColor("Random")
+    .setTitle("Kullanıcı Yardım Menüsü!")
+    .setThumbnail('https://media.discordapp.net/attachments/1022843509016895568/1023671325878931550/IMG_6557.png?width=433&height=433')
+    .setDescription("<:aktif:1018637501092605992> /avatar - **Bir Kullanıcının Avatarına Bakarsın!**\n<:aktif:1018637501092605992> /afk - **Sebepli Afk Olursun!**\n<:aktif:1018637501092605992> /emoji-yazı - **Bota Emoji İle Yazı Yazdırırsın!**\n<:aktif:1018637501092605992> /kurucu-kim - **Kurucuyu Gösterir!**\n<:aktif:1018637501092605992> /ping - **Botun pingini gösterir!**\n<:aktif:1018637501092605992> /yardım - **Yardım Menüsünü Gösterir!**")
+    .setColor("#000000")
     interaction.reply({embeds: [embed], components: [], ephemeral: true})
   }
 })

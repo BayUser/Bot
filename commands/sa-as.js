@@ -9,10 +9,10 @@ module.exports = {
   run: async(client, interaction) => {
     if(!interaction.member.permissions.has(PermissionsBitField.Flags.ManageRoles)) return interaction.reply({content: "Rolleri Yönet Yetkin Yok!", ephemeral: true})
     const embed = new EmbedBuilder()
-    .setColor("Red")
+    .setColor("#000000")
     .setDescription("✅ **Sistem Kapatıldı** \n Artık Bot Selamı Almayacak.")
     const embed2 = new EmbedBuilder()
-    .setColor("Red")
+    .setColor("#000000")
    .setDescription("✅ **Sistem Açıldı** \n Artık Bot Selamı Alıcak.")
  
  let slm = db.fetch(`saas_${interaction.guild.id}`);

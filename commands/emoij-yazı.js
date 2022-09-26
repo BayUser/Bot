@@ -48,7 +48,7 @@ module.exports = {
 
   run: async(client, interaction) => {
     const yazı = interaction.options.getString("yazı")
-    if (yazı.length > 50) return interaction.reply({content: `:x: En fazla 50 Harf Kullanabilirsiniz.`, ephemeral: true});
+    if (yazı.length > 50) return interaction.reply({content: `En fazla 50 Harf Kullanabilirsiniz.`, ephemeral: true});
 interaction.reply(yazı
 .split('')
 .map(c => mapping[c] || c)

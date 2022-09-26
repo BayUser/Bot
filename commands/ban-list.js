@@ -14,15 +14,15 @@ module.exports = {
       
     const embed = new EmbedBuilder()
     .setDescription("Sunucunuzda Banlanan Kimse Yok!")      
-    .setColor("Red")
-    .setTitle(":x: Hata!")
+    .setColor("#000000")
+    .setTitle("Hata!")
     interaction.reply({embeds: [embed]})
       
     } else {
     const data = collection.map(mr => "`"+mr.user.username+"`").slice(0, 60).join(", ")
     const embed2 = new EmbedBuilder()
-    .setTitle("Godzilla - Ban List")
-    .setColor("#ff0000")
+    .setTitle("Ban List")
+    .setColor("#000000")
     .setDescription(data)
     interaction.reply({embeds: [embed2]})
 }

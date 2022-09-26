@@ -11,7 +11,7 @@ module.exports = {
     const { user, guildId, channel } = interaction;
 
 
-    interaction.reply({ embeds: [ new EmbedBuilder().setDescription(`Pong! ***${client.ws.ping}ms***`).setColor("Random") ], ephemeral: true })
+    interaction.reply({ embeds: [ new EmbedBuilder().setDescription(`Pong! ***${client.ws.ping}ms***`).setColor("#000000") ], ephemeral: true })
 
   }
 
