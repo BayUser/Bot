@@ -1,52 +1,66 @@
-const { EmbedBuilder, ApplicationCommandType } = require('discord.js');
+const { EmbedBuilder, ApplicationCommandType, ApplicationCommandOptionType, ActionRowBuilder, ButtonBuilder } = require('discord.js');
 
 module.exports = {
-	name: 'role',
-	description: "Manage roles of the server or members.",
+	name: 'verify',
+	description: "Set simple verification for this server.",
 	cooldown: 3000,
 	type: ApplicationCommandType.ChatInput,
-    	default_member_permissions: 'ManageRoles', // permission required
+    default_member_permissions: 'Administrator',
 	options: [
         {
-            name: 'add',
+            name: 'set',
             description: 'Add role to a user.',
             type: 1,
             options: [
                 {
-                    name: 'role',
-                    description: 'The role you want to add to the user.',
-                    type: 8,
+                    name: 'channel',
+                    description: 'The channel of verification',
+                    type: ApplicationCommandOptionType.Channel,
                     required: true
                 },
                 {
-                    name: 'user',
-                    description: 'The user you want to add role to.',
-                    type: 6,
-                    required: true
+                    name: 'embed_title',
+                    description: 'The verification embed title.',
+                    type: ApplicationCommandOptionType.String,
+                    required: false
+                },
+                {
+                    name: 'embed_description',
+                    description: 'The verification embed description.',
+                    type: ApplicationCommandOptionType.String,
+                    required: false
                 }
             ]
         }
     ],
 	run: async (client, interaction) => {
-	 if(interaction.options._subcommand === 'add') {
+        if(interaction.options._subcommand === 'set') {
             try {
-                const member = interaction.guild.members.cache.get(interaction.options.get('user').value);
-                const role = interaction.options.get('role').role;
+                const title = interaction.options.get('embed_title').value;
+                const description = interaction.options.get('embed_description').value;
+                const channel = interaction.options.get('channel').channel;
     
-                await member.roles.add(role.id);
                 const embed = new EmbedBuilder()
-                .setTitle('Role Added')
-                .setDescription(`Successfully added the role: ${role} to ${member}`)
+                .setTitle(title || 'Verify')
+                .setDescription(description || `Click the button below to verify.`)
                 .setColor('Green')
-                .setTimestamp()
-                .setThumbnail(member.user.displayAvatarURL())
                 .setFooter({ text: interaction.guild.name, iconURL: interaction.guild.iconURL() });
+
+                const buttons = new ActionRowBuilder()
+                .addComponents(
+                    new ButtonBuilder()
+                    .setLabel('Verify')
+                    .setStyle('Success')
+                    .setCustomId('verify_button')
+                );
         
-                return interaction.reply({ embeds: [embed] })
+                await channel.send({ embeds: [embed], components: [buttons] });
+                return interaction.reply({ content: `Setted up verification.`, ephemeral: true });
+
             } catch {
-                return interaction.reply({ content: `Sorry, I failed adding that role to you!`, ephemeral: true });
+                return interaction.reply({ content: `Sorry, I failed setting up...`, ephemeral: true });
             }
 
         }
-    }
+	}
 };
