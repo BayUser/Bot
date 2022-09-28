@@ -16,9 +16,10 @@
     "moment": "^2.29.4",
     "moment-duration-format": "^2.3.2",
     "os": "^0.1.2",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "easyembeds.js": "^0.0.3"
   },
-   "engines": {
+  "engines": {
     "node": "16.x"
   }
 }

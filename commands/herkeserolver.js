@@ -1,24 +1,35 @@
-const { PermissionsBitField } = require("discord.js");
-const db = require("croxydb")
-module.exports = {
-    name:"otorol-kanal",
-    description: 'Giriş Çıkış Sistemini Ayarlarsın!',
-    type:1,
-    options: [
-        {
-            name:"ayarla",
-            description:"Ayarlama İşlemleri",
-            type:1,
-            options:[{name:"kanal",description:"Otorol Kanalını Ayarlar!",type:7,required:true,channel_types:[0]}]            
-        },
-       
-    ],
-  run: async(client, interaction) => {
+const { Client, EmbedBuilder } = require("discord.js");
+const { SendEmbed } = require("easyembeds.js");
 
-    if(!interaction.member.permissions.has(PermissionsBitField.Flags.ManageChannels)) return interaction.reply({content: "Kanalları Yönet Yetkin Yok!", ephemeral: true})
-    const kanall = interaction.options.getChannel('kanal')
-   db.set(`hgbb_${interaction.guild.id}`, kanall.id)
-   interaction.reply("Otorol Log Kanalı Başarıyla <#"+kanall+"> Olarak Ayarlandı!")
-}
+module.exports = {
+  name: "linkler",
+  description: "Sistemdeki linkleri görüntüleyin.",
+  type: 1,
+  options: [],
+
+  run: async(client, interaction, db) => {
+
+    
+    
+  const links = db.fetch(`links`)
+    
+  const Links = links.map(links => links).join("\n")
+  
+    if(!links) {
+      db.set(`links`, [])
+      
+      return SendEmbed(interaction, {
+        description: "❌ **|** Database ayarlanmadığı için otomatik ayarlandı, tekrardan aynı komutu kullanın!",
+        color: "Red"
+      });
+    };
+    
+    
+    return SendEmbed(interaction, {
+      color: "Blue",
+      description: `${Links}`
+    });
+    
+  }
 
 };
