@@ -193,9 +193,3 @@ interaction.reply({embeds: [embed], components: [], ephemeral: true})
     interaction.reply({embeds: [embed], components: [], ephemeral: true})
   }
 })
-
-client.on("guildMemberAdd", member => {
-  const kanal = db.get(`hgbb_${member.guild.id}`)
-  if(!kanal) return;
-  member.guild.channels.cache.get(kanal).send({content: `<:join:1018637625193676893> | ${member} sunucuya katıldı! Sunucumuz **${member.guild.memberCount}** kişi oldu.`})
-})

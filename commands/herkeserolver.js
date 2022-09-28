@@ -16,9 +16,9 @@ module.exports = {
   run: async(client, interaction) => {
 
     if(!interaction.member.permissions.has(PermissionsBitField.Flags.ManageChannels)) return interaction.reply({content: "Kanalları Yönet Yetkin Yok!", ephemeral: true})
-    const kanal2 = interaction.options.getChannel('kanal')
-   db.set(`hgbb_${interaction.guild.id}`, kanal2.id)
-   interaction.reply("Otorol Log Kanalı Başarıyla <#"+kanal2+"> Olarak Ayarlandı!")
+    const kanall = interaction.options.getChannel('kanal')
+   db.set(`hgbb_${interaction.guild.id}`, kanall.id)
+   interaction.reply("Otorol Log Kanalı Başarıyla <#"+kanall+"> Olarak Ayarlandı!")
 }
 
 };
