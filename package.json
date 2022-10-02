@@ -1,7 +1,7 @@
 {
-  "name": "raven",
+  "name": "mercy",
   "version": "9.9.9",
-  "description": "Discord.JS v14 Slash Uyumlu Altyapı",
+  "description": "Discord.JS v14 Slash Altyapı",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
