@@ -9,25 +9,25 @@ module.exports = {
   run: async(client, interaction) => {
 
     const embed = new EmbedBuilder()
-    .setAuthor({ name: `Yardım menüsü | Duster!`, iconURL: 'https://media.discordapp.net/attachments/1064266014671503380/1074760048523354282/discord-avatar-128-ECE86.gif?width=96&height=96' })
+    .setAuthor({ name: `Yardım menüsü | Mercy Code!`, iconURL: 'https://media.discordapp.net/attachments/1064266014671503380/1074760048523354282/discord-avatar-128-ECE86.gif?width=96&height=96' })
     .setThumbnail('https://media.discordapp.net/attachments/1064266014671503380/1074760048523354282/discord-avatar-128-ECE86.gif?width=96&height=96')
-    .setFooter({ text: `Duster • data#9999 Net`, iconURL: 'https://media.discordapp.net/attachments/1064266014671503380/1074760048523354282/discord-avatar-128-ECE86.gif?width=96&height=96' })
+    .setFooter({ text: `Mercy Code • data#9999`, iconURL: 'https://media.discordapp.net/attachments/1064266014671503380/1074760048523354282/discord-avatar-128-ECE86.gif?width=96&height=96' })
     .setImage("https://media.discordapp.net/attachments/1064266014671503380/1075885849557880952/Screenshot_1.png?width=623&height=125")
     .setDescription(`
-> **<a:586273537677983774:1012334694907531356> prefix:** */*
-> <:45:1007979694131515482> Sahib: <@847596022020309013>
-> <:1009095264398753822:1012341965884489831> Ping: \`15\`
+> **<:r_mod:1076950265183359206> prefix:** */*
+> <:r_tac:1076950185231532183> Sahib: <@847596022020309013>
+> <:r_yesil:1076950445530026035> Ping: \`15\`
 
 *Ana Komutlar;*
 
-<a:583012909177634850:1012334746635862078> \`Moderasyon\` **hakkında bilgi alabilirsiniz.**
-<a:586273537677983774:1012334694907531356> \`Kayıt\` **hakkında bilgi alabilirsiniz**
-<:14:1008732364198920263> \`Kullanıcı\` **hakkında bilgi alabilirsiniz.**
+<:r_ayarlar:1077328118047592579> \`Moderasyon\` **hakkında bilgi alabilirsiniz.**
+<:r_amungus:1076950579512881172> \`Kayıt\` **hakkında bilgi alabilirsiniz**
+<:r_kullanici:1077587198989316117> \`Kullanıcı\` **hakkında bilgi alabilirsiniz.**
 
 *Bağlantılar;*
-<:888414495423225866:1005818896596611154> [Destek Sunucusu](https://discord.gg/ZyQWrgKg66)
-<a:583014055443169301:1012334678126112850> [Botu Ekle](https://discord.com/api/oauth2/authorize?client_id=893238888179580958&permissions=8&scope=bot)
-<:onays:1015371223531802695> [Oyver](https://top.gg/bot/893238888179580958/vote)`)
+<:r_discord:1077587395001729034> [Destek Sunucusu](https://discord.gg/ZyQWrgKg66)
+<:r_bot:1077587502157807616> [Botu Ekle](https://discord.com/api/oauth2/authorize?client_id=893238888179580958&permissions=8&scope=bot)
+<:r_tik:1077587538128154635> [Oyver](https://top.gg/bot/893238888179580958/vote)`)
     .setColor("#000000")
     const row = new Discord.ActionRowBuilder()
     .addComponents(
