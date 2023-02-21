@@ -9,9 +9,10 @@ module.exports = {
   run: async(client, interaction) => {
 
     const embed = new EmbedBuilder()
-    .setTitle("Mercy Yardım Menüsü")
-    .setThumbnail('https://media.discordapp.net/attachments/1022843509016895568/1023671325878931550/IMG_6557.png?width=433&height=433')
-    .setImage("https://media.discordapp.net/attachments/1022843509016895568/1024035336256495726/Mercy_Afis_2.png?width=576&height=324")
+    .setAuthor({ name: `Yardım menüsü | Duster!`, iconURL: 'https://media.discordapp.net/attachments/1064266014671503380/1074760048523354282/discord-avatar-128-ECE86.gif?width=96&height=96' })
+    .setThumbnail('https://media.discordapp.net/attachments/1064266014671503380/1074760048523354282/discord-avatar-128-ECE86.gif?width=96&height=96')
+    .setFooter({ text: `Duster • data#9999 Net`, iconURL: 'https://media.discordapp.net/attachments/1064266014671503380/1074760048523354282/discord-avatar-128-ECE86.gif?width=96&height=96' })
+    .setImage("https://media.discordapp.net/attachments/1064266014671503380/1075885849557880952/Screenshot_1.png?width=623&height=125")
     .setDescription(`
 > **<a:586273537677983774:1012334694907531356> prefix:** */*
 > <:45:1007979694131515482> Sahib: <@847596022020309013>
