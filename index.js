@@ -193,3 +193,6 @@ interaction.reply({embeds: [embed], components: [], ephemeral: true})
     interaction.reply({embeds: [embed], components: [], ephemeral: true})
   }
 })
+
+  
+    
