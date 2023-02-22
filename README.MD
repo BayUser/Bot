@@ -1,9 +1,0 @@
-Developer ✨Alfa#2522  
-
-ANKA CODE - ALTYAPILAR SUNUCUSUNA AİTTİR.. PAYLAŞILMASI KESİNLİKLE YASAKTIR!!
-
-
-
-ANKA CODE:
-https://discord.gg/vmj7wqZF5A
-
