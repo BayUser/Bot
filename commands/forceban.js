@@ -23,3 +23,4 @@ interaction.reply(id+ " IDLI Kullanıcı Başarıyla Yasaklandı!")
 }
 
 };
+//ANKA CODE

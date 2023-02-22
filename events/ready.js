@@ -28,3 +28,6 @@ module.exports = async (client) => {
     console.log(`${client.user.tag} Aktif!`);
     client.user.setActivity("ANKA CODE Alfa#2522")
 };
+
+
+//ANKA CODE

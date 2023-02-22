@@ -31,3 +31,5 @@ interaction.reply("<#"+kanal2+"> Kanalının Açıklaması Başarıyla **"+acikl
   }
 
 };
+
+//ANKA CODE

@@ -1,3 +1,8 @@
-Developer 💙 Alfa#2522
+Developer ✨Alfa#2522  
 
 ANKA CODE - ALTYAPILAR SUNUCUSUNA AİTTİR.. PAYLAŞILMASI KESİNLİKLE YASAKTIR!!
+
+
+
+ANKA CODE 
+

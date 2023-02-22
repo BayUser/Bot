@@ -7,11 +7,11 @@ module.exports = {
   options: [],
 
   run: async(client, interaction) => {
-
+//ANKA CODE
     const embed = new EmbedBuilder()
-    .setAuthor({ name: `Yardım menüsü |Anka Code`,İcpRL: 'https://media.discordapp.net/attachments/1064266014671503380/1074760048523354282/discord-avatar-128-ECE86.gif?width=96&height=96' })
+    .setAuthor({ name: `Yardım menüsü|Anka Code`,iconURL:'https://media.discordapp.net/attachments/1064266014671503380/1074760048523354282/discord-avatar-128-ECE86.gif?width=96&height=96' })
     .setThumbnail('https://media.discordapp.net/attachments/1064266014671503380/1074760048523354282/discord-avatar-128-ECE86.gif?width=96&height=96')
-    .setFooter({ text: `Mercy Code • data#9999`, iconURL: 'https://media.discordapp.net/attachments/1064266014671503380/1074760048523354282/discord-avatar-128-ECE86.gif?width=96&height=96' })
+    .setFooter({ text: `Anka Code • Alfa#2522`, iconURL: 'https://media.discordapp.net/attachments/1064266014671503380/1074760048523354282/discord-avatar-128-ECE86.gif?width=96&height=96' })
     .setImage("https://media.discordapp.net/attachments/1064266014671503380/1075885849557880952/Screenshot_1.png?width=623&height=125")
     .setDescription(`
 > **<:r_mod:1076950265183359206> prefix:** */*
@@ -47,3 +47,5 @@ interaction.reply({embeds: [embed], components: [row], ephemeral: true})
   }
 
 };
+
+//ANKA CODE

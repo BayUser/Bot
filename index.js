@@ -11,7 +11,7 @@ const client = new Client({
     partials: PARTIALS,
     retryLimit: 3
 });
-
+//ANKA CODE
 global.client = client;
 client.commands = (global.commands = []);
 
@@ -21,7 +21,7 @@ readdirSync('./commands').forEach(f => {
   if(!f.endsWith(".js")) return;
 
  const props = require(`./commands/${f}`);
-
+//ANKA CODE
  client.commands.push({
        name: props.name.toLowerCase(),
        description: props.description,
@@ -29,7 +29,7 @@ readdirSync('./commands').forEach(f => {
        dm_permission: props.dm_permission,
        type: 1
  });
-
+//ANKA CODE
 console.log(`[COMMAND] ${props.name} komutu yüklendi.`)
 
 });
@@ -112,7 +112,7 @@ client.on("messageCreate", (message) => {
     "mk"
        
   ]
-  
+//ANKA CODE  
 if(kufurler.some(alo => message.content.toLowerCase().includes(alo))) {
 message.delete()
 message.channel.send(`Hey <@${message.author.id}>, Bu Sunucuda Küfür Engel Sistemi Aktif! `)
@@ -125,7 +125,7 @@ client.on("messageCreate", (message) => {
   if(!reklamlar) return;
   
   if(reklamlar) {
-
+//ANKA CODE
   const linkler = [
     
     ".com.tr",
@@ -143,7 +143,7 @@ client.on("messageCreate", (message) => {
     ".edu"
        
   ]
-  
+  //ANKA CODE
 if(linkler.some(alo => message.content.toLowerCase().includes(alo))) {
 message.delete()
 message.channel.send(`Hey <@${message.author.id}>, Bu Sunucuda Reklam Engel Sistemi Aktif! `)
