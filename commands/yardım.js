@@ -25,9 +25,9 @@ module.exports = {
 <:r_kullanici:1077587198989316117> \`Kullanıcı\` **hakkında bilgi alabilirsiniz.**
 
 *Bağlantılar;*
-<:r_discord:1077587395001729034> [Destek Sunucusu](https://discord.gg/ZyQWrgKg66)
-<:r_bot:1077587502157807616> [Botu Ekle](https://discord.com/api/oauth2/authorize?client_id=893238888179580958&permissions=8&scope=bot)
-<:r_tik:1077587538128154635> [Oyver](https://top.gg/bot/893238888179580958/vote)`)
+<:r_discord:1077587395001729034> [Destek Sunucusu]()
+<:r_bot:1077587502157807616> [Botu Ekle]()
+<:r_tik:1077587538128154635> [Oyver](.`)
     .setColor("#000000")
     const row = new Discord.ActionRowBuilder()
     .addComponents(
