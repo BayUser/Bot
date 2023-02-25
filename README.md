@@ -2,6 +2,13 @@
     <h1>Developer 💙Alfa#2522</h1>
 </div>
 
+# 📜 Kullanım
+> Install packages. \
+> $ `npm install`
+>
+> Start \
+> $ `node index.js`
+
 # 🔒 License
 > MIT
 
@@ -11,5 +18,5 @@
 
 # ANKA  CODE - ALTYAPILAR SUNUCUSUNA AİTTİR.. PAYLAŞILMASI KESİNLİKLE YASAKTIR!!
 
-# Discord: https://discord.gg/vmj7wqZF5A
+# Discord: https://discord.gg/FC7QXNxNyv
 
