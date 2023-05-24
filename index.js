@@ -16,7 +16,7 @@ global.client = client;
 client.commands = (global.commands = []);
 
 const { readdirSync } = require("fs")
-const { TOKEN } = require("./config.json");
+const { TOKEN } = process.env.token;
 readdirSync('./commands').forEach(f => {
   if(!f.endsWith(".js")) return;
 
