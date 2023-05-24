@@ -25,7 +25,7 @@ module.exports = {
     .setColor("#323338")
     interaction.reply({embeds:[embed]})
     
-    if(!interaction.member.permissions.has(PermissionsBitField.Flags.BanMembers)) return interaction.reply({content: "• Bu komut için yeterli yetkin yok.", ephemeral: true})
+    if(!interaction.member.permissions.has(PermissionsBitField.Flags.BanMembers)) return interaction.reply({content: "• Bu komut için yeterli yetkiye sahip değilsin.", ephemeral: true})
     const user = interaction.options.getMember('user')
     const sebep = interaction.options.getString('reason')
     if(user.permissions.has(PermissionsBitField.Flags.BanMembers)) return interaction.reply({content:"• Bilinmeyen bir hata oluştu..",ephemeral:true})
