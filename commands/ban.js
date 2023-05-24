@@ -1,7 +1,7 @@
 const { Client, EmbedBuilder, PermissionsBitField } = require("discord.js");
 module.exports = {
     name:"ban",
-    description: 'Kullanıcıyı Sunucudan Yasaklarsın.',
+    description: 'Ban komutu.',
     type:1,
     options: [
         {
@@ -12,19 +12,25 @@ module.exports = {
         },
         {
             name:"reason",
-            description:"Hangi Sebepten dolayı yasaklanıcak?",
+            description:"Yasaklama Sebebini Belirtin.",
             type:3,
             required:true
         },
     ],
   run: async(client, interaction) => {
 
-    if(!interaction.member.permissions.has(PermissionsBitField.Flags.BanMembers)) return interaction.reply({content: "Üyeleri Yasakla Yetkin Yok!", ephemeral: true})
+    const embed = EmbedBuilder()
+    .setTitle("Ban")
+    .setDescription("• Üye Sunucudan Yasaklandı.")
+    .setColor("#323338")
+    interaction.reply({embeds:[embed]})
+    
+    if(!interaction.member.permissions.has(PermissionsBitField.Flags.BanMembers)) return interaction.reply({content: "• Bu komut için yeterli yetkin yok.", ephemeral: true})
     const user = interaction.options.getMember('user')
     const sebep = interaction.options.getString('reason')
-    if(user.permissions.has(PermissionsBitField.Flags.BanMembers)) return interaction.reply({content:"Bu Kullanıcının Ban Yetkisi Olduğu İçin Onu Yasaklayamadım.   ",ephemeral:true})
+    if(user.permissions.has(PermissionsBitField.Flags.BanMembers)) return interaction.reply({content:"• Bilinmeyen bir hata oluştu..",ephemeral:true})
     user.ban({reason: sebep});
-    interaction.reply({content: "Başarıyla Üyeyi Yasakladım!"})
+    
 }
 
 };

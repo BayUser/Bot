@@ -2,7 +2,7 @@ const { Client, EmbedBuilder } = require("discord.js");
 
 module.exports = {
   name: "emojiler",
-  description: "Sunucudaki Emojileri Görürsün!!",
+  description: "Emojiler komutu.",
   type: 1,
   options: [],
 
@@ -15,8 +15,8 @@ x.animated ? animEmotes.push(`<a:${x.name}:${x.id}>`) : staticEmotes.push(`<:${x
 })
 const embed = new EmbedBuilder()
 .setTimestamp()
-.setColor('#000000')
-.setTitle(`Emoji List!`)
+.setColor('#323338')
+.setTitle(`Emoji-List`)
 .setDescription(`${animEmotes} ${staticEmotes}`)
 interaction.reply({embeds: [embed]})
   }

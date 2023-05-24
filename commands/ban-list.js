@@ -13,7 +13,7 @@ module.exports = {
     if(collection.first() == null){
       
     const embed = new EmbedBuilder()
-    .setDescription("Sunucunuzda Banlanan Üye Bulunamadı.")      
+    .setDescription("• Sunucunuzda Banlanan Üye Bulunamadı.")      
     .setColor("#000000")
     .setTitle("Hata!")
     interaction.reply({embeds: [embed]})
@@ -22,7 +22,7 @@ module.exports = {
     const data = collection.map(mr => "`"+mr.user.username+"`").slice(0, 60).join(", ")
     const embed2 = new EmbedBuilder()
     .setTitle("Ban List")
-    .setColor("#")
+    .setColor("#323338")
     .setDescription(data)
     interaction.reply({embeds: [embed2]})
 }
