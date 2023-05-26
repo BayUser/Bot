@@ -10,23 +10,22 @@ module.exports = {
 //ANKA CODE
     const embed = new EmbedBuilder()
     .setAuthor({ name: `Lunar | Yardım Menüsü` })
-    .setFooter({ text: `OguZ INC • ȣ OguZ#2600`, iconURL: 'https://media.discordapp.net/attachments/1067780547159539762/1077969319654334545/static.png })
-    .setImage("https://media.discordapp.net/attachments/1064266014671503380/1075885849557880952/Screenshot_1.png?width=623&height=125")
+    .setFooter({ text: `OguZ INC • ȣ OguZ#2600` })
+    .setImage("https://media.discordapp.net/attachments/1071467515252838471/1110965641004978207/20230524_184614.jpg")
     .setDescription(`
-> **Prefix:** */*
-> Sahip: <@871711574593789962>
-> Ping: \`15\`
+> Prefix: \`/\`
+> Sahip: <@860229283598827540>
+> Ping: \`${client.ws.ping}ms\`
 
-*Ana Komutlar;*
+***Ana Komutlar;***
+> \`Moderasyon\` **hakkında bilgi alabilirsiniz.**
+> \`Kayıt\` **hakkında bilgi alabilirsiniz**
+> \`Kullanıcı\` **hakkında bilgi alabilirsiniz.**
 
-\`Moderasyon\` **hakkında bilgi alabilirsiniz.**
-\`Kayıt\` **hakkında bilgi alabilirsiniz**
-\`Kullanıcı\` **hakkında bilgi alabilirsiniz.**
-
-*Bağlantılar;*
-[Destek Sunucusu](https://discord.gg/vmj7wqZF5A)
-[Botu Ekle](https://discord.gg/vmj7wqZF5A)`)
-    .setColor("#000000")
+***Bağlantılar;***
+> [Destek Sunucusu](https://discord.gg/MWBMqd7jjz)
+> [Botu Ekle](https://discord.com/oauth2/authorize?client_id=1090346236655173712&scope=bot&permissions=8)`)
+    .setColor("#323338")
     const row = new Discord.ActionRowBuilder()
     .addComponents(
 new Discord.ButtonBuilder()
@@ -35,15 +34,15 @@ new Discord.ButtonBuilder()
 .setCustomId("moderasyon"),
 new Discord.ButtonBuilder()
 .setLabel("Kayıt")
-.setStyle(Discord.ButtonStyle.Success)
+.setStyle(Discord.ButtonStyle.Secondary)
 .setCustomId("kayıt"),
 new Discord.ButtonBuilder()
 .setLabel("Kullanıcı")
-.setStyle(Discord.ButtonStyle.Primary)
+.setStyle(Discord.ButtonStyle.Secondary)
 .setCustomId("kullanıcı"))
 interaction.reply({embeds: [embed], components: [row], ephemeral: true})
   }
 
 };
 
-//ANKA CODE
+// Designed And Coded By OguZ INC.

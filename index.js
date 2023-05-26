@@ -50,7 +50,7 @@ client.login(process.env.token)
 client.on("guildMemberAdd", member => {
   const kanal = db.get(`hgbb_${member.guild.id}`)
   if(!kanal) return;
-  member.guild.channels.cache.get(kanal).send({content: `<:join:1018637625193676893> | ${member} sunucuya katıldı! Sunucumuz **${member.guild.memberCount}** kişi oldu.`})
+  member.guild.channels.cache.get(kanal).send({content: `📥 | ${member} sunucuya katıldı! Sunucumuz **${member.guild.memberCount}** kişi oldu.`})
 })
 
 client.on("messageCreate", async message => {
@@ -60,7 +60,7 @@ client.on("messageCreate", async message => {
    
     db.delete(`afk_${message.author.id}`);
 
-    message.reply("Afk Modundan Başarıyla Çıkış Yaptın!");
+    message.reply("• Afk modundan çıkış yaptın.");
   }
 
   var kullanıcı = message.mentions.users.first();
@@ -68,7 +68,7 @@ client.on("messageCreate", async message => {
   var sebep = await db.get(`afk_${kullanıcı.id}`);
 
   if (sebep) {
-    message.reply("Etiketlediğin Kullanıcı **"+sebep+"** Sebebiyle Afk Modunda!");
+    message.reply("• Kullanıcı şuanda **"+sebep+"** sebebiyle afk modunda.");
   }
 });
 client.on("guildMemberAdd", member => {
@@ -85,7 +85,7 @@ client.on("guildMemberAdd", member => {
 client.on("guildMemberRemove", member => {
   const kanal = db.get(`hgbb_${member.guild.id}`)
   if(!kanal) return;
-  member.guild.channels.cache.get(kanal).send({content: `<:leave:1018637599952339015> | ${member} sunucudan ayrıldı! Sunucumuz **${member.guild.memberCount}** kişi oldu.`})
+  member.guild.channels.cache.get(kanal).send({content: `📤 | ${member} sunucudan ayrıldı. Sunucumuz **${member.guild.memberCount}** kişi oldu.`})
 })
 
 client.on("messageCreate", (message) => {
@@ -115,7 +115,7 @@ client.on("messageCreate", (message) => {
 //ANKA CODE  
 if(kufurler.some(alo => message.content.toLowerCase().includes(alo))) {
 message.delete()
-message.channel.send(`Hey <@${message.author.id}>, Bu Sunucuda Küfür Engel Sistemi Aktif! `)
+message.channel.send(`Hey <@${message.author.id}>, bu sunucuda küfür edemezsin.`)
 }
 }
 })
@@ -146,7 +146,7 @@ client.on("messageCreate", (message) => {
   //ANKA CODE
 if(linkler.some(alo => message.content.toLowerCase().includes(alo))) {
 message.delete()
-message.channel.send(`Hey <@${message.author.id}>, Bu Sunucuda Reklam Engel Sistemi Aktif! `)
+message.channel.send(`Hey <@${message.author.id}>, bu sunucuda reklam yapamazsın.`)
 }
 }
 })
@@ -161,7 +161,7 @@ client.on("messageCreate", (message) => {
   let selaamlar = message.content.toLowerCase()  
 if(selaamlar === 'sa' || selaamlar === 'slm' || selaamlar === 'sea' || selaamlar === ' selamünaleyküm' || selaamlar === 'Selamün Aleyküm' || selaamlar === 'selam'){
 
-message.channel.send(`<@${message.author.id}> Aleykümselam, Hoşgeldin ☺️`)
+message.channel.send(`<@${message.author.id}> Aleykümselam, Hoşgeldin!`)
 }
 }
 })
@@ -177,20 +177,20 @@ const embed = new Discord.EmbedBuilder()
 interaction.reply({embeds: [embed], components: [], ephemeral: true})
   }
   if(interaction.customId == "kayıt") {
-    const embed = new Discord.EmbedBuilder()
+    const embed2 = new Discord.EmbedBuilder()
     .setTitle("Kayıt Yardım Menüsü!")
     .setThumbnail('https://media.discordapp.net/attachments/1022843509016895568/1023671325878931550/IMG_6557.png?width=433&height=433')
     .setDescription(":small_orange_diamond: /kayıtlı-rol - **Kayıtlı Rolünü Ayarlarsın!**\n:small_orange_diamond: /kayıt-et - **Bir Üyeyi Kayıt Edersin!**")
     .setColor("#000000")
-    interaction.reply({embeds: [embed], components: [], ephemeral: true})
+    interaction.reply({embeds: [embed2], components: [], ephemeral: true})
   }
   if(interaction.customId == "kullanıcı") {
-    const embed = new Discord.EmbedBuilder()
+    const embed3 = new Discord.EmbedBuilder()
     .setTitle("Kullanıcı Yardım Menüsü!")
     .setThumbnail('https://media.discordapp.net/attachments/1022843509016895568/1023671325878931550/IMG_6557.png?width=433&height=433')
     .setDescription(":small_orange_diamond: /avatar - **Bir Kullanıcının Avatarına Bakarsın!**\n:small_orange_diamond: /afk - **Sebepli Afk Olursun!**\n:small_orange_diamond: /emoji-yazı - **Bota Emoji İle Yazı Yazdırırsın!**\n:small_orange_diamond: /kurucu-kim - **Kurucuyu Gösterir!**\n:small_orange_diamond: /ping - **Botun pingini gösterir!**\n:small_orange_diamond: /yardım - **Yardım Menüsünü Gösterir!**")
     .setColor("#000000")
-    interaction.reply({embeds: [embed], components: [], ephemeral: true})
+    interaction.reply({embeds: [embed3], components: [], ephemeral: true})
   }
 })
 
