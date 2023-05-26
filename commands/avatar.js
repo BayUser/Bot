@@ -6,7 +6,7 @@ module.exports = {
     options: [
         {
             name:"user",
-            description:"Avatarına Bakmak İstediğin Kullanıcıyı Etiketle.",
+            description:"Avatarına bakmak istediğin kullanıcıyı etiketle.",
             type:6,
             required:true
         },

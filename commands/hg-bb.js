@@ -7,9 +7,9 @@ module.exports = {
     options: [
         {
             name:"ayarla",
-            description:"Ayarlama İşlemleri.",
+            description:"Ayarlama işlemleri.",
             type:1,
-            options:[{name:"kanal",description:"Giriş Çıkış Kanalını Ayarlar.",type:7,required:true,channel_types:[0]}]            
+            options:[{name:"kanal",description:"Giriş-çıkış kanalını ayarlar.",type:7,required:true,channel_types:[0]}]            
         },
        
     ],

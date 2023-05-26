@@ -3,12 +3,12 @@ const db = require("croxydb")
 const Discord = require("discord.js")
 module.exports = {
   name: "oylama",
-  description: "Oylama Yaparsın!",
+  description: "Oylama komutu.",
   type: 1,
   options: [
     {
-        name:"oylaman",
-        description:"Oylama Seçeneğini Gir!",
+        name:"oylama",
+        description:"Oylama açıklamasını gir.",
         type:3,
         required:true
     },
@@ -21,9 +21,9 @@ module.exports = {
     const embed = new EmbedBuilder()
     .setTitle("Oylama")
     .setDescription(`Oylama: **${oylama}**`)
-    .setColor("Green")
+    .setColor("#323338")
 interaction.channel.send({embeds: [embed]}).then((mesaj) => {
-interaction.reply({content: "Oylama Başarıyla Oluşturuldu.", ephemeral: true}) 
+interaction.reply({content: "• Oylama oluşturuldu.", ephemeral: true}) 
 mesaj.react("✅")
 mesaj.react("❌")
 

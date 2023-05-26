@@ -2,12 +2,12 @@ const { Client, EmbedBuilder, PermissionsBitField } = require("discord.js");
 const db = require("croxydb")
 module.exports = {
     name:"oto-tag",
-    description: 'Sunucuya giren üyelere otomatik tag verir!',
+    description: 'Oto-Tag komutu.',
     type:1,
     options: [
         {
             name:"tag",
-            description:"Lütfen bir tag girin!",
+            description:"Verilecek tagı belirtin.",
             type:3,
             required:true
         },
@@ -15,10 +15,10 @@ module.exports = {
     ],
   run: async(client, interaction) => {
 
-    if(!interaction.member.permissions.has(PermissionsBitField.Flags.ManageNicknames)) return interaction.reply({content: "İsimleri Yönet Yetkin Yok!", ephemeral: true})
+    if(!interaction.member.permissions.has(PermissionsBitField.Flags.ManageNicknames)) return interaction.reply({content: "• Bu komut için yeterli yetkiye sahip değilsin.", ephemeral: true})
     const tag = interaction.options.getString('tag')
     db.set(`ototag_${interaction.guild.id}`, tag)
-    interaction.reply({content: "Başarıyla tagı "+tag+" olarak ayarladım!"})
+    interaction.reply({content: "• Ototag ayarlandı."})
 }
 
 };

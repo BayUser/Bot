@@ -1,8 +1,8 @@
 const { Client, EmbedBuilder } = require("discord.js");
 
 module.exports = {
-  name: "kurucu",
-  description: "Sunucunun kurucusunu görürsün!",
+  name: "kurucu-kim",
+  description: "Kurucu-Kim komutu.",
   type: 1,
   options: [],
 

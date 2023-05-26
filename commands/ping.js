@@ -2,7 +2,7 @@ const { Client, EmbedBuilder } = require("discord.js");
 
 module.exports = {
   name: "ping",
-  description: "Botun pingini görürsün!",
+  description: "Ping komutu.",
   type: 1,
   options: [],
 
@@ -11,7 +11,7 @@ module.exports = {
     const { user, guildId, channel } = interaction;
 
 
-    interaction.reply({ embeds: [ new EmbedBuilder().setDescription(`Pong! ***${client.ws.ping}ms***`).setColor("#000000") ], ephemeral: true })
+    interaction.reply({ embeds: [ new EmbedBuilder().setDescription(`Pong 🏓 **${client.ws.ping}ms**`).setColor("#323338") ], ephemeral: true })
 
   }
 

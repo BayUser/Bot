@@ -2,18 +2,18 @@ const { Client, EmbedBuilder, PermissionsBitField } = require("discord.js");
 const db = require("croxydb")
 module.exports = {
   name: "reklam-engel",
-  description: "Reklam Engel Sistemini Açıp Kapatırsın!",
+  description: "Reklam-Engel komutu.",
   type: 1,
   options: [],
 
   run: async(client, interaction) => {
     if(!interaction.member.permissions.has(PermissionsBitField.Flags.ManageRoles)) return interaction.reply({content: "Rolleri Yönet Yetkin Yok!", ephemeral: true})
     const embed = new EmbedBuilder()
-    .setColor("#000000")
-    .setDescription("✅ **Sistem Kapatıldı** \n Reklam Yapıldığında Bot Artık Onları Sansürlemicek.")
+    .setColor("#323338")
+    .setDescription("• Reklam-Engel sistemi kapatıldı.")
     const embed2 = new EmbedBuilder()
-    .setColor("#000000")
-   .setDescription("✅ **Sistem Açıldı** \n Reklam Yapıldığında Bot Artık Onları Sansürlicek.")
+    .setColor("#323338")
+    .setDescription("• Reklam-Engel sistemi ")
  
  let reklam = db.fetch(`reklamengel_${interaction.guild.id}`);
  
