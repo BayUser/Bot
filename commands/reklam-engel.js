@@ -7,13 +7,13 @@ module.exports = {
   options: [],
 
   run: async(client, interaction) => {
-    if(!interaction.member.permissions.has(PermissionsBitField.Flags.ManageRoles)) return interaction.reply({content: "Rolleri Yönet Yetkin Yok!", ephemeral: true})
+    if(!interaction.member.permissions.has(PermissionsBitField.Flags.ManageRoles)) return interaction.reply({content: "• Bu komut için yeterli yetkiye sahip değilsin.", ephemeral: true})
     const embed = new EmbedBuilder()
     .setColor("#323338")
-    .setDescription("• Reklam-Engel sistemi kapatıldı.")
+    .setDescription("• Reklam-Engel sistemi **kapatıldı**.")
     const embed2 = new EmbedBuilder()
     .setColor("#323338")
-    .setDescription("• Reklam-Engel sistemi ")
+    .setDescription("• Reklam-Engel sistemi **açıldı**.")
  
  let reklam = db.fetch(`reklamengel_${interaction.guild.id}`);
  

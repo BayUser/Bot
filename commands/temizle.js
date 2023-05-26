@@ -1,12 +1,12 @@
 const { Client, EmbedBuilder, PermissionsBitField } = require("discord.js");
 module.exports = {
     name:"sil",
-    description: 'Sohbette istediğin kadar mesajı silersin!',
+    description: 'Sil komutu.',
     type:1,
     options: [
         {
             name:"sayı",
-            description:"Temizlencek Mesaj Sayısını Girin.",
+            description:"Silinecek mesaj sayısını belirtin.",
             type:3,
             required:true
         },
@@ -14,10 +14,10 @@ module.exports = {
     ],
   run: async(client, interaction) => {
 
-    if(!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return interaction.reply({content: "Mesajları Yönet Yetkin Yok!", ephemeral: true})
+    if(!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return interaction.reply({content: "• Bu komut için yeterli yetkiye sahip değilsin.", ephemeral: true})
     const sayi = interaction.options.getString('sayı')
     interaction.channel.bulkDelete(sayi)
-    interaction.reply({content: "Başarıyla belirtilen adet mesajı sildim."})
+    interaction.reply({content: "• Mesajlar silindi."})
 }
 
 };

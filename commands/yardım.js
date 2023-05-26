@@ -2,16 +2,15 @@ const { Client, EmbedBuilder } = require("discord.js");
 const Discord = require("discord.js")
 module.exports = {
   name: "yardım",
-  description: "Botun yardım menüsüne bakarsın!",
+  description: "Yardım komutu.",
   type: 1,
   options: [],
 
   run: async(client, interaction) => {
 //ANKA CODE
     const embed = new EmbedBuilder()
-    .setAuthor({ name: `Yardım menüsü | Anka Code`,iconURL:'https://media.discordapp.net/attachments/1067780547159539762/1077969319654334545/static.png' })
-    .setThumbnail('https://media.discordapp.net/attachments/1067780547159539762/1077969319654334545/static.png')
-    .setFooter({ text: `Anka Code • Alfa#2522`, iconURL: 'https://media.discordapp.net/attachments/1067780547159539762/1077969319654334545/static.png' })
+    .setAuthor({ name: `Lunar | Yardım Menüsü` })
+    .setFooter({ text: `OguZ INC • ȣ OguZ#2600`, iconURL: 'https://media.discordapp.net/attachments/1067780547159539762/1077969319654334545/static.png })
     .setImage("https://media.discordapp.net/attachments/1064266014671503380/1075885849557880952/Screenshot_1.png?width=623&height=125")
     .setDescription(`
 > **Prefix:** */*

@@ -2,7 +2,7 @@ const { PermissionsBitField } = require("discord.js");
 const db = require("croxydb")
 module.exports = {
     name:"rol-ver",
-    description: 'Birine Rol Verirsin!',
+    description: 'Rol-Ver komutu.',
     type:1,
     options: [
         {
@@ -22,7 +22,7 @@ module.exports = {
     ],
   run: async(client, interaction) => {
 
-    if(!interaction.member.permissions.has(PermissionsBitField.Flags.ManageRoles)) return interaction.reply({content: "Rolleri Yönet Yetkin Yok!", ephemeral: true})
+    if(!interaction.member.permissions.has(PermissionsBitField.Flags.ManageRoles)) return interaction.reply({content: "• Bu komut için yeterli yetkiye sahip değilsin.", ephemeral: true})
     const rol = interaction.options.getRole('rol')
     const user = interaction.options.getMember('user')
     interaction.guild.members.cache.get(user.id).roles.add(rol)

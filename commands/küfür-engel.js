@@ -10,10 +10,10 @@ module.exports = {
     if(!interaction.member.permissions.has(PermissionsBitField.Flags.ManageRoles)) return interaction.reply({content: "• Bu komut için yeterli yetkiye sahip değilsin.", ephemeral: true})
     const embed = new EmbedBuilder()
     .setColor("#323338")
-    .setDescription("• Sistem **kapatıldı**.")
+    .setDescription("• Küfür-Engel sistemi **kapatıldı**.")
     const embed2 = new EmbedBuilder()
     .setColor("#323338")
-   .setDescription("• Sistem **açıldı**.")
+    .setDescription("• Küfür-Engel sistemi **açıldı**.")
  
  let küfür = db.fetch(`kufurengel_${interaction.guild.id}`);
  
