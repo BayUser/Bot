@@ -31,15 +31,15 @@ module.exports = {
 new Discord.ButtonBuilder()
 .setLabel("Moderasyon")
 .setStyle(Discord.ButtonStyle.Secondary)
-.setCustomId("moderasyon"),
+.setCustomId("moderationm"),
 new Discord.ButtonBuilder()
 .setLabel("Kayıt")
 .setStyle(Discord.ButtonStyle.Secondary)
-.setCustomId("kayıt"),
+.setCustomId("registerm"),
 new Discord.ButtonBuilder()
 .setLabel("Kullanıcı")
 .setStyle(Discord.ButtonStyle.Secondary)
-.setCustomId("kullanıcı"))
+.setCustomId("userm"))
 interaction.reply({embeds: [embed], components: [row], ephemeral: true})
   }
 

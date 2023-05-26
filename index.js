@@ -168,7 +168,7 @@ message.channel.send(`<@${message.author.id}> Aleykümselam, Hoşgeldin!`)
 client.on("interactionCreate", async interaction => {
   if (!interaction.isButton()) return;
   let message = await interaction.channel.messages.fetch(interaction.message.id)  
-  if(interaction.customId == "moderasyon") {
+  if(interaction.customId == "moderationm") {
 const embed = new Discord.EmbedBuilder()
 .setTitle("Moderasyon Yardım Menüsü!")
 .setThumbnail('https://media.discordapp.net/attachments/1022843509016895568/1023671325878931550/IMG_6557.png?width=433&height=433')
@@ -176,7 +176,7 @@ const embed = new Discord.EmbedBuilder()
 .setColor("#000000")
 interaction.reply({embeds: [embed], components: [], ephemeral: true})
   }
-  if(interaction.customId == "kayıt") {
+  if(interaction.customId == "registerm") {
     const embed2 = new Discord.EmbedBuilder()
     .setTitle("Kayıt Yardım Menüsü!")
     .setThumbnail('https://media.discordapp.net/attachments/1022843509016895568/1023671325878931550/IMG_6557.png?width=433&height=433')
@@ -184,7 +184,7 @@ interaction.reply({embeds: [embed], components: [], ephemeral: true})
     .setColor("#000000")
     interaction.reply({embeds: [embed2], components: [], ephemeral: true})
   }
-  if(interaction.customId == "kullanıcı") {
+  if(interaction.customId == "userm") {
     const embed3 = new Discord.EmbedBuilder()
     .setTitle("Kullanıcı Yardım Menüsü!")
     .setThumbnail('https://media.discordapp.net/attachments/1022843509016895568/1023671325878931550/IMG_6557.png?width=433&height=433')
