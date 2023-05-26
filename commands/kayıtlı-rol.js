@@ -2,7 +2,7 @@ const { PermissionsBitField } = require("discord.js");
 const db = require("croxydb")
 module.exports = {
     name:"kayıtlı-rol",
-    description: 'Kayıtlı rol ayarlarsın!',
+    description: 'Kayıtlı-Rol komutu.',
     type:1,
     options: [
         {
