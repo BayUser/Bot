@@ -11,9 +11,8 @@ module.exports = {
     const embed = new Discord.EmbedBuilder()
     .setAuthor({ name: `Mechatron | Yardım Menüsü` })
     .setFooter({ text: `OguZ • ȣ OguZ#2600` })
-    .setImage("https://media.discordapp.net/attachments/1125194165513375804/1125371444919025676/20230703_132414.png")
-    .setDescription("Herhangi bir yardıma ihtiyacın olursa seni [destek](https://discord.gg/MWBMqd7jjz) sunucumuzda bekliyor olacağız.")
-    .addField('Moderasyon','h')
+    .setImage("https://media.discordapp.net/attachments/1125194165513375804/1125377339707113552/20230703_134738.jpg")
+    .setDescription(`Herhangi bir yardıma ihtiyacın olursa seni [destek sunucumuzda](https://discord.gg/MWBMqd7jjz) bekliyor olacağız.\n\n__**Kategoriler**__\n*Moderasyon*\n*Kullanıcı*\n*Kayıt*`)
     .setColor("#323338")
     const row = new Discord.ActionRowBuilder()
     .addComponents(
