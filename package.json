@@ -1,12 +1,12 @@
 {
-  "name": "mercy",
+  "name": "mechatron",
   "version": "9.9.9",
-  "description": "Discord.JS v14 Slash Altyapı",
+  "description": "Discord",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "author": "Alfa",
+  "author": "OguZ",
   "license": "MIT",
   "dependencies": {
     "@discordjs/rest": "^1.1.0",

@@ -26,7 +26,7 @@ module.exports = async (client) => {
   }
 
     console.log(`${client.user.tag} Aktif!`);
-    client.user.setActivity("Developing.. | OguZ INC.")
+    client.user.setActivity("🎯 Mechatron | /yardım, /istatistik")
 };
 
 

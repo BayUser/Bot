@@ -11,7 +11,7 @@ module.exports = {
     const embed = new EmbedBuilder()
     .setAuthor({ name: `Mechatron | Yardım Menüsü` })
     .setFooter({ text: `OguZ • ȣ OguZ#2600` })
-    .setImage("https://media.discordapp.net/attachments/1071467515252838471/1110965641004978207/20230524_184614.jpg")
+    .setImage("https://media.discordapp.net/attachments/1125194165513375804/1125371444919025676/20230703_132414.png")
     .setDescription(`
 > Prefix: \`/\`
 > Sahip: <@860229283598827540>
