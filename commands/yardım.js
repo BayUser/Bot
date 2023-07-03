@@ -9,8 +9,8 @@ module.exports = {
   run: async(client, interaction) => {
 //ANKA CODE
     const embed = new EmbedBuilder()
-    .setAuthor({ name: `Lunar | Yardım Menüsü` })
-    .setFooter({ text: `OguZ INC • ȣ OguZ#2600` })
+    .setAuthor({ name: `Mechatron | Yardım Menüsü` })
+    .setFooter({ text: `OguZ • ȣ OguZ#2600` })
     .setImage("https://media.discordapp.net/attachments/1071467515252838471/1110965641004978207/20230524_184614.jpg")
     .setDescription(`
 > Prefix: \`/\`

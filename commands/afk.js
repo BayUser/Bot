@@ -16,7 +16,7 @@ module.exports = {
   run: async(client, interaction) => {
     const sebep = interaction.options.getString('sebep')
     db.set(`afk_${interaction.user.id}`, sebep);
-    interaction.reply("• Afk Moduna Giriş Yaptın.")
+    interaction.reply("• Afk moduna giriş yaptın.")
 
     
 

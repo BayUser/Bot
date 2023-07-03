@@ -18,7 +18,7 @@ module.exports = {
     if(!interaction.member.permissions.has(PermissionsBitField.Flags.ManageChannels)) return interaction.reply({content: "• Bu komut için yeterli yetkiye sahip değilsin.", ephemeral: true})
     const kanal2 = interaction.options.getChannel('kanal')
    db.set(`hgbb_${interaction.guild.id}`, kanal2.id)
-   interaction.reply("• Kanal Ayarlandı.")
+   interaction.reply("• Kanal ayarlandı.")
 }
 
 };

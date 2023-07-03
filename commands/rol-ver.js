@@ -26,7 +26,7 @@ module.exports = {
     const rol = interaction.options.getRole('rol')
     const user = interaction.options.getMember('user')
     interaction.guild.members.cache.get(user.id).roles.add(rol)
-    interaction.reply({content: "Başarıyla <@"+user+"> Kullanıcısına <@&"+rol.id+"> Rolü Verildi."})
+    interaction.reply({content: "• <@"+user+"> Kullanıcısına rol verildi."})
 }
 
 };

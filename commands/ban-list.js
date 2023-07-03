@@ -13,7 +13,7 @@ module.exports = {
     if(collection.first() == null){
       
     const embed = new EmbedBuilder()
-    .setDescription("• Sunucunuzda Banlanan Üye Bulunamadı.")      
+    .setDescription("• Sunucunuzda banlanan üye bulunamadı.")      
     .setColor("#000000")
     .setTitle("Hata!")
     interaction.reply({embeds: [embed]})

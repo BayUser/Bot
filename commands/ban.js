@@ -21,7 +21,7 @@ module.exports = {
 
     const embed = EmbedBuilder()
     .setTitle("Ban")
-    .setDescription("• Üye Sunucudan Yasaklandı.")
+    .setDescription("• Üye sunucudan yasaklandı.")
     .setColor("#323338")
     interaction.reply({embeds:[embed]})
     

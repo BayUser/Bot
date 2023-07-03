@@ -26,7 +26,7 @@ module.exports = {
     const aciklama = interaction.options.getString('açıklama')
     const kanal2 = interaction.options.getChannel('kanal')
     client.channels.cache.get(kanal2.id).setTopic(aciklama)
-interaction.reply("• Kanal Açıklaması Değiştirildi.")
+interaction.reply("• Kanal açıklaması değiştirildi.")
 
   }
 
