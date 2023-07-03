@@ -8,23 +8,12 @@ module.exports = {
 
   run: async(client, interaction) => {
 //ANKA CODE
-    const embed = new EmbedBuilder()
+    const embed = new Discord.EmbedBuilder()
     .setAuthor({ name: `Mechatron | Yardım Menüsü` })
     .setFooter({ text: `OguZ • ȣ OguZ#2600` })
     .setImage("https://media.discordapp.net/attachments/1125194165513375804/1125371444919025676/20230703_132414.png")
-    .setDescription(`
-> Prefix: \`/\`
-> Sahip: <@860229283598827540>
-> Ping: \`${client.ws.ping}ms\`
-
-***Ana Komutlar;***
-> \`Moderasyon\` **hakkında bilgi alabilirsiniz.**
-> \`Kayıt\` **hakkında bilgi alabilirsiniz**
-> \`Kullanıcı\` **hakkında bilgi alabilirsiniz.**
-
-***Bağlantılar;***
-> [Destek Sunucusu](https://discord.gg/MWBMqd7jjz)
-> [Botu Ekle](https://discord.com/oauth2/authorize?client_id=1090346236655173712&scope=bot&permissions=8)`)
+    .setDescription("Herhangi bir yardıma ihtiyacın olursa seni [destek](https://discord.gg/MWBMqd7jjz) sunucumuzda bekliyor olacağız.")
+    .addField('Moderasyon','h')
     .setColor("#323338")
     const row = new Discord.ActionRowBuilder()
     .addComponents(
