@@ -11,6 +11,17 @@ const client = new Client({
     partials: PARTIALS,
     retryLimit: 3
 });
+
+const express = require("express");
+const app = express();
+
+app.listen(process.env.PORT);
+app.get("/", (req, res) => {
+return res.sendStatus(200)
+
+
+})
+
 //ANKA CODE
 global.client = client;
 client.commands = (global.commands = []);
