@@ -16,7 +16,7 @@ module.exports = {
     const embed = new EmbedBuilder()
     .setColor('#323338')
     .setTitle("• Mechatron | İstatistik")
-    .setDescription(`__**Genel Veriler**__\n• Toplam Kullanıcı Sayısı: **${client.users.cache.size}** \n• Toplam Sunucu Sayısı: **${client.guilds.cache.size}**\n• Toplam Komut Sayısı: **30**\n\n__**Bot Bilgileri**__\n• Ping Değeri: **${client.ws.ping}**\n• Uptime: **${Uptime}**`)
+    .setDescription(`__**Genel Veriler**__\n• Toplam Kullanıcı Sayısı: **${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}** \n• Toplam Sunucu Sayısı: **${client.guilds.cache.size}**\n• Toplam Komut Sayısı: **30**\n\n__**Bot Bilgileri**__\n• Ping Değeri: **${client.ws.ping}**\n• Uptime: **${Uptime}**`)
     .setImage("https://media.discordapp.net/attachments/1125194165513375804/1125437444565782548/20230703_174627.jpg")  .setImage("https://media.discordapp.net/attachments/1125194165513375804/1125377339707113552/20230703_134738.jpg")
     interaction.reply({embeds: [embed]})
   }
