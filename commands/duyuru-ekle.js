@@ -19,8 +19,8 @@ module.exports = {
 
       
 
-      const YetkiYok = new Client.EmbedBuilder()
-        .setDescription(`• Bu komutu kullanabilmek için \`developer\` olmalısın.`)
+      const YetkiYok = new EmbedBuilder()
+        .setDescription("• Bu komutu kullanabilmek için \`developer\` olmalısın.")
         .setColor('Red')
         .setTitle("Hata")
 
