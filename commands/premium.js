@@ -11,16 +11,15 @@ const db = require("croxydb")
     // komutu geliştirmek istersen guide: https://discordjs.guide/slash-commands/advanced-creation.html
 
     run: async (client, interaction) => {
-
+      
       const pre = db.fetch(`Premiums`).map(y => `${y}`)
       if(interaction.user.id !== pre) {
-
       const Yardım = new EmbedBuilder()
          .setAuthor({ name: "Mechatron | Premium" })
          .setColor("Blurple")
          .setDescription(`> Premium satın almak için [destek sunucumuza](https://discord.gg/MWBMqd7jjz) gelebilirsin.\n\n<:emoji_9:1126458325593243739> **|** Premium\nHesabında premium üyelik **bulunmamakta**.` + pre)
-
-      return interaction.reply({embeds: [Yardım]})
+      
+      interaction.reply({embeds: [Yardım]})
 
       } else {
 
