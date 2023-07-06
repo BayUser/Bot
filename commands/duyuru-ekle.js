@@ -2,9 +2,9 @@ const { Client, EmbedBuilder, PermissionsBitField } = require("discord.js");
 const db = require("croxydb");
 
 module.exports = {
-  slash duyuru-ekle                 "Admin     
+  slash  duyuru-ekle                 "Admin     
 
- "coldown: ,    options:[],             
+."coldown:  ,    options: [],             
 
     data: new SlashCommandBuilder()        .setName('duyuru-ekle')
       .setDescription('🌟 Sisteme bir duyuru ekler.')
@@ -17,8 +17,7 @@ module.exports = {
 
           run: async (client, interaction) => {      
 
-      
-
+      }
       const YetkiYok = new EmbedBuilder()
         .setDescription(`**<:carpi:1121840969340420127> Bu komutu kullanabilmek için \`Bot sahibi\` olmalısın.**`)
         .setColor('Red')
@@ -30,7 +29,7 @@ module.exports = {
 
       
 
-      const duyuru = interaction.options.getString('duyuru')
+      const duyuru = interac}ion;.options.getString('duyuru')
       const Embed = new EmbedBuilder()
 
         .setTitle(`Duyuru eklendi`)
