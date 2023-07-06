@@ -11,17 +11,26 @@ const db = require("croxydb")
     // komutu geliştirmek istersen guide: https://discordjs.guide/slash-commands/advanced-creation.html
 
     run: async (client, interaction) => {
-      
-      const pre = db.fetch(`Premiums`).map(y => `${y}`)
-      if(interaction.user.id !== pre) {
+
+      const pre = db.fetch(`Premiums`)
+      if(pre !== interaction.user.id) {
+
       const Yardım = new EmbedBuilder()
          .setAuthor({ name: "Mechatron | Premium" })
          .setColor("Blurple")
-         .setDescription(`> Premium satın almak için [destek sunucumuza](https://discord.gg/MWBMqd7jjz) gelebilirsin.\n\n<:emoji_9:1126458325593243739> **|** Premium\nHesabında premium üyelik **bulunmamakta**.` + pre)
-      
+         .setDescription(`> Premium satın almak için [destek sunucumuza](https://discord.gg/MWBMqd7jjz) gelebilirsin.\n\n<:emoji_9:1126458325593243739> **|** Premium\nHesabında premium üyelik **bulunmamakta**.`)
+
       interaction.reply({embeds: [Yardım]})
 
+        
+
       } else {
+
+       
+
+        const pres = db.fetch(`Premiums`).map(y => `**${y}**`).join("\n")
+
+        
 
         const Yardım = new EmbedBuilder()
          .setAuthor({ name: "Mechatron | Premium"})
@@ -29,6 +38,8 @@ const db = require("croxydb")
          .setDescription(`> Hesabında premium üyelik **bulunmakta**. İptal etmek veya destek için seni [destek sunucumuzda](https://discord.gg/MWBMqd7jjz) bekliyor olacağız.`)
 
       interaction.reply({embeds: [Yardım]})
+
+        
 
     }   
 
