@@ -18,7 +18,7 @@ const db = require("croxydb")
       const Yardım = new EmbedBuilder()
          .setAuthor({ name: "Mechatron | Premium" })
          .setColor("Blurple")
-         .setDescription(`> Premium satın almak için [destek sunucumuza](https://discord.gg/MWBMqd7jjz) gelebilirsin.\n\n<:emoji_9:1126458325593243739> **|** Premium\n> Hesabında premium üyelik **bulunmamakta**.`)
+         .setDescription(`> Premium satın almak için [destek sunucumuza](https://discord.gg/MWBMqd7jjz) gelebilirsin.\n\n<:emoji_9:1126458325593243739> **|** Premium\nHesabında premium üyelik **bulunmamakta**.`)
 
       interaction.reply({embeds: [Yardım]})
 

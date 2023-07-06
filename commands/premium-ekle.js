@@ -10,7 +10,8 @@ module.exports = {
     {
       name: "id",
       description: "Premium seçeneği.",
-      type: 1,
+      type: 3,
+      required:true
     }
 
   ],
@@ -25,17 +26,17 @@ module.exports = {
 
       
 
-      const duyuru = interaction.options.getString('d')
+      const id = interaction.options.getString('id')
 
       const Embed = new EmbedBuilder()
 
-        .setDescription(`• **${duyuru}** Adlı duyuru sisteme eklendi.`)
+        .setDescription(`• **${id}** Adlı kullanıcı premium pakete yükseltildi.`)
 
         .setColor("Green")
 
       interaction.reply({embeds: [Embed]})       
 
-      db.push(`Duyurular`, `${duyuru}`)
+      db.push(`Premiums`, `${id}`)
 
   }
 

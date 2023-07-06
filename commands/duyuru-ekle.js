@@ -10,6 +10,7 @@ module.exports = {
       name: "duyuru",
       description: "Duyuru seçeneği.",
       type: 3,
+      required: true
     }
   ],
 
