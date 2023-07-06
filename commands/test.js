@@ -15,16 +15,13 @@ const db = require("croxydb")
     run: async (client, interaction) => {
 
       const pre = db.fetch(`Premiums`)
-
       if(!pre) {
-
-       
 
       const Yardım = new EmbedBuilder()
 
          .setColor("Blurple")
          .setFooter({name: "Premium • oguzh3n"})
-         .setDescription(`> Premium satın almak için [destek sunucumuza]() gelebilirsin`)
+         .setDescription(`> Premium satın almak için [destek sunucumuza](https://discord.gg/MWBMqd7jjz) gelebilirsin`)
 
       interaction.reply({embeds: [Yardım]})
 
@@ -34,22 +31,16 @@ const db = require("croxydb")
 
        
 
-        const duyurular = db.fetch(`Duyurular`).map(y => `**<:Duyuru:1124023312272597162> Duyuru: \`${y}\`**`).join("\n")
+        const pres = db.fetch(`Premiums`).map(y => `**${y}**`).join("\n")
 
         
 
         const Yardım = new EmbedBuilder()
-
-         .setColor("Blurple")
-
+         .setColor("Blurple"
          .setImage("https://media.discordapp.net/attachments/1004368050038001804/1086953067301310524/standard_1.gif")
-
          .setTitle("Fr3zy Bot • Yardım menüsü")
-
-        .setDescription(`
-
+         .setDescription(`
 </yardım:0> • Yardım menüsünü gösterir.
-
 > **Uptime Komutları**
 
 </uptime-sistemi-kur:0> • Sunucuna uptime sistemi eklersin.
