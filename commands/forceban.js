@@ -19,7 +19,7 @@ module.exports = {
     if(!interaction.member.permissions.has(PermissionsBitField.Flags.BanMembers)) return interaction.reply({content: "• Bu komut için yeterli yetkiye sahip değilsin.", ephemeral: true})
     const id = interaction.options.getString('id')
   interaction.guild.members.ban(id).catch(() => {})
-interaction.reply("• **" +id+ "** ID numaralı üye sunucudan yasaklandı.")
+interaction.reply("<:emoji_6:1126458236711731200> **|** **" +id+ "** ID numaralı üye sunucudan yasaklandı.")
 }
 
 };
