@@ -30,7 +30,7 @@ module.exports = {
 
       interaction.reply({embeds: [Embed]})       
 
-      db.push('Duyurular', '${duyuru}')
+      db.push(`Duyurular`, `${duyuru}`)
 
   }
 
