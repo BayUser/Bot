@@ -23,7 +23,7 @@ module.exports = {
     
     interaction.reply({embeds: [embed], ephemeral: true})
   } else {
-        const duyurular = db.fetch(`Duyurular`).map(y => '> \`${y}\`').join("\n")
+        const duyurular = db.fetch(`Duyurular`).map(y => `> \`${y}\``).join("\n")
         const embed = new Discord.EmbedBuilder()
        .setAuthor({ name: `Mechatron | Yardım Menüsü` })
        .setFooter({ text: `OguZ • ȣ OguZ#2600` })
