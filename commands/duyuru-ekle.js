@@ -17,14 +17,13 @@ module.exports = {
 
 
       if(interaction.user.id !== "860229283598827540"){
-      return interaction.reply({content: ["• Bu işlem için yeterli yetkiye sahip değilsin."]})
+      return interaction.reply({content: "• Bu işlem için yeterli yetkiye sahip değilsin."})
       }
       
 
       const duyuru = interaction.options.getString('duyuru')
       const Embed = new EmbedBuilder()
 
-        .setTitle(`Duyuru eklendi`)
         .setDescription(`**<:tik:1121840967595610153> \`${duyuru}\` adlı duyuru sisteme eklendi.**`)
         .setColor("Green")
 
