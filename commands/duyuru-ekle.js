@@ -2,10 +2,7 @@ const { Client, EmbedBuilder, PermissionsBitField } = require("discord.js");
 const db = require("croxydb");
 
 module.exports = {
-  slash duyuru-ekle                 "Admin     
-
- "coldown: ,    options:[],             
-
+  
     data: new SlashCommandBuilder()        .setName('duyuru-ekle')
       .setDescription('🌟 Sisteme bir duyuru ekler.')
       .setDMPermission(false)
