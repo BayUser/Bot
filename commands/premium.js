@@ -12,7 +12,7 @@ const db = require("croxydb")
 
     run: async (client, interaction) => {
 
-      const pre = db.fetch(`Premiums`).map(y => `${y}`).join("\n")
+      const pre = db.get(`Premiums`);
       if(interaction.user.id != pre) {
 
       const Yardım = new EmbedBuilder()
@@ -23,12 +23,7 @@ const db = require("croxydb")
       interaction.reply({embeds: [Yardım]})
 
       } else {
-
-       
-
-        const pres = db.fetch(`Premiums`).map(y => `**${y}**`).join("\n")
-
-        
+      
 
         const Yardım = new EmbedBuilder()
          .setAuthor({ name: "Mechatron | Premium"})
