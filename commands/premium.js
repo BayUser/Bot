@@ -1,7 +1,5 @@
 const { EmbedBuilder, PermissionsBitField } = require("discord.js");
-
 const { SlashCommandBuilder } = require("@discordjs/builders");
-
 const db = require("croxydb")
 
  module.exports = {
@@ -18,10 +16,9 @@ const db = require("croxydb")
       if(!pre) {
 
       const Yardım = new EmbedBuilder()
-
+         .setAuthor({ name: "Mechatron | Premium" })
          .setColor("Blurple")
-         .setFooter({name: "Premium • oguzh3n"})
-         .setDescription(`> Premium satın almak için [destek sunucumuza](https://discord.gg/MWBMqd7jjz) gelebilirsin`)
+         .setDescription(`> Premium satın almak için [destek sunucumuza](https://discord.gg/MWBMqd7jjz) gelebilirsin.\n\n<:emoji_9:1126458325593243739> **|** Premium\n> Hesabında premium üyelik **bulunmamakta**.`)
 
       interaction.reply({embeds: [Yardım]})
 
@@ -36,26 +33,9 @@ const db = require("croxydb")
         
 
         const Yardım = new EmbedBuilder()
-         .setColor("Blurple"
-         .setImage("https://media.discordapp.net/attachments/1004368050038001804/1086953067301310524/standard_1.gif")
-         .setTitle("Fr3zy Bot • Yardım menüsü")
-         .setDescription(`
-</yardım:0> • Yardım menüsünü gösterir.
-> **Uptime Komutları**
-
-</uptime-sistemi-kur:0> • Sunucuna uptime sistemi eklersin.
-
-> **Bot Komutları**
-
-</istatistik:0> • Bot istatistiklerini gösterir.
-
-</ping:0> • Botun ping değerlerini gösterir.
-
-**<:zil:1121840973870288956> Bot duyuruları**
-
-${duyurular || "Aktif bir duyuru bulunmuyor."}
-
-`)
+         .setAuthor({ name: "Mechatron | Premium"})
+         .setColor("Blurple")
+         .setDescription(`> Hesabında premium üyelik **bulunmakta**. İptal etmek veya destek için seni [destek sunucumuzda](https://discord.gg/MWBMqd7jjz) bekliyor olacağız.`)
 
       interaction.reply({embeds: [Yardım]})
 
