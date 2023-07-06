@@ -24,7 +24,7 @@ module.exports = {
       const duyuru = interaction.options.getString('duyuru')
       const Embed = new EmbedBuilder()
 
-        .setDescription(`**<:tik:1121840967595610153> \`${duyuru}\` adlı duyuru sisteme eklendi.**`)
+        .setDescription(`• **${duyuru}** Adlı duyuru sisteme eklendi.`)
         .setColor("Green")
 
       interaction.reply({embeds: [Embed]})       
