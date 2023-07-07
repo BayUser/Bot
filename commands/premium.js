@@ -1,6 +1,7 @@
 const { EmbedBuilder, PermissionsBitField } = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const db = require("croxydb")
+const db = require("croxydb");
+
 
  module.exports = {
   name: "premium",
@@ -11,9 +12,8 @@ const db = require("croxydb")
     // komutu geliştirmek istersen guide: https://discordjs.guide/slash-commands/advanced-creation.html
 
     run: async (client, interaction) => {
-      let member = message.mentions.members.first() || client.users.cache.get(args[0]);
-      const pre = db.get(`Premiums_${interaction.user.id}`);
-      if(interaction.user.id === pre) {
+      const pre = db.get(`Premiums`);
+      if(interaction.user.id != pre) {
 
       const Yardım = new EmbedBuilder()
          .setAuthor({ name: "Mechatron | Premium" })
