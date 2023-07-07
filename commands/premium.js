@@ -13,7 +13,7 @@ const db = require("croxydb");
 
     run: async (client, interaction, message, args) => {
       
-      const pre = db.get(`Premiums`);
+      const pre = db.get(`Premiums_${interaction.user.id}`);
       if(interaction.user.id != pre) {
 
       const Yardım = new EmbedBuilder()
