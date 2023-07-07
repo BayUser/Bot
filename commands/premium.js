@@ -11,8 +11,10 @@ const db = require("croxydb");
 
     // komutu geliştirmek istersen guide: https://discordjs.guide/slash-commands/advanced-creation.html
 
-    run: async (client, interaction) => {
-      const pre = db.get(`Premiums`);
+    run: async (client, interaction, message, args) => {
+      
+      let member = client.users.cache.get(args[0]);
+      const pre = db.get(`Premiums_${member.id}`);
       if(interaction.user.id != pre) {
 
       const Yardım = new EmbedBuilder()
