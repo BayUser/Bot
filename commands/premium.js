@@ -13,8 +13,7 @@ const db = require("croxydb");
 
     run: async (client, interaction, message, args) => {
       
-      let member = client.users.cache.get(args[0]);
-      const pre = db.get(`Premiums_${member.id}`);
+      const pre = db.get(`Premiums_${message.author.id}`);
       if(interaction.user.id != pre) {
 
       const Yardım = new EmbedBuilder()
