@@ -13,8 +13,9 @@ const db = require("croxydb");
 
     run: async (client, interaction, message, args) => {
       
-      const pre = db.fetch(`Premiums.${interaction.user.id}`);
-      if(pre != ) {
+      const pre = await db.get(`Premiums.${interaction.user.id}`);
+      if(pre != interaction.user.id) {
+        
         
       const Yardım = new EmbedBuilder()
          .setAuthor({ name: "Mechatron | Premium" })
@@ -22,7 +23,7 @@ const db = require("croxydb");
          .setDescription(`> Premium satın almak için [destek sunucumuza](https://discord.gg/MWBMqd7jjz) gelebilirsin.\n\n<:emoji_9:1126458325593243739> **|** Premium\nHesabında premium üyelik **bulunmamakta**.` + pre)
 
       interaction.reply({embeds: [Yardım]})
-
+      
       } else {
       
 

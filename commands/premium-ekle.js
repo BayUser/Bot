@@ -30,13 +30,13 @@ module.exports = {
 
       const Embed = new EmbedBuilder()
 
-        .setDescription(`• **${id}** Adlı kullanıcı premium pakete yükseltildi.`)
+        .setDescription(`• **${id}** ID Numaralı kullanıcı premium pakete yükseltildi.`)
 
         .setColor("Green")
 
       interaction.reply({embeds: [Embed]})       
 
-      db.set(`Premiums.${id}`, `var`)
+      db.set(`Premiums.${id}`, `${id}`)
 
   }
 
