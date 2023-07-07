@@ -11,9 +11,9 @@ const db = require("croxydb")
     // komutu geliştirmek istersen guide: https://discordjs.guide/slash-commands/advanced-creation.html
 
     run: async (client, interaction) => {
-
-      const pre = db.get(`Premiums`);
-      if(interaction.user.id != pre) {
+      let member = message.mentions.members.first() || client.users.cache.get(args[0]);
+      const pre = db.get(`Premiums_${interaction.user.id}`);
+      if(interaction.user.id === pre) {
 
       const Yardım = new EmbedBuilder()
          .setAuthor({ name: "Mechatron | Premium" })

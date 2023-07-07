@@ -5,7 +5,7 @@ module.exports = {
   name:"kullanıcı-bilgi",
   description:"Kullanıcı-Bilgi komutu.",
   type:1,
-  option:[
+  options:[
     {
       name:"user",
       description:"Kullanıcı-Bilgi seçeneği.",
@@ -26,45 +26,36 @@ module.exports = {
           .replace("HypeSquadOnlineHouse1", "<:HouseBravery:1072862165788266546>")
           .replace("HypeSquadOnlineHouse2", "<:HouseBrilliance:1072862230766419968>")
           .replace("HypeSquadOnlineHouse3", "<:HouseBalance:1072862127741734973>")
-          .replace("VerifiedDeveloper", "<:ddevbadge:1048692611554213988>")
-          .replace("Hypesquad", "<:hypesquadbadge:1048692727270883338>")
-          .replace("PremiumEarlySupporter", "<:esupbadge:1048692795604467764>")
-          .replace("BugHunterLevel1", "<:bughbadge:1048692857059410012>")
-          .replace("BugHunterLevel2", "<:bugh2badge:1048692871244550294>")
-          .replace("CertifiedModerator", "<:modbadge:1048693088958283857>")
-          .replace("Staff", "<:staffbadge:1048692932875657276> ")
-          .replace("Partner", "<:partnerbadge:1048693199876669490>")
-          .replace("ActiveDeveloper", "<:activedeveloper:1048693433746854000>")
-      )
+          )
       .join(" ");
     const embed = new EmbedBuilder()
       .setTitle(`${user.username}'s Profile`)
       .setThumbnail(user.displayAvatarURL({ dynamic: true }))
       .addFields(
         {
-          name: "User tag",
+          name: "Kullanıcı Etiketi",
           value: user.tag,
           inline: true,
         },
         {
-          name: "Nickname",
+          name: "Kullanıcı Adı",
           value: member?.nickname || "None",
           inline: true,
         },
         {
-          name: "Joined server",
+          name: "Sunucuya Katılma Tarihi",
           value: `<t:${Math.floor(
             new Date(member?.joinedTimestamp) / 1000
           )}:R>`,
           inline: true,
         },
         {
-          name: "Joined Discord",
+          name: "Discord'a Katılma Tarihi",
           value: `<t:${Math.floor(new Date(user.createdTimestamp) / 1000)}:R>`,
           inline: true,
         },
         {
-          name: "Roles",
+          name: "Roller",
           value:
             `(${
               member?.roles?.cache.filter((x) => x.name !== "@everyone").size
@@ -81,7 +72,7 @@ module.exports = {
           inline: true,
         }
       )
-      .setColor(Colors.Blurple)
+      .setColor("#323338")
       .setFooter({
         text: interaction.user.tag,
         iconURL: interaction.user.displayAvatarURL({ dynamic: true }),
