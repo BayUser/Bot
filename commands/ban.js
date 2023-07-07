@@ -18,12 +18,7 @@ module.exports = {
         },
     ],
   run: async(client, interaction) => {
-
-    const embed = EmbedBuilder()
-    .setTitle("Ban")
-    .setDescription("• Üye sunucudan yasaklandı.")
-    .setColor("#323338")
-    interaction.reply({embeds:[embed]})
+    interaction.reply({content:"• Üye sunucudan yasaklandı."})
     
     if(!interaction.member.permissions.has(PermissionsBitField.Flags.BanMembers)) return interaction.reply({content: "• Bu komut için yeterli yetkiye sahip değilsin.", ephemeral: true})
     const user = interaction.options.getMember('user')
