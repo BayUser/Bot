@@ -15,34 +15,34 @@ module.exports = {
       .setAuthor({name: `${interaction.guild.name} | Bilgileri`})
       .addFields(
         {
-          name: "Owerview",
-          value: `Owner: \`${owner.user.tag}\`\nBoosts: \`${interaction.guild.premiumSubscriptionCount}\`\nBoost Tier: \`${interaction.guild.premiumTier}\``,
+          name: "Genel Görüş",
+          value: `Kurucu: \`${owner.user.tag}\`\nBoost: \`${interaction.guild.premiumSubscriptionCount}\`\nBoost Aşaması: \`${interaction.guild.premiumTier}\`\n`,
           inline: true,
         },
         {
-          name: "Other",
-          value: `Roles: \`${
+          name: "Diğerleri",
+          value: `Roller: \`${
             interaction.guild.roles.cache.size
-          }\`\nChannels: \`${
+          }\`\nKanallar: \`${
             interaction.guild.channels.cache.size
           }\` - Text: \`${
             interaction.guild.channels.cache.filter(
               (x) => x.type === ChannelType.GuildText
             ).size
-          }\` - Voice: \`${
+          }\` - Ses: \`${
             interaction.guild.channels.cache.filter(
               (x) => x.type === ChannelType.GuildVoice
             ).size
-          }\` - Category: \`${
+          }\` - Kategori: \`${
             interaction.guild.channels.cache.filter(
               (x) => x.type === ChannelType.GuildCategory
             ).size
-          }\`\nMembers: \`${interaction.guild.members.cache.size}\``,
+          }\`\nÜyeler: \`${interaction.guild.members.cache.size}\``,
           inline: true,
         }
       )
       .setColor("#323338")
-    interaction.reply({ embeds: [embed] });
+    interaction.reply({ embeds: [embed] });8
   },
 
 
