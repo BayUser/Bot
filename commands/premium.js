@@ -13,9 +13,9 @@ const db = require("croxydb");
 
     run: async (client, interaction, message, args) => {
       
-      const pre = db.get(`Premiums_${interaction.user.id}`);
-      if(interaction.user.id != pre) {
-
+      const pre = db.fetch(`Premiums.${interaction.user.id}`);
+      if(pre != ) {
+        
       const Yardım = new EmbedBuilder()
          .setAuthor({ name: "Mechatron | Premium" })
          .setColor("#323338")
