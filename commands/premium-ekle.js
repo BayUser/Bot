@@ -36,7 +36,7 @@ module.exports = {
 
       interaction.reply({embeds: [Embed]})       
 
-      db.set(`Premiums_${id}`)
+      db.set(`Premiums.${id}`, `${id}`)
 
   }
 
