@@ -535,13 +535,13 @@ client.on('interactionCreate', async interaction => {
         const yetkii = new Discord.EmbedBuilder()
 
             .setTitle("Yetersiz Yetki")
-            .setDescription("• Bu komutu kullanmak için yeterli yetkiye sahip değilsin.")
+            .setDescription("• Bu işlem için yeterli yetkiye sahip değilsin.")
             .setColor("Red")
 
         const embed1 = new Discord.EmbedBuilder()
 
-            .setTitle("Başarılı")
-            .setDescription("> Botlist sistemi başarıyla **sıfırlandı**!")
+            .setTitle("Sıfırlama")
+            .setDescription("• BotList sistemi sıfırlandı.")
             .setColor("Green")
 
         if (!interaction.member.permissions.has(Discord.PermissionsBitField.Flags.ManageChannels)) return interaction.reply({ embeds: [yetkii], ephemeral: true })
@@ -572,12 +572,10 @@ const unban = new Discord.ActionRowBuilder()
 
         new Discord.ButtonBuilder()
 
-            .setEmoji("🔓")
+            
 
             .setLabel("Banı Kaldır")
-
             .setStyle(Discord.ButtonStyle.Danger)
-
             .setCustomId("unban")
 
     )
@@ -596,9 +594,9 @@ client.on('guildMemberRemove', async member => {
 
         .setColor("Red")
 
-        .setTitle("Banlandı!")
+        .setTitle("Ban")
 
-        .setDescription("<@" + member.id + ">, sunucudan ayrıldığı için **botunu** sunucudan banladım!")
+        .setDescription("<@" + member.id + ">, Adlı kullanıcı sunucudan çıktığı için botu atıldı.")
 
     member.guild.members.ban(lourityData).catch(() => { })
 
@@ -626,19 +624,15 @@ client.on('interactionCreate', async interaction => {
 
         const yetkiii = new Discord.EmbedBuilder()
 
-            .setTitle("Yetersiz Yetki!")
-
-            .setDescription("> Bu komutu kullanabilmek için `Yönetici` yetkisine ihtiyacın var!")
-
-            .setFooter({ text: "Lourity Bot" })
-
+            .setTitle("Yetersiz Yetki")
+            .setDescription("• Bu işlem için yeterli yetkiye sahip değilsin.")
             .setColor("Red")
 
         const embed1 = new Discord.EmbedBuilder()
 
-            .setTitle("Başarılı!")
+            .setTitle("Başarılı")
 
-            .setDescription("> Botun banı başarıyla **kaldırıldı**!")
+            .setDescription("• Ban açıldı.")
 
             .setColor("Green")
 
@@ -680,23 +674,23 @@ client.on('interactionCreate', async interaction => {
 
         const mesaj = new Discord.EmbedBuilder()
 
-            .setTitle("Botlist Sistem Ayarları")
+            .setTitle("Sistem Ayarları")
 
             .addFields(
 
-                { name: "**💾 Log Kanalı**", value: `<#${log || "Ayarlanmamış!"}>`, inline: true },
+                { name: "**Log Kanalı**", value: `<#${log || "Ayarlanmamış!"}>`, inline: true },
 
-                { name: "**👍 Onay Kanalı**", value: `<#${onayKanal || "Ayarlanmamış!"}>`, inline: true },
+                { name: "**Onay Kanalı**", value: `<#${onayKanal || "Ayarlanmamış!"}>`, inline: true },
 
-                { name: "**🎈 Bot Ekle Kanalı**", value: `<#${botEkle || "Ayarlanmamış!"}>`, inline: true },
+                { name: "**Bot Ekle Kanalı**", value: `<#${botEkle || "Ayarlanmamış!"}>`, inline: true },
 
-                { name: "**📤 Ayrıldı Log Kanalı**", value: `<#${ayrildiLog || "Ayarlanmamış!"}>`, inline: true },
+                { name: "**Ayrıldı Log Kanalı**", value: `<#${ayrildiLog || "Ayarlanmamış!"}>`, inline: true },
 
-                { name: "**🤖 Bot Rolü**", value: `<@&${botRol || "Ayarlanmamış!"}>`, inline: true },
+                { name: "**Bot Rolü**", value: `<@&${botRol || "Ayarlanmamış!"}>`, inline: true },
 
-                { name: "**👨‍💻 Developer Rolü**", value: `<@&${devRol || "Ayarlanmamış!"}>`, inline: true },
+                { name: "**Developer Rolü**", value: `<@&${devRol || "Ayarlanmamış!"}>`, inline: true },
 
-                { name: "**🔨 Yetkili Rolü**", value: `<@&${adminRol || "Ayarlanmamış!"}>` }
+                { name: "**Yetkili Rolü**", value: `<@&${adminRol || "Ayarlanmamış!"}>` }
 
             )
 
