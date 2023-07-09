@@ -678,32 +678,28 @@ client.on('interactionCreate', async interaction => {
 
             .addFields(
 
-                { name: "**Log Kanalı**", value: `<#${log || "Ayarlanmamış!"}>`, inline: true },
+                { name: "**Log Kanalı**", value: `<#${log || "Ayarlanmamış."}>`, inline: true },
 
-                { name: "**Onay Kanalı**", value: `<#${onayKanal || "Ayarlanmamış!"}>`, inline: true },
+                { name: "**Onay Kanalı**", value: `<#${onayKanal || "Ayarlanmamış."}>`, inline: true },
 
-                { name: "**Bot Ekle Kanalı**", value: `<#${botEkle || "Ayarlanmamış!"}>`, inline: true },
+                { name: "**Bot Ekle Kanalı**", value: `<#${botEkle || "Ayarlanmamış."}>`, inline: true },
 
-                { name: "**Ayrıldı Log Kanalı**", value: `<#${ayrildiLog || "Ayarlanmamış!"}>`, inline: true },
+                { name: "**Ayrıldı Log Kanalı**", value: `<#${ayrildiLog || "Ayarlanmamış."}>`, inline: true },
 
-                { name: "**Bot Rolü**", value: `<@&${botRol || "Ayarlanmamış!"}>`, inline: true },
+                { name: "**Bot Rolü**", value: `<@&${botRol || "Ayarlanmamış."}>`, inline: true },
 
-                { name: "**Developer Rolü**", value: `<@&${devRol || "Ayarlanmamış!"}>`, inline: true },
+                { name: "**Developer Rolü**", value: `<@&${devRol || "Ayarlanmamış."}>`, inline: true },
 
-                { name: "**Yetkili Rolü**", value: `<@&${adminRol || "Ayarlanmamış!"}>` }
+                { name: "**Yetkili Rolü**", value: `<@&${adminRol || "Ayarlanmamış."}>` }
 
             )
 
-            .setColor("Yellow")
+            .setColor("#323338")
 
         const yetki = new Discord.EmbedBuilder()
 
-            .setTitle("Yetersiz Yetki!")
-
-            .setDescription("> Bu komutu kullanabilmek için `Yönetici` yetkisine ihtiyacın var!")
-
-            .setFooter({ text: "Lourity Bot" })
-
+            .setTitle("Yetersiz Yetki")
+            .setDescription("• Bu işlem için yetkiye sahip değilsin")
             .setColor("Red")
 
         if (!interaction.member.permissions.has(Discord.PermissionsBitField.Flags.ManageChannels)) return interaction.reply({ embeds: [yetki], ephemeral: true });
