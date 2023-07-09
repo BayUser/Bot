@@ -13,8 +13,8 @@ const db = require("croxydb");
 
     run: async (client, interaction, message, args) => {
       
-      const pre = await db.get(`Premiums`);
-      if(interaction.user.id != pre) {
+      const pre = await db.has(interaction.user.id + `.Premiums`);
+      if(pre != "false") {
         
       const Yardım = new EmbedBuilder()
          .setAuthor({ name: "Mechatron | Premium" })
