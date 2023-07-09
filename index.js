@@ -494,25 +494,16 @@ client.on('interactionCreate', async interaction => {
         const menu = new Discord.EmbedBuilder()
 
             .setColor("#323338")
-
-            .setTitle("Botumu Nasıl Eklerim?")
-
-            .setDescription("> Aşağıdaki **Bot Ekle** butonuna basarak botunu ekleyebilirsin!")
-
-            .setFooter({ text: "Lourity Tester" })
+            .setDescription("> **• Bu sunucuda bot ekleme sistemi açıktır, bot eklemek için bu kanaldaki bot ekle butonunu kullanabilirsiniz. Herhangi bir sorunda yetkili kişiye ulaşmayı unutmayın.**")
+            .setFooter({ text: "Mechatron | BotList" })
 
         const row1 = new Discord.ActionRowBuilder()
 
             .addComponents(
 
                 new Discord.ButtonBuilder()
-
-                    .setEmoji("🤖")
-
                     .setLabel("Bot Ekle")
-
                     .setStyle(Discord.ButtonStyle.Secondary)
-
                     .setCustomId("bot-ekle")
 
             )
@@ -543,20 +534,14 @@ client.on('interactionCreate', async interaction => {
 
         const yetkii = new Discord.EmbedBuilder()
 
-            .setTitle("Yetersiz Yetki!")
-
-            .setDescription("> Bu komutu kullanabilmek için `Yönetici` yetkisine ihtiyacın var!")
-
-            .setFooter({ text: "Lourity Bot" })
-
+            .setTitle("Yetersiz Yetki")
+            .setDescription("• Bu komutu kullanmak için yeterli yetkiye sahip değilsin.")
             .setColor("Red")
 
         const embed1 = new Discord.EmbedBuilder()
 
-            .setTitle("Başarıyla Sıfırlandı!")
-
+            .setTitle("Başarılı")
             .setDescription("> Botlist sistemi başarıyla **sıfırlandı**!")
-
             .setColor("Green")
 
         if (!interaction.member.permissions.has(Discord.PermissionsBitField.Flags.ManageChannels)) return interaction.reply({ embeds: [yetkii], ephemeral: true })
