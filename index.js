@@ -2,7 +2,7 @@ const { Client, GatewayIntentBits, Partials, EmbedBuilder, TextInputBuilder, Tex
 const INTENTS = Object.values(GatewayIntentBits);
 const PARTIALS = Object.values(Partials);
 const Discord = require("discord.js")
-const { db, louritydb } = require("croxydb")
+const db = require("croxydb")
 const client = new Client({
     intents: INTENTS,
     allowedMentions: {
