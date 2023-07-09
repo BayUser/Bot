@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, Partials, EmbedBuilder, TextInputBuilder, TextInputStyle, InteractionType, SelectMenuInteraction, ButtonBuilder } = require("discord.js");
+const { Client, GatewayIntentBits, Partials, EmbedBuilder, TextInputBuilder, TextInputStyle, InteractionType, SelectMenuInteraction, ButtonBuilder, SelectMenuBuilder, ModalBuilder, ActionRowBuilder } = require("discord.js");
 const INTENTS = Object.values(GatewayIntentBits);
 const PARTIALS = Object.values(Partials);
 const Discord = require("discord.js")
@@ -209,13 +209,13 @@ const lourityModal = new ModalBuilder()
 
     .setCustomId('form')
 
-    .setTitle('Botlist Başvuru Formu')
+    .setTitle('Mechatron | List')
 
 const a1 = new TextInputBuilder()
 
     .setCustomId('id')
 
-    .setLabel('Bot ID Yazınız')
+    .setLabel('Client ID')
 
     .setStyle(TextInputStyle.Paragraph)
 
@@ -223,7 +223,7 @@ const a1 = new TextInputBuilder()
 
     .setMaxLength(25)
 
-    .setPlaceholder('Botunun ID (Kimliği) nedir?')
+    .setPlaceholder('Botununun ID(Kimliği) Nedir?')
 
     .setRequired(true)
 
@@ -231,7 +231,7 @@ const a2 = new TextInputBuilder()
 
     .setCustomId('prefix')
 
-    .setLabel('Bot Prefixini Yazınız')
+    .setLabel('Prefix')
 
     .setStyle(TextInputStyle.Paragraph)
 
@@ -239,7 +239,7 @@ const a2 = new TextInputBuilder()
 
     .setMaxLength(4)
 
-    .setPlaceholder('Botunun Prefixi (Ön Ek) nedir?')
+    .setPlaceholder('Botunun Prefixi Nedir?')
 
     .setRequired(true)
 
@@ -255,10 +255,8 @@ client.on('interactionCreate', async (interaction) => {
 
         const zatenEklenmis = new EmbedBuilder()
 
-            .setTitle("Başarısız!")
-
-            .setDescription("Zaten eklenmiş olan bir botun var!")
-
+            .setTitle("Başarısız")
+            .setDescription("Zaten eklenmiş olan bir botun var.")
             .setColor("Red")
 
         let varmi = louritydb.get(`ekledi_${interaction.user.id}`)
@@ -289,19 +287,19 @@ client.on('interactionCreate', async interaction => {
 
         let adminRol = louritydb.get(`adminRol_${interaction.guild.id}`)
 
-        if (!onay) return interaction.reply({ content: "Botlist sistemi ayarlanmamış!", ephemeral: true })
+        if (!onay) return interaction.reply({ content: "Botlist sistemi ayarlanmamış.", ephemeral: true })
 
-        if (!logg) return interaction.reply({ content: "Botlist sistemi ayarlanmamış!", ephemeral: true })
+        if (!logg) return interaction.reply({ content: "Botlist sistemi ayarlanmamış.", ephemeral: true })
 
-        if (!botRol) return interaction.reply({ content: "Botlist sistemi ayarlanmamış!", ephemeral: true })
+        if (!botRol) return interaction.reply({ content: "Botlist sistemi ayarlanmamış.", ephemeral: true })
 
-        if (!devRol) return interaction.reply({ content: "Botlist sistemi ayarlanmamış!", ephemeral: true })
+        if (!devRol) return interaction.reply({ content: "Botlist sistemi ayarlanmamış.", ephemeral: true })
 
-        if (!adminRol) return interaction.reply({ content: "Botlist sistemi ayarlanmamış!", ephemeral: true })
+        if (!adminRol) return interaction.reply({ content: "Botlist sistemi ayarlanmamış.", ephemeral: true })
 
-        if (!botekle) return interaction.reply({ content: "Botlist sistemi ayarlanmamış!", ephemeral: true })
+        if (!botekle) return interaction.reply({ content: "Botlist sistemi ayarlanmamış.", ephemeral: true })
 
-        if (!ayrildiLog) return interaction.reply({ content: "Botlist sistemi ayarlanmamış!", ephemeral: true })
+        if (!ayrildiLog) return interaction.reply({ content: "Botlist sistemi ayarlanmamış.", ephemeral: true })
 
         const Discord = require("discord.js")
 
@@ -353,17 +351,17 @@ client.on('interactionCreate', async interaction => {
 
             .setTitle("Başarılı!")
 
-            .setDescription("Bot başvurun başarıyla yetkililere gönderildi!")
+            .setDescription("Başvurun gönderildi.")
 
             .setColor("Green")
 
         const embed = new EmbedBuilder()
 
-            .setTitle("Sıraya Yeni Bot Eklendi!")
+            .setTitle("Yeni Bir Bot!")
 
-            .setDescription("Bot Sahibi: " + sahip + "\n\n**İD:** ```" + id + "``` **Prefix:** ```" + prefix + "```")
+            .setDescription("**Bot Sahibi:** " + sahip + "\n\n**ID:** ```" + id + "``` **Prefix:** ```" + prefix + "```")
 
-            .setColor("Yellow")
+            .setColor("#323338")
 
             .setThumbnail(link)
 
@@ -411,9 +409,9 @@ client.on('interactionCreate', async interaction => {
 
         const embed = new EmbedBuilder()
 
-            .setTitle("Bot Reddedildi!")
+            .setTitle("Bot Reddedildi")
 
-            .setDescription("<@" + data.bot + "> adlı botun başvurusu maalesef reddedildi!")
+            .setDescription("<@" + data.bot + "> adlı botun başvurusu reddedildi.")
 
             .setThumbnail(link)
 
@@ -455,9 +453,9 @@ client.on('interactionCreate', async interaction => {
 
         const hata = new EmbedBuilder()
 
-            .setTitle("Başarısız!")
+            .setTitle("Başarısız")
 
-            .setDescription("Önce botu sunucuya eklemelisin!")
+            .setDescription("Önce botu sunucuya eklemelisin.")
 
             .setColor("Red")
 
@@ -465,9 +463,9 @@ client.on('interactionCreate', async interaction => {
 
         const embed = new EmbedBuilder()
 
-            .setTitle("Bot Onaylandı!")
+            .setTitle("Bot Onaylandı")
 
-            .setDescription("<@" + data.bot + "> adlı botun başvurusu kabul edildi!")
+            .setDescription("<@" + data.bot + "> Adlı botun başvurusu onaylandı.")
 
             .setThumbnail(link)
 
@@ -495,7 +493,7 @@ client.on('interactionCreate', async interaction => {
 
         const menu = new Discord.EmbedBuilder()
 
-            .setColor("000000")
+            .setColor("#323338")
 
             .setTitle("Botumu Nasıl Eklerim?")
 
