@@ -14,12 +14,12 @@ const db = require("croxydb");
     run: async (client, interaction, message, args) => {
       
       const pre = await db.has(`Premiums.` + interaction.user.id);
-      if(pre != "true") {
+      if(pre != true) {
         
       const Yardım = new EmbedBuilder()
          .setAuthor({ name: "Mechatron | Premium" })
          .setColor("#323338")
-         .setDescription(`> Premium satın almak için [destek sunucumuza](https://discord.gg/MWBMqd7jjz) gelebilirsin.\n\n<:emoji_9:1126458325593243739> **|** Premium\nHesabında premium üyelik **bulunmamakta**.` + db.all())
+         .setDescription(`> Premium satın almak için [destek sunucumuza](https://discord.gg/MWBMqd7jjz) gelebilirsin.\n\n<:emoji_9:1126458325593243739> **|** Premium\nHesabında premium üyelik **bulunmamakta**.`)
 
       interaction.reply({embeds: [Yardım]})
       

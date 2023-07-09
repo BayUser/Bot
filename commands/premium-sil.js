@@ -36,7 +36,7 @@ module.exports = {
 
       interaction.reply({embeds: [Embed]})       
 
-      db.delete(`Premiums.${id}`, `true`)
+      db.delete(`Premiums.${id}`)
 
   }
 
