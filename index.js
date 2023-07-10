@@ -207,19 +207,6 @@ interaction.reply({embeds: [embed], components: [], ephemeral: true})
 
 client.on('interactionCreate', async interaction => { 
 let buton = db.fetch(`buton_${interaction.guild.id}`)
-
-  
-
-  const e = new Discord.EmbedBuilder()
-  .setColor("#323338")
-  .setDescription("")
-
-  
-
-  const t = new Discord.EmbedBuilder()
-  .setColor("#323338")
-  .setDescription("")
-
   
 
    if (interaction.isButton()){
@@ -229,12 +216,12 @@ let buton = db.fetch(`buton_${interaction.guild.id}`)
     
 
 interaction.member.roles.add(buton)
-interaction.reply({embeds: [e], ephemeral: true})
+interaction.reply({content:"• Rol verildi.", ephemeral: true})
 
   } else {
 
     interaction.member.roles.remove(buton)
-    interaction.reply({embeds: [t], ephemeral: true})
+    interaction.reply({content:"• Rol alındı.", ephemeral: true})
   }
 }
 }
