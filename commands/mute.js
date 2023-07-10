@@ -8,33 +8,39 @@ module.exports = {
   type:1,
   options:[
     {
-    name:"user",
-    description:"User seçeneği.",
-    type:6
+      name:"user",
+      description:"User seçeneği.",
+      type:6,
+      required:true    
+    },
+    {
+      name:"süre",
+      description:"Süre seçeneği.",
+      type:3,
+      required:true
     }
   ],
 
- run: async (bot, message, interaction, args) => {
-  let mutekisi = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-  if(!mutekisi) return message.reply("")
-  if(mutekisi.hasPermission("MANAGE_MESSAGES")) return message.reply(`:warning: Yetkili bir kişiyi muteleyemem! \nDoğru Kullanım; \`/mute <@kullanıcı> <1sn/1dk/1sa/1g>\``)
-  let muterol = message.guild.roles.find(`name`, mutelirolu);
+ run: async (bot, interaction, args) => {
+   
+  let mutekisi = interaction.options.getMember('user')
+  if(!mutekisi) return interaction.reply("• Bir kullanıcı etiketleyin.")
+  if(mutekisi.hasPermission("MANAGE_MESSAGES")) return interaction.reply("• Birşeyler ters gitti.")
+  let muterol = interaction.guild.roles.find(`name`, mutelirolu);
 
   if(!muterol){
 
     try{
 
-      muterol = await message.guild.createRole({
+      muterol = await interaction.guild.createRole({
 
         name: mutelirolu,
-
         color: "#323338",
-
         permissions:[]
 
       })
 
-      message.guild.channels.forEach(async (channel, id) => {
+      interaction.guild.channels.forEach(async (channel, id) => {
 
         await channel.overwritePermissions(muterol, {
 
@@ -54,7 +60,7 @@ module.exports = {
 
   }
 
-  let mutezaman = args[1]
+  let mutezaman = interaction.options.getMember('süre')
 
   .replace(`sn`, `s`)
 
@@ -64,15 +70,15 @@ module.exports = {
 
   .replace(`g`, `d`)
 
-  if(!mutezaman) return message.reply(`:warning: Lütfen bir zaman giriniz! \nDoğru Kullanım; \`/mute <@kullanıcı> <1sn/1dk/1sa/1g>\``)
+  if(!mutezaman) return interaction.reply("• Mute süresi girin.")
 
   await(mutekisi.addRole(muterol.id));
 
-  message.reply(`<@${mutekisi.id}> kullanıcısı ${args[1]} süresi boyunca mutelendi!`);
+  interaction.reply(`• <@${mutekisi}> Adlı üye **${args[1]}** boyunca susturuldu.`);
 
   setTimeout(function(){
     mutekisi.removeRole(muterol.id);
-    message.channel.send(`<@${mutekisi.id}> kullanıcısının mutelenme süresi sona erdi!`);
+    interaction.channel.send(`• <@${mutekisi}> Adlı üyenin susturulma süresi sona erdi.`);
 
   }, ms(mutezaman));
 
