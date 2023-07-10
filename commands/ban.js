@@ -23,7 +23,7 @@ module.exports = {
     if(!interaction.member.permissions.has(PermissionsBitField.Flags.BanMembers)) return interaction.reply({content: "• Bu komut için yeterli yetkiye sahip değilsin.", ephemeral: true})
     const user = interaction.options.getMember('user')
     const sebep = interaction.options.getString('reason')
-    if(user.permissions.has(PermissionsBitField.Flags.BanMembers)) return interaction.reply({content:"• Bilinmeyen bir hata oluştu..",ephemeral:true})
+    if(user.permissions.has(PermissionsBitField.Flags.BanMembers)) return interaction.reply({content:"• Bir hata oluştu.",ephemeral:true})
     user.ban({reason: sebep});
     
 }

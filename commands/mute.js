@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const ms = require("ms");
 var mutelirolu = "Muted" //MUTELENDİGİ ZAMAN VERİLECEK ROLU  BURAYA YAZINIZ...
+const { PermissionsBitField } = require("discord.js");
 
 module.exports = {
   name: "mute",
@@ -25,7 +26,7 @@ module.exports = {
    
   let mutekisi = interaction.options.getMember('user')
   if(!mutekisi) return interaction.reply("• Bir kullanıcı etiketleyin.")
-  if(mutekisi.hasPermission("MANAGE_MESSAGES")) return interaction.reply("• Birşeyler ters gitti.")
+  if(mutekisi.permissions.has(PermissionsBitField.Flags.BanMembers)) return interaction.reply({content:"• Bir hata oluştu.",ephemeral:true})
   let muterol = interaction.guild.roles.find(`name`, mutelirolu);
 
   if(!muterol){
