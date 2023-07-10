@@ -17,6 +17,7 @@ const app = express();
 
 app.listen(process.env.PORT);
 app.get("/", (req, res) => {
+res.send({ title: 'Mechatron | Status' });
 return res.sendStatus(200)
 
 
