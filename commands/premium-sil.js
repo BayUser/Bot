@@ -20,7 +20,7 @@ module.exports = {
 
       if(interaction.user.id !== "860229283598827540"){
 
-      return interaction.reply({content: "• Bu işlem için yeterli yetkiye sahip değilsin."})
+      return interaction.reply({content: "• Bu komut için yeterli yetkiye sahip değilsin."})
 
       }
 

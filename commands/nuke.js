@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
-const { EmbedBuilder } = require("discord.js");
+const { Client, EmbedBuilder } = require("discord.js");
 
 module.exports = {
   name: 'nuke',
-  description: ``,
+  description: "Nuke komutu.",
   type:1,
   options:[],
   
@@ -14,11 +14,11 @@ const embed = new EmbedBuilder()
 .setDescription("• Kanal patlatıldı.")
 .setColor("#323338")
 
-if(!interaction.member.permissions.has("MANAGE_CHANNELS")) return interaction.reply("`Bu Komutu Kullanmak İçin Kanalları Yönet Yetkisine Sahip Olmalısın!`");
-interaction.channel.clone({position: message.channel.position});
+if(!interaction.member.permissions.has("MANAGE_CHANNELS")) return interaction.reply("• Bu komut için yeterli yetkiye sahip değilsin.");
+interaction.channel.clone({position: interaction.channel.position});
 interaction.channel.delete();
   
-await interaction.reply({embeds:[embed]})
+interaction.reply({embeds:[embed]})
 
 
 }
