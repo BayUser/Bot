@@ -205,6 +205,53 @@ interaction.reply({embeds: [embed], components: [], ephemeral: true})
   }
 })
 
+client.on('interactionCreate', interaction => {
+
+  
+
+  let buton = db.fetch(`buton_${interaction.guild.id}`)
+
+  
+
+  const e = new MessageEmbed()
+
+  .setColor("2F3136")
+
+  .setDescription(":white_check_mark: Rolün başarıyla verildi.")
+
+  
+
+  
+
+  const t = new MessageEmbed()
+
+  .setColor("2F3136")
+
+  .setDescription(":white_check_mark: Rolün başarıyla alındı.")
+
+  
+
+    if (interaction.isButton()){
+
+  if(interaction.customId === 'buton') {
+
+  if(!interaction.member.roles.cache.has(buton)) { 
+
+    
+
+interaction.member.roles.add(buton)
+
+interaction.reply({embeds: [e], ephemeral: true})
+
+  } else {
+
+    interaction.member.roles.remove(buton)
+
+    interaction.reply({embeds: [t], ephemeral: true})
+
+  }
+}
+}
 
         
     
