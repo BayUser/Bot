@@ -17,7 +17,19 @@ const app = express();
 
 app.listen(process.env.PORT);
 app.get("/", (req, res) => {
-res.send({ title: 'Mechatron | Status' });
+  
+app.route('/book')
+  .get((req, res) => {
+    res.send('Rastgele bir kitap getir')
+  })
+  .post((req, res) => {
+    res.send('Bir kitap ekle')
+  })
+  .put((req, res) => {
+    res.send('Kitabı güncelle')
+
+
+  })
 return res.sendStatus(200)
 
 
