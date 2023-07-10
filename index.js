@@ -205,24 +205,3 @@ interaction.reply({embeds: [embed], components: [], ephemeral: true})
   }
 })
 
-client.on('interactionCreate', async interaction => { 
-let buton = db.fetch(`buton_${interaction.guild.id}`)
-  
-
-   if (interaction.isButton()){
-  if(interaction.customId === 'buton') {
-  if(!interaction.member.roles.cache.has(buton)) { 
-
-    
-
-interaction.member.roles.add(buton)
-interaction.reply({content:"• Rol verildi.", ephemeral: true})
-
-  } else {
-
-    interaction.member.roles.remove(buton)
-    interaction.reply({content:"• Rol alındı.", ephemeral: true})
-  }
-}
-}
-});
