@@ -1,8 +1,5 @@
-const {EmbedBuilder, MessageActionRow, MessageButton, ButtonBuilder} = require('discord.js')
-
+const {EmbedBuilder, InteractionActionRow, InteractionButton, ButtonBuilder} = require('discord.js')
 const db = require('croxydb')
-
-
 
 module.exports = {
    name: 'buton-rol',
@@ -29,11 +26,11 @@ module.exports = {
      }
    ],
 
-    run: async (client, interaction, message, args) => {
+    run: async (client, interaction, args) => {
 
   if (!interaction.member.permissions.has("MANAGA_MESSAGES")) return interaction.reply("• Bu komut için yeterli yetkiye sahip değilsin.");
 
- let buton = db.fetch(`buton_${message.guild.id}`)
+ let buton = db.fetch(`buton_${interaction.guild.id}`)
  let rol = interaction.options.getMember('rol')
  let kanal = interaction.options.getMember('kanal')
  let mesaj = args[2]
@@ -44,58 +41,35 @@ module.exports = {
  
 
  const e = new EmbedBuilder()
-
  .setColor("RED")
-
  .setDescription("• Birşeyler ters gitti.")
 
- 
 
  const l = new EmbedBuilder()
-
  .setColor("RED")
-
  .setDescription(icerik)
-
 
 
 if(!buton) {
 
 
-
-if(!rol) return message.reply({embeds: [e]})   
-
-if(!kanal) return message.reply({embeds: [e]})
-
-if(!icerik) return message.reply({embeds: [e]})
+if(!rol) return interaction.reply({embeds: [e]})   
+if(!kanal) return interaction.reply({embeds: [e]})
+if(!icerik) return interaction.reply({embeds: [e]})
 
 
-
- const row = new IntActionRow()
+ const row = new InteractionActionRow()
             .addComponents(
-                new MessageButton()
+                new InteractionButton()
                     .setCustomId('buton')
                     .setLabel(mesaj)
                     .setStyle('SECONDARY'),
-
             );
 
- 
-
- 
 
 
-
-db.set(`buton_${message.guild.id}`, rol.id)
-
+db.set(`buton_${interaction.guild.id}`, rol.id)
 client.channels.cache.get(kanal.id).send({embeds: [l], components: [row]})
-
-
-
+  }
  }
-
- 
-
-        }
-
 }  
