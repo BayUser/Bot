@@ -1,4 +1,4 @@
-const { Collection, EmbedBuilder } = require("discord.js");
+const { Collection, EmbedBuilder, Client, Interaction } = require("discord.js");
 const db = require("croxydb");
 const { readdirSync } = require("fs");
 
