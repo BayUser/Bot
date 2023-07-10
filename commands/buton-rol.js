@@ -1,4 +1,4 @@
-const {MessageEmbed, MessageActionRow, MessageButton} = require('discord.js')
+const {EmbedBuilder, MessageActionRow, MessageButton, ButtonBuilder} = require('discord.js')
 
 const db = require('croxydb')
 
@@ -12,7 +12,7 @@ module.exports = {
      {
        name:"rol",
        description:"Rol seçeneği.",
-       type:7,
+       type:8,
        required:true
      },
      {
@@ -20,32 +20,38 @@ module.exports = {
        description:"Açıklama seçeneği",
        type:1,
        required:true
+     },
+     {
+       name:"kanal",
+       description:"Kanal seçeneği.",
+       type:7,
+       required:true
      }
    ],
 
     run: async (client, interaction, message, args) => {
 
-  if (!interaction.member.permissions.has("MANAGA_MESSAGES")) return interaction.reply(`   **Bu komutu kullanabilmek için "\`Mesajları Yönet\`" yetkisine sahip olmalısın.**`);
+  if (!interaction.member.permissions.has("MANAGA_MESSAGES")) return interaction.reply("• Bu komut için yeterli yetkiye sahip değilsin.");
 
  let buton = db.fetch(`buton_${message.guild.id}`)
- let rol = message.mentions.roles.first()
- let kanal = message.mentions.channels.first()
+ let rol = interaction.options.getMember('rol')
+ let kanal = interaction.options.getMember('kanal')
  let mesaj = args[2]
- let icerik = args.slice(3).join(" ")
+ let icerik = interaction.options.getMember('açıklama')
 
 
 
  
 
- const e = new MessageEmbed()
+ const e = new EmbedBuilder()
 
  .setColor("RED")
 
- .setDescription("Yanlış şekilde kullandınız. Örn: **g!buton-rol @rol #kanal <buton yazısı> <metin>**")
+ .setDescription("• Birşeyler ters gitti.")
 
  
 
- const l = new MessageEmbed()
+ const l = new EmbedBuilder()
 
  .setColor("RED")
 
@@ -65,16 +71,11 @@ if(!icerik) return message.reply({embeds: [e]})
 
 
 
- const row = new MessageActionRow()
-
+ const row = new IntActionRow()
             .addComponents(
-
                 new MessageButton()
-
                     .setCustomId('buton')
-
-                 .setLabel(mesaj)
-
+                    .setLabel(mesaj)
                     .setStyle('SECONDARY'),
 
             );
