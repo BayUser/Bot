@@ -12,16 +12,6 @@ const client = new Client({
     retryLimit: 3
 });
 
-const express = require("express");
-const app = express();
-
-app.listen(process.env.PORT);
-app.set('view engine', 'ejs');
-app.get("/premium", function (req, res) {  
-  res.render("views/premium")
-return res.sendStatus(200)
-});
-
 //ANKA CODE
 global.client = client;
 client.commands = (global.commands = []);
@@ -53,6 +43,15 @@ readdirSync('./events').forEach(e => {
             eve(client, ...args)
         });
 console.log(`[EVENT] ${name} eventi yüklendi.`)
+});
+
+const express = require("express");
+const app = express();
+
+app.listen(process.env.PORT);
+app.set('view engine', 'ejs');
+app.get("/pre", (req, res) => {  
+res.render("premium");
 });
 
 
