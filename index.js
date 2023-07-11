@@ -45,6 +45,27 @@ readdirSync('./events').forEach(e => {
 console.log(`[EVENT] ${name} eventi yüklendi.`)
 });
 
+const express = require('express');
+const app = express();
+const PORT = 8080;
+
+app.set('view engine', 'ejs');
+app.set('views', 'views')
+app.get('/premium', function (req, res) {
+    res.render('premium');
+
+})
+
+ 
+
+app.listen(PORT, function (err) {
+
+    if (err) console.log(err);
+
+    console.log("[SERVER] Port Açıldı.", PORT);
+
+});
+
 client.login(process.env.token)
 
 client.on("guildMemberAdd", member => {
