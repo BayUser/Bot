@@ -49,7 +49,7 @@ const express = require('express');
 const app = express();
 const PORT = 8080;
 
-app.set('view engine', 'ejs');
+app.set('view engine', 'pug');
 app.set('views', 'views')
 app.get('/premium', function (req, res) {
     res.render('index');
