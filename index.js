@@ -16,8 +16,9 @@ const express = require("express");
 const app = express();
 
 app.listen(process.env.PORT);
-app.get("/premium", (req, res) => {  
-res.redirect("web/index")
+app.set('view engine', 'ejs');
+app.get("/premium", function (req, res) {  
+  res.render("views/premium")
 return res.sendStatus(200)
 });
 
