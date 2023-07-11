@@ -32,7 +32,7 @@ readdirSync('./commands').forEach(f => {
  });
 //ANKA CODE
 console.log(`[COMMAND] ${props.name} komutu yüklendi.`)
-
+  
 });
 readdirSync('./events').forEach(e => {
 
@@ -46,25 +46,17 @@ console.log(`[EVENT] ${name} eventi yüklendi.`)
 });
 
 const express = require('express');
-const home = require('express');
-const hom = home();
 const app = express();
 const PORT = 8080;
 
 app.set('view engine', 'ejs');
 app.set('views', 'views')
 app.get('/premium', function (req, res) {
-    res.render('premium');
-
-home.set(''
-})
-
- 
+    res.render('index');
+});
 
 app.listen(PORT, function (err) {
-
     if (err) console.log(err);
-
     console.log("[SERVER] Port Açıldı.", PORT);
 
 });
