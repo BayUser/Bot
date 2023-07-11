@@ -35,9 +35,29 @@
       <span class="des">Website.</span>
       <br>
       <button><a href="https://discord.com/oauth2/authorize?client_id=1090346236655173712&scope=bot&permissions=8">Davet Et</a></button>
-      <button><a id="login" href="https://discord.com/api/oauth2/authorize?client_id=1090346236655173712&redirect_uri=https%3A%2F%2Fgiddy-dirt-lavender.glitch.me%2F&response_type=code&scope=identify">Giriş Yap</a></button>
+      <button><a id="login-link" href="https://discord.com/api/oauth2/authorize?client_id=1090346236655173712&redirect_uri=https%3A%2F%2Fgiddy-dirt-lavender.glitch.me%2F&response_type=code&scope=identify">Giriş Yap</a></button>
+      <a id="welcome_txt"></a>
     </div>
-    <div id="info">Hoi!</div>
+    <script>     
+      window.onload = function () {
+            if (location.href.indexOf("code") !== -1) { // Detect if you logged in or not
+                const code = location.href.substring(location.href.indexOf("code") + 5, location.href.length); // Get the code OAUTH gives you
+                const req = new XMLHttpRequest(); // Create a new XMLHttpRequest
+                req.open("POST", "https://giddy-dirt-lavender.glitch.me/"); // Open the XMLHttpRequest; CHANGE THE PORT TO THE PORT YOU HAVE AS YOUR VARIABLE IN OAUTH.js.
+                req.send(code); // Send the code in the request
+                req.onload = () => { // Will run when the request is loaded
+                    if (req.status === 500) { // Error
+                        document.getElementById('welcome_txt').innerText = `There was an error with that. Please try logging in again. Error Code: ${req.status}`;
+                    } else if (req.status === 200) { // Successful
+                        document.getElementById("welcome_txt").innerText = `Welcome, ${req.responseText}!`
+                    } else { // Other
+                        document.getElementById('welcome_txt').innerText = `An error occured. Please try logging in again. Error Code: ${req.status}`;
+                    }
+                }
+            }
+        }
+     
+    </script>
     <div class="right">
       <img src="https://media.discordapp.net/attachments/1125194165513375804/1128320208948449411/portimg.png">
     </div>
@@ -982,30 +1002,6 @@ sw.addEventListener('click', () => {
     sw.style.backgroundColor = '#fff'
   }
 })
-  
-window.onload = () => {
-		const fragment = new URLSearchParams(window.location.hash.slice(1));
-		const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
-
-		if (!accessToken) {
-			return (document.getElementById('login').style.display = 'block');
-		}
-
-		fetch('https://discord.com/api/users/@me', {
-			headers: {
-				authorization: `${tokenType} ${accessToken}`,
-			},
-		})
-			.then(result => result.json())
-			.then(response => {
-				const { username, discriminator } = response;
-				document.getElementById('info').innerText += ` ${username}#${discriminator}`;
-      console.log(`${username}#${discriminator}`)
-			})
-			.catch(console.error);
-
-
-	};
   
 </script>
 
