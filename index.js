@@ -17,9 +17,16 @@ const app = express();
 
 app.listen(process.env.PORT);
 app.get("/premium", (req, res) => {  
-res.redirect("./web/index.html")
+res.redirect("/web/index.html")
 return res.sendStatus(200)
 });
+
+app.listen(process.env.PORT);
+app.get("/", (req, res) => {  
+res.send("Ok")
+return res.sendStatus(200)
+});
+
 
 //ANKA CODE
 global.client = client;
