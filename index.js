@@ -45,16 +45,6 @@ readdirSync('./events').forEach(e => {
 console.log(`[EVENT] ${name} eventi yüklendi.`)
 });
 
-const express = require("express");
-const app = express();
-
-app.listen(process.env.PORT);
-app.set('view engine', 'ejs');
-app.get("/pre", (req, res) => {  
-res.render("premium");
-});
-
-
 client.login(process.env.token)
 
 client.on("guildMemberAdd", member => {
