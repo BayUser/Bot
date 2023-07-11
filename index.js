@@ -212,51 +212,22 @@ interaction.reply({embeds: [embed], components: [], ephemeral: true})
 })
 
 
-const passport = require("passport");
-const session = require("express-session");
-const { Strategy } = require("passport-discord");
-const app1 = express();
-const port = 3000;
+	
 
-passport.serializeUser((user, done) => done(null, user));
-passport.deserializeUser((user, done) => done(null, user));
-const secret = process.env.Secret
-const strategy = new Strategy(
-	{
-		clientID: "1090346236655173712",
-    clientSecret: secret,
-		callbackURL: `https://giddy-dirt-lavender.glitch.me/callback`,
-		scope: ["identify"],
-	},
-	(_access_token, _refresh_token, user, done) =>
-		process.nextTick(() => done(null, user)),
-);
-passport.use(strategy);
-app1.use(
-	session({
-		secret: "secret",
-		resave: false,
-		saveUninitialized: false,
 	}),
-);
-app1.use(passport.session());
-app1.use(passport.initialize());
-app1.get(
-	"/giris",
-	passport.authenticate("discord", {
-		scope: ["identify"],
-	}),
-);
-app1.get(
-	"/callback",
-	passport.authenticate("discord", {
-		failureRedirect: "/hata",
-	}),
+
 	(_req, res) => res.redirect("/"),
+
 );
-app1.get("/admin", (req, res) => {
-	res.send(req.user ? `Merhaba ${req.user.username}#${req.user.discriminator}` : "Giriş Yapın!");
+
+app.get("/", (req, res) => {
+
+	res.send(req.user ? `Merhaba ${req.user.username}` : "Giriş Yapın!");
+
 });
-const listener = app1.listen(port, "0.0.0.0", () => {
-	console.log(`[SUNUCU] Auth portu açıldı.`);
+
+const listener = app.listen(port, "0.0.0.0", () => {
+
+	console.log(`Site ${listener.address().port} portunda hazır!`);
+
 });
