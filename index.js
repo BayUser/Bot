@@ -260,7 +260,8 @@ app1.set('view engine', 'ejs');
 app1.set('views', 'views')
 app1.get("/", (req, res) => {
     res.render("index");
-    console.log(`${req.user.username}#${req.user.discriminator}`)
+  
+res.send(`${req.user.username}#${req.user.discriminator}`)
 });
   
 const listener = app1.listen(port, "0.0.0.0", () => {
