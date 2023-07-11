@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "@discordjs/rest": "^1.1.0",
+    "axios": "^1.4.0",
     "croxydb": "^0.0.7",
     "discord-api-types": "^0.37.5",
     "discord-toolbox": "^1.1.5",
