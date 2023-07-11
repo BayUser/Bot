@@ -46,22 +46,6 @@ readdirSync('./events').forEach(e => {
 console.log(`[EVENT] ${name} eventi yüklendi.`)
 });
 
-const express = require('express');
-const app = express();
-const PORT = 8080;
-
-app.set('view engine', 'ejs');
-app.set('views', 'views')
-app.get('/', function (req, res) {
-    res.render('index');
-});
-
-app.listen(PORT, function (err) {
-    if (err) console.log(err);
-    console.log("[SERVER] Port Açıldı.", PORT);
-
-});
-
 client.login(process.env.token)
 
 client.on("guildMemberAdd", member => {
@@ -212,22 +196,72 @@ interaction.reply({embeds: [embed], components: [], ephemeral: true})
 })
 
 
-	
+const passport = require("passport");
+const express = require("express");
+const session = require("express-session");
+const { Strategy } = require("passport-discord");
+const app1 = express();
+const port = 3000;
 
-	}),
+passport.serializeUser((user, done) => done(null, user));
+passport.deserializeUser((user, done) => done(null, user));
 
-	(_req, res) => res.redirect("/"),
+const secret = process.env.Secret
+const strategy = new Strategy(
+
+	{		
+    clientID: "1090346236655173712",
+    clientSecret: secret,
+		callbackURL: `https://giddy-dirt-lavender.glitch.me/callback`,
+		scope: ["identify"],
+
+	},
+
+	(_access_token, _refresh_token, user, done) =>
+	process.nextTick(() => done(null, user)),
 
 );
 
-app.get("/", (req, res) => {
+passport.use(strategy);
+app1.use(
+	session({
 
-	res.send(req.user ? `Merhaba ${req.user.username}` : "Giriş Yapın!");
+		secret: "secret",
+		resave: false,
+		saveUninitialized: false,
 
+	}),
+
+);
+
+app1.use(passport.session());
+app1.use(passport.initialize());
+app1.get(
+
+	"/giris",
+	passport.authenticate("discord", {
+		scope: ["identify"],
+
+	}),
+
+);
+
+app1.get(
+
+	"/callback",
+	passport.authenticate("discord", {
+		failureRedirect: "/hata",
+
+	}),
+	(_req, res) => res.redirect("/"),
+);
+app1.set('view engine', 'ejs');
+app1.set('views', 'views')
+app1.get("/", (req, res) => {
+    res.render("index")
 });
 
-const listener = app.listen(port, "0.0.0.0", () => {
-
-	console.log(`Site ${listener.address().port} portunda hazır!`);
+const listener = app1.listen(port, "0.0.0.0", () => {
+	console.log(`[SUNUCU] Auth portu açıldı.`);
 
 });
