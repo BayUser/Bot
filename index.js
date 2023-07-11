@@ -16,24 +16,11 @@ const express = require("express");
 const app = express();
 
 app.listen(process.env.PORT);
-app.get("/", (req, res) => {
-  
-app.route('/book')
-  .get((req, res) => {
-    res.send('Rastgele bir kitap getir')
-  })
-  .post((req, res) => {
-    res.send('Bir kitap ekle')
-  })
-  .put((req, res) => {
-    res.send('Kitabı güncelle')
-
-
-  })
+app.get("/", (req, res) => {  
+app.route('/premium')
+res.send('Premium kodunu sağdaki kutucuğa gir: ')
 return res.sendStatus(200)
-
-
-})
+});
 
 //ANKA CODE
 global.client = client;
