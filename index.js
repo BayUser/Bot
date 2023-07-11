@@ -46,6 +46,8 @@ console.log(`[EVENT] ${name} eventi yüklendi.`)
 });
 
 const express = require('express');
+const home = require('express');
+const hom = home();
 const app = express();
 const PORT = 8080;
 
@@ -54,6 +56,7 @@ app.set('views', 'views')
 app.get('/premium', function (req, res) {
     res.render('premium');
 
+home.set(''
 })
 
  
