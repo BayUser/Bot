@@ -31,7 +31,7 @@
   </header>
   <section id="home">
     <div class="left">
-      <span>Welcome the, <%= user.username %></span>
+      <span>Welcome the, <a id="mechatrons"></a><% document.getElementById('mechatrons').innerText = `${req.user.username}#${req.user.discriminator}`;}); %></span>
       <h3>Mechatron</h3>
       <span class="des">Website.</span>
       <br>
