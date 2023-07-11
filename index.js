@@ -219,14 +219,13 @@ const app1 = express();
 const port = 3000;
 
 passport.serializeUser((user, done) => done(null, user));
-
 passport.deserializeUser((user, done) => done(null, user));
-
+const secret = process.env.Secret
 const strategy = new Strategy(
-
 	{
-		clientID: "",		clientSecret: "",
-		callbackURL: `http://localhost:${port}/callback`,
+		clientID: "1090346236655173712",
+    clientSecret: secret,
+		callbackURL: `https://giddy-dirt-lavender.glitch.me/callback`,
 		scope: ["identify"],
 	},
 	(_access_token, _refresh_token, user, done) =>
@@ -255,9 +254,9 @@ app1.get(
 	}),
 	(_req, res) => res.redirect("/"),
 );
-app1.get("/", (req, res) => {
-	res.send(req.user ? `Merhaba ${req.user.username}` : "Giriş Yapın!");
+app1.get("/admin", (req, res) => {
+	res.send(req.user ? `Merhaba ${req.user.username}#${req.user.discriminator}` : "Giriş Yapın!");
 });
-const listener = app.listen(port, "0.0.0.0", () => {
-	console.log(`Site ${listener.address().port} portunda hazır!`);
+const listener = app1.listen(port, "0.0.0.0", () => {
+	console.log(`[SUNUCU] Auth portu açıldı.`);
 });
