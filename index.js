@@ -18,7 +18,7 @@ const app = express();
 app.listen(process.env.PORT);
 app.get("/", (req, res) => {  
 app.route('/premium')
-res.send('Premium kodunu sağdaki kutucuğa gir: ')
+res.send('Premium kodunu sağdaki kutucuğa gir: ', '<a>test</a>')
 return res.sendStatus(200)
 });
 
