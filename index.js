@@ -3,6 +3,7 @@ const INTENTS = Object.values(GatewayIntentBits);
 const PARTIALS = Object.values(Partials);
 const Discord = require("discord.js")
 const db = require("croxydb")
+const config = require("./config.json");
 const client = new Client({
     intents: INTENTS,
     allowedMentions: {

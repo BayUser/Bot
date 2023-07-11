@@ -1,3 +1,7 @@
 {
-    "TOKEN": ""
+  "Token":"",
+  "Callback":"https://giddy-dirt-lavender.glitch.me/callback",
+  "Secret":"",
+  "ClientId":"1090346236655173712"
+  
 }
