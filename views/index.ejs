@@ -875,13 +875,11 @@ header ul li a:hover {
 </style>
 
 <script>
-const db = require("croxydb");
 
 let input = document.getElementById('preinput');
 let btn = document.getElementById('btn');
 let prekod = "<%= dbprem %>";
-let limit = db.get("Limit." + input.value);
-
+let limit = <%= %>
 btn.addEventListener('click',function(){
   if(input.value == prekod){
     window.alert("Hesabına premium üyelik eklendi.")
