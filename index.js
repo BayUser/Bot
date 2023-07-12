@@ -236,12 +236,23 @@ app1.use(
 
 app1.use(passport.session());
 app1.use(passport.initialize());
+
 app1.get("/giris", (_req, res) => 
-         
 res.redirect("/callback"),
 );
+
+app1.get("/profile", (req, res) => {
+  app1.set('view engine', 'ejs');
+  app1.set('views', 'views')
+
+  let args = {
+  username: req.user.username,
+  discriminator: req.user.discriminator
+  } 
+  res.render("profile", args)
+});
+
 app1.get("/home", (req, res) => {
-  if(res.status(404)) return { res.redirect("/giris") }
   app1.set('view engine', 'ejs');
   app1.set('views', 'views')
   
@@ -251,8 +262,8 @@ app1.get("/home", (req, res) => {
   } 
   res.render("index", args);
 });
-app1.get(
 
+app1.get(
 	"/callback",
 	passport.authenticate("discord", {
     
