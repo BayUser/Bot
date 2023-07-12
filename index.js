@@ -255,6 +255,13 @@ app1.get("/profile", (req, res) => {
   res.render("profile", args)
 });
 
+app1.get('/logout', function(req, res, next){
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
+});
+
 app1.get("/home", (req, res) => {
   app1.set('view engine', 'ejs');
   app1.set('views', 'views')
