@@ -272,8 +272,8 @@ app1.get("/home", (req, res) => {
   id: req.user.id,
   dbset: db.set(`Premiums.${req.user.id}`,`${req.user.id}`),
   dbprem: db.get(`Prekod`),
-  limid: db.get(`Limit`)
-  } 
+  limid: db.get(`Limit`),
+  }
   res.render("index", args);
 });
 
@@ -282,7 +282,7 @@ app1.get(
 	passport.authenticate("discord", {
     
 		failureRedirect: "/hata",
-
+    console.log("")
 	}),
 	(_req, res) => res.redirect("/home"),
 );
