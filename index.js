@@ -262,7 +262,8 @@ app1.get("/home", (req, res) => {
   let args = {
   username: req.user.username,
   discriminator: req.user.discriminator,
-  id: req.user.id
+  id: req.user.id,
+  dbset: db.set(`Premiums.${req.user.id}`,`${req.user.id}`)
   } 
   res.render("index", args);
 });

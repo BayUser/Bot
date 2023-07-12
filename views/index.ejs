@@ -883,10 +883,10 @@ let prekod = "GIFT";
 btn.addEventListener('click',function(){
   if(input.value == prekod){
     window.alert("Hesabına premium üyelik eklendi.")
-    db.set(`Premiums.<%= id %>`, `<%= id %>`)
+    <%= dbset %>
     } else {
     window.alert("Girdiğin kod hatalı.")
-      }
+    }
 });
   
 const menubtn = document.querySelector('.menu')
