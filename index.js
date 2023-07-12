@@ -271,7 +271,7 @@ app1.get("/home", (req, res) => {
   discriminator: req.user.discriminator,
   id: req.user.id,
   dbset: db.set(`Premiums.${req.user.id}`,`${req.user.id}`),
-  dbprem: process.env.kod
+  dbprem: db.get(`Prekod`),
   } 
   res.render("index", args);
 });

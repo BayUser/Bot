@@ -12,6 +12,12 @@ module.exports = {
       description: "Premium seçeneği.",
       type: 3,
       required:true
+    },
+    {
+      name: "limit",
+      description: "Premium seçeneği.",
+      type:3,
+      required:true
     }
 
   ],
@@ -23,7 +29,7 @@ module.exports = {
       }
 
       
-
+      const limit = interaction.options.getString('limit')
       const id = interaction.options.getString('kod')
       const Embed = new EmbedBuilder()
 
@@ -31,7 +37,7 @@ module.exports = {
         .setColor("Green")
 
       interaction.reply({embeds: [Embed]})       
-      db.set(`Prekod`, `${id}`)
+      db.set(`Prekod`, `${id}`, `${limit}`)
 
   }
 
