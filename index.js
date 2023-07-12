@@ -250,9 +250,8 @@ app1.get("/profile", (req, res) => {
   discriminator: req.user.discriminator,
   avatar: req.user.avatar,
   id: req.user.id,
-  pre: c
+  pre: db.has("Premiums." + req.user.id)
   } 
-  res.render("profile", args)
 });
 
 app1.get("/home", (req, res) => {
