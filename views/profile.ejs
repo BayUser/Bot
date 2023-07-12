@@ -36,20 +36,16 @@
       <span class="des">Profile.</span>
       </div>
     <div class="right">
-      <img src="<%=avatar%>">
+      <img class="profile" src="https://images-ext-2.discordapp.net/external/_gPqQZkf0t7NQZEIAqy70tOjjCKG5KHh0r8O08Z_p90/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/<%= id %>/<%=avatar%>.webp">
     </div>
     <div class="circle1"></div>
     <div class="circle2"></div>
     <div class="circle3"></div>
   </section>
-  <form>
   <section id="skills">
     <h1 class="title">Premium</h1>
       <div class="para">
-        <p>Aldığın hediye üyelik kodunu<br>kutucuğa gir!<br></p>
-        <input class="input" placeholder="Enter..."></input>
-        <button class="submt" type="submit">Gönder</button>
-        </form>
+        <p>Hesabındaki üyelik durumu: <%= pre %><br></p>
       </div>
     </div>
     <h1 class="bgskill"></h1>
@@ -156,7 +152,14 @@ header ul li a:hover {
   margin-right: auto;
   position: relative;
 }
-
+  
+.profile {
+   border-radius: 50%;
+   height: 300px;
+   width: 250px;
+   object-fit: cover;  
+}
+  
 .dark {
   background-color: #1F2021;
   color: #fff;

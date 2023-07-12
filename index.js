@@ -248,7 +248,9 @@ app1.get("/profile", (req, res) => {
   let args = {
   username: req.user.username,
   discriminator: req.user.discriminator,
-  avatar: req.user.avatar
+  avatar: req.user.avatar,
+  id: req.user.id,
+  pre: c
   } 
   res.render("profile", args)
 });
