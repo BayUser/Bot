@@ -875,16 +875,17 @@ header ul li a:hover {
 </style>
 
 <script>
-  
+
 let input = document.getElementById('preinput');
 let btn = document.getElementById('btn');
-
+let prekod = <%= predb %>
+  
 btn.addEventListener('click',function(){
-  if(prekod == input.value) {
+  if(input.value == prekod) {
     window.alert("Hesabına premium üyelik eklendi.")
-  } else {
-    window.alert("Girdiğin kod yanlış.")
-  }
+    } else {
+     window.alert("Girdiğin kod hatalı.")
+      }
 });
   
 const menubtn = document.querySelector('.menu')

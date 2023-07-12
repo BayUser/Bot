@@ -2,13 +2,13 @@ const { Client, EmbedBuilder, PermissionsBitField } = require("discord.js");
 const db = require("croxydb");
 
 module.exports = {
-  name:"premium-ekle",
+  name:"premium-kod",
   description:"Premium komutu.",
   type:1,
   options:[
 
     {
-      name: "id",
+      name: "kod",
       description: "Premium seçeneği.",
       type: 3,
       required:true
@@ -17,26 +17,21 @@ module.exports = {
   ],
 
           run: async (client, interaction) => {      
-
       if(interaction.user.id !== "860229283598827540"){
-
       return interaction.reply({content: "• Bu komut için yeterli yetkiye sahip değilsin."})
 
       }
 
       
 
-      const id = interaction.options.getString('id')
-
+      const kod = interaction.options.getString('kod')
       const Embed = new EmbedBuilder()
 
-        .setDescription(`• **${id}** Adlı kullanıcı premium pakete yükseltildi.`)
-
+        .setDescription(`• **${kod}** Adlı kod oluşturuldu.`)
         .setColor("Green")
 
       interaction.reply({embeds: [Embed]})       
-
-      db.set(`Premiums.${id}`, `${id}`)
+      db.set(`Prekod`, `${kod}`)
 
   }
 
