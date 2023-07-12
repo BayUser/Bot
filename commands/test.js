@@ -14,6 +14,7 @@ const db = require("croxydb");
     run: async (client, interaction, message, args) => {
       
       const pre = db.get(`Prekod`);
+      const limit = db.get(`Limit`);
       if(!pre) {
         
          const Yardım = new EmbedBuilder()
@@ -27,7 +28,7 @@ const db = require("croxydb");
         const Yardım = new EmbedBuilder()
          .setAuthor({ name: "Mechatron | Test"})
          .setColor("#323338")
-         .setDescription(pre)
+         .setDescription(pre + limit)
       interaction.reply({embeds: [Yardım]})
 
         

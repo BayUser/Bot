@@ -38,7 +38,7 @@ module.exports = {
 
       interaction.reply({embeds: [Embed]})       
       db.set(`Prekod`, `${id}`)
-      db.set(`Limit.${id}`, `${limit}`)
+      db.set(`Limit`, `${limit}`)
 
   }
 
