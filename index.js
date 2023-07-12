@@ -252,6 +252,7 @@ app1.get("/profile", (req, res) => {
   id: req.user.id,
   pre: db.has("Premiums." + req.user.id)
   } 
+  res.render("profile", args)
 });
 
 app1.get("/home", (req, res) => {
