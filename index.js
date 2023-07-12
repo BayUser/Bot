@@ -290,9 +290,9 @@ app1.get(
 app1.get('/', (req, res) => {
   if (!req.session.userid) {
     res.redirect('/callback');
-    return;
+    return; 
+    res.redirect("/home");
   }
-  res.redirect("/home")
 });
 
 
