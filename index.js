@@ -202,6 +202,7 @@ const session = require("express-session");
 const { Strategy } = require("passport-discord");
 const app1 = express();
 const port = 3000;
+var requests = new XMLHttpRequest();
 
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
@@ -265,6 +266,7 @@ app1.get('/logout', function(req, res, next){
 app1.get("/home", (req, res) => {
   app1.set('view engine', 'ejs');
   app1.set('views', 'views')
+  console.log(`${req.user.username} Adlı kullanıcı siteye giriş yaptı.`)
   
   let args = {
   username: req.user.username,
@@ -282,7 +284,6 @@ app1.get(
 	passport.authenticate("discord", {
     
 		failureRedirect: "/hata",
-    console.log("")
 	}),
 	(_req, res) => res.redirect("/home"),
 );
