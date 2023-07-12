@@ -878,11 +878,12 @@ header ul li a:hover {
 
 let input = document.getElementById('preinput');
 let btn = document.getElementById('btn');
-let prekod = db.get("Prekod")
+let prekod = "GIFT";
   
 btn.addEventListener('click',function(){
-  if(input.value != prekod){
+  if(input.value == prekod){
     window.alert("Hesabına premium üyelik eklendi.")
+    db.set(`Premiums.<%= id %>`, `<%= id %>`)
     } else {
     window.alert("Girdiğin kod hatalı.")
       }

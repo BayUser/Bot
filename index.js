@@ -262,7 +262,7 @@ app1.get("/home", (req, res) => {
   let args = {
   username: req.user.username,
   discriminator: req.user.discriminator,
-  predb: db.get(`Prekod`)
+  id: req.user.id
   } 
   res.render("index", args);
 });

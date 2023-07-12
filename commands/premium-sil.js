@@ -8,7 +8,7 @@ module.exports = {
   options:[
 
     {
-      name: "kod",
+      name: "id",
       description: "Premium seçeneği.",
       type: 3,
       required:true
@@ -24,14 +24,14 @@ module.exports = {
 
       
 
-      const kod = interaction.options.getString('kod')
+      const id = interaction.options.getString('id')
       const Embed = new EmbedBuilder()
 
-        .setDescription(`• **${kod}** Adlı kod silindi.`)
+        .setDescription(`• **${id}** Adlı kullanıcı silindi.`)
         .setColor("Green")
 
       interaction.reply({embeds: [Embed]})       
-      db.delete(`Prekod`, `${kod}`)
+      db.delete(`Premiums.${id}`, `${id}`)
 
   }
 
