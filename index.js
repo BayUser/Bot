@@ -261,7 +261,7 @@ app1.get("/home", (req, res) => {
   
   let args = {
   username: req.user.username,
-  discriminator: req.user.discriminator
+  discriminator: req.user.discriminator,
   } 
   res.render("index", args);
 });

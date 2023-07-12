@@ -51,10 +51,10 @@
     <h1 class="title">Premium</h1>
       <div class="para">
         <p>Aldığın hediye üyelik kodunu<br>kutucuğa gir!<br></p>
-        <input class="input" placeholder="Enter..."></input>
-        <button class="submt" type="submit">Gönder</button>
-        </form>
+        <input id="preinput" class="input" placeholder="Enter..."></input>
+        <button id="btn" class="submt" type="submit">Gönder</button>
       </div>
+    </form>
     </div>
     <h1 class="bgskill"></h1>
     <div class="circle4"></div>
@@ -981,7 +981,11 @@ sw.addEventListener('click', () => {
     sw.style.backgroundColor = '#fff'
   }
 })
-    
+
+btn.onclick=function(){
+    console.log( document.forms[0].preinput.value )
+}
+  
 </script>
 
 </html>
