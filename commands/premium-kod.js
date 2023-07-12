@@ -2,13 +2,13 @@ const { Client, EmbedBuilder, PermissionsBitField } = require("discord.js");
 const db = require("croxydb");
 
 module.exports = {
-  name:"premium-ekle",
+  name:"premium-kod",
   description:"Premium komutu.",
   type:1,
   options:[
 
     {
-      name: "id",
+      name: "kod",
       description: "Premium seçeneği.",
       type: 3,
       required:true
@@ -24,14 +24,14 @@ module.exports = {
 
       
 
-      const id = interaction.options.getString('id')
+      const id = interaction.options.getString('kod')
       const Embed = new EmbedBuilder()
 
         .setDescription(`• **${id}** Adlı kod oluşturuldu.`)
         .setColor("Green")
 
       interaction.reply({embeds: [Embed]})       
-      db.set(`Premiums.${id}`, `${id}`)
+      db.set(`Prekod`, `${id}`)
 
   }
 

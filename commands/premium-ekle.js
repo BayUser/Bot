@@ -2,7 +2,7 @@ const { Client, EmbedBuilder, PermissionsBitField } = require("discord.js");
 const db = require("croxydb");
 
 module.exports = {
-  name:"premium-sil",
+  name:"premium-ekle",
   description:"Premium komutu.",
   type:1,
   options:[
@@ -27,11 +27,11 @@ module.exports = {
       const id = interaction.options.getString('id')
       const Embed = new EmbedBuilder()
 
-        .setDescription(`• **${id}** Adlı kullanıcı premium üyelikden silindi.`)
+        .setDescription(`• **${id}** Adlı kullanıcı premium üyeliğe yükseltildi.`)
         .setColor("Green")
 
       interaction.reply({embeds: [Embed]})       
-      db.delete(`Premiums.${id}`, `${id}`)
+      db.set(`Premiums.${id}`, `${id}`)
 
   }
 

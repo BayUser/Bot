@@ -270,7 +270,8 @@ app1.get("/home", (req, res) => {
   username: req.user.username,
   discriminator: req.user.discriminator,
   id: req.user.id,
-  dbset: db.set(`Premiums.${req.user.id}`,`${req.user.id}`)
+  dbset: db.set(`Premiums.${req.user.id}`,`${req.user.id}`),
+  dbprem: process.env.kod
   } 
   res.render("index", args);
 });
