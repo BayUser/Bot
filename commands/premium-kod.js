@@ -37,7 +37,8 @@ module.exports = {
         .setColor("Green")
 
       interaction.reply({embeds: [Embed]})       
-      db.set(`Prekod`, `${id}`, `${limit}`)
+      db.set(`Prekod`, `${id}`)
+      db.set(`Limit.${id}`, `${limit}`)
 
   }
 
