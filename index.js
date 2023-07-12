@@ -260,15 +260,20 @@ app1.get(
 app1.set('view engine', 'ejs');
 app1.set('views', 'views')
 app1.get("/", (req, res) => {
+
+if (!args) return res.redirect("")
   
   let args = {
   username: req.user.username,
   discriminator: req.user.discriminator
-  }  
+  } 
     res.render("index", args); 
+    res.redirect("/giris")
+
 });
   
 const listener = app1.listen(port, "0.0.0.0", () => {
 	console.log(`[SUNUCU] Auth portu açıldı.`);
 
 });
+  
