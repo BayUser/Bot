@@ -238,7 +238,7 @@ app1.use(passport.session());
 app1.use(passport.initialize());
 
 app1.get("/giris", (_req, res) => 
-res.redirect("/callback"),
+res.redirect("/callback")
 );
 
 app1.get("/profile", (req, res) => {
@@ -287,9 +287,15 @@ app1.get(
 	(_req, res) => res.redirect("/home"),
 );
 
-app1.get("/", (req, res) => {
-res.redirect("/giris")
+app1.get('/', (req, res) => {
+  if (!req.session.userid) {
+    res.redirect('/callback');
+    return;
+  }
+  res.redirect("/home")
 });
+
+
   
 const listener = app1.listen(port, "0.0.0.0", () => {
 	console.log(`[SUNUCU] Auth portu açıldı.`);
