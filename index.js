@@ -48,6 +48,12 @@ console.log(`[EVENT] ${name} eventi yüklendi.`)
 
 client.login(process.env.token)
 
+client.on("interactionCreate", (message, req) => {
+  const log = "1125194165513375804";
+  
+  message.log.send(`${req.user.username} Adlı kullanıcı siteye giriş yaptı.`)
+})
+
 client.on("guildMemberAdd", member => {
   const kanal = db.get(`hgbb_${member.guild.id}`)
   if(!kanal) return;
@@ -202,7 +208,6 @@ const session = require("express-session");
 const { Strategy } = require("passport-discord");
 const app1 = express();
 const port = 3000;
-var requests = new XMLHttpRequest();
 
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
@@ -267,7 +272,6 @@ app1.get("/home", (req, res) => {
   app1.set('view engine', 'ejs');
   app1.set('views', 'views')
   console.log(`${req.user.username} Adlı kullanıcı siteye giriş yaptı.`)
-  
   let args = {
   username: req.user.username,
   discriminator: req.user.discriminator,
