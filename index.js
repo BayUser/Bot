@@ -236,17 +236,12 @@ app1.use(
 
 app1.use(passport.session());
 app1.use(passport.initialize());
-app1.get(
-
-	"/giris",
-	passport.authenticate("discord", {
-		scope: ["identify"],
-
-	}),
-
+app1.get("/giris", (_req, res) => 
+         
+res.redirect("/callback"),
 );
 app1.get("/home", (req, res) => {
-  
+  if(res.status(404)) return { res.redirect("/giris") }
   app1.set('view engine', 'ejs');
   app1.set('views', 'views')
   
