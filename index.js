@@ -48,17 +48,6 @@ console.log(`[EVENT] ${name} eventi yüklendi.`)
 
 client.login(process.env.token)
 
-client.on("ready", async (req, member) => {
-  const log = "1125194165513375804";
-  const guild = "983132734820081694";
-  const mesaj = `${req.user.username}, Adlı kullanıcı siteye giriş yaptı.`;
-  
-  guild = client.guilds.cache.get(guild)
-        if(guild){
-            log = guild.channels.cache.get(log)
-            if(log){
-                log.send({ content: mesaj })
-}}})
 
 client.on("guildMemberAdd", member => {
   const kanal = db.get(`hgbb_${member.guild.id}`)
