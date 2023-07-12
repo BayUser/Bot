@@ -881,10 +881,10 @@ let btn = document.getElementById('btn');
 let prekod = db.get("Prekod")
   
 btn.addEventListener('click',function(){
-  if(input.value ) return {
+  if(input.value != prekod){
     window.alert("Hesabına premium üyelik eklendi.")
     } else {
-     window.alert("Girdiğin kod hatalı.")
+    window.alert("Girdiğin kod hatalı.")
       }
 });
   

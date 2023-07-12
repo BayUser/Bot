@@ -283,6 +283,6 @@ res.redirect("/giris")
   
 const listener = app1.listen(port, "0.0.0.0", () => {
 	console.log(`[SUNUCU] Auth portu açıldı.`);
-
+  
 });
   
