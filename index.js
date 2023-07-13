@@ -204,6 +204,15 @@ const { Strategy } = require("passport-discord");
 const app1 = express();
 const port = 3000;
 
+const isAuthenticated = false;
+const requireAuth = (req, res, next) => {
+  if (isAuthenticated) {
+    next();
+  } else {
+    res.redirect('/giris');
+  }
+};
+
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
 
@@ -286,10 +295,6 @@ app1.get(
   res.redirect("/home")
 },
 );
-
-app1.get('/',(req, res) => {
-    res.redirect("/callback");
-  });
   
 app1.listen(port)
 console.log(`[SUNUCU] Sunucu dinleniyor ${port}.`);
