@@ -271,11 +271,6 @@ app1.get("/home", (req, res) => {
   username: req.user.username,
   discriminator: req.user.discriminator,
   id: req.user.id,
-  dbset: db.set(`Premiums.${req.user.id}`,`${req.user.id}`),
-  dbprem: db.get(`Prekod`),
-  limid: db.get(`Limit`),
-  limitsil: db.set(`Limit`, `0`),
-  pred: db.has("Premiums." + req.user.id),
   }
   res.render("index", args);
 });

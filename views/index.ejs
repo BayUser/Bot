@@ -877,16 +877,11 @@ header ul li a:hover {
 <script>
 let input = document.getElementById('preinput');
 let btn = document.getElementById('btn');
-let prekod = "<%= dbprem %>";
-let limit = "<%= limid %>";
   
 btn.onclick = function() {
-    if(input.value == p){
-    window.alert("Hesabına premium üyelik eklendi.")
-    } else {
-    window.alert("Girdiğiniz kod hatalı.")
-    }
-}
+    if(input.value){
+    window.alert("Girdiğiniz kod bulunamadı.")
+}}
   
 const menubtn = document.querySelector('.menu')
 menu = document.querySelector('header ul')
