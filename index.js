@@ -290,13 +290,17 @@ app1.get(
 		failureRedirect: "/hata",
 	}),
 	(_req, res) => {
-  req.session.user.id = req.user.id
+  req.session.user.id = req.user.id,
   res.redirect("/home"),
-}
+},
 );
 
 app1.get('/',(req, res) => {
-         
+  if(!req.session.id) {
+    res.redirect("/callback");
+    return;
+  }
+    res.redirect("/home");
 });
   
          
