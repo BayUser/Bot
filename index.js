@@ -275,7 +275,6 @@ app1.get("/home", (req, res) => {
   dbprem: db.get(`Prekod`),
   limid: db.get(`Limit`),
   }
-
   res.render("index", args);
 });
 
