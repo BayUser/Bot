@@ -879,20 +879,14 @@ let input = document.getElementById('preinput');
 let btn = document.getElementById('btn');
 let prekod = "<%= dbprem %>";
 let limit = "<%= limid %>";
-
   
-btn.addEventListener('click',function(){
-    if(<%= limid %> == 0){
-     window.alert("Girdiğiniz kodun kullanım limiti dolmuş.")
-    }
-    else if(input.value == "<%= dbprem %>"){
+btn.onclick = function() {
+    if(input.value == p){
     window.alert("Hesabına premium üyelik eklendi.")
-    <%= dbset %>
-    <%= limitsil %>
     } else {
     window.alert("Girdiğiniz kod hatalı.")
     }
-});
+}
   
 const menubtn = document.querySelector('.menu')
 menu = document.querySelector('header ul')
