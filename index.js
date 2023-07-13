@@ -32,7 +32,7 @@ readdirSync('./commands').forEach(f => {
        type: 1
  });
 //ANKA CODE
-console.log(`[COMMAND] ${props.name} komutu yüklendi.`)
+console.log(`[KOMUT] ${props.name} komutu yüklendi.`)
   
 });
 readdirSync('./events').forEach(e => {
@@ -292,13 +292,9 @@ app1.get(
 );
 
 app1.get('/',(req, res) => {
-  if(!req.session.id) {
     res.redirect("/callback");
-    return;
-  }
-    res.redirect("/home");
-});
+  });
   
 app1.listen(port)
-console.log(`[SUNUCU] Auth portu açıldı.`);
+console.log(`[SUNUCU] Sunucu dinleniyor ${port}.`);
 
