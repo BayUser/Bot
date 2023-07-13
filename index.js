@@ -295,7 +295,14 @@ app1.get(
   res.redirect("/home")
 },
 );
+
+app1.get("/test", (req, res) => {
+  app1.set('view engine', 'ejs');
+  app1.set('views', 'views')
   
+  res.render("home");
+})
+
 app1.listen(port)
 console.log(`[SUNUCU] Sunucu dinleniyor ${port}.`);
 
