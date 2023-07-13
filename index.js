@@ -289,20 +289,16 @@ app1.get(
     
 		failureRedirect: "/hata",
 	}),
-	(_req, res) => res.redirect("/home"),
+	(_req, res) => {
+  req.session.user.id = req.user.id
+  res.redirect("/home"),
+}
 );
 
-app1.get('/', (rreq.user.idreq.session.userid) {
-   }es;redirect('/callback');
-    return; 
-  }
-  res.redirect("/home");
-});
-
-
-  
-const listener = app1.listen(port, "0.0.0.0", () => {
-	console.log(`[SUNUCU] Auth portu açıldı.`);
-  
+app1.get('/',(req, res) => {
+         
 });
   
+         
+console.log(`[SUNUCU] Auth portu açıldı.`);
+
