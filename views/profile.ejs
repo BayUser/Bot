@@ -900,6 +900,14 @@ header ul li a:hover {
 </style>
 
 <script>
+let input = document.getElementById('preinput');
+let btn = document.getElementById('btn');
+
+btn.onclick = function() {
+    if(input.value == input.value){
+    window.alert(`${input.value} ID numaralı kullanıcının premium üyeliği sonlandırıldı.`)
+    <%= dbd %>
+ }}  
 const menubtn = document.querySelector('.menu')
 menu = document.querySelector('header ul')
 up = document.querySelector('.up')

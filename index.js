@@ -252,7 +252,7 @@ app1.get("/profile", (req, res) => {
   avatar: req.user.avatar,
   id: req.user.id,
   pre: db.has("Premiums." + req.user.id),
-  } 
+ } 
   res.render("profile", args)
 });
 
