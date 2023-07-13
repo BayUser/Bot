@@ -264,9 +264,6 @@ app1.get('/logout', function(req, res, next){
 });
 
 app1.get("/home", (req, res) => {
-  if(!req.user.id){
-    res.redirect("/login")
-  }
   app1.set('view engine', 'ejs');
   app1.set('views', 'views')
   console.log(`${req.user.username} Adlı kullanıcı siteye giriş yaptı.`)
@@ -290,8 +287,7 @@ app1.get(
 		failureRedirect: "/hata",
 	}),
 	(_req, res) => {
-  req.session.user.id = req.user.id,
-  res.redirect("/home"),
+  res.redirect("/home")
 },
 );
 
@@ -303,6 +299,6 @@ app1.get('/',(req, res) => {
     res.redirect("/home");
 });
   
-         
+app1.listen(port)
 console.log(`[SUNUCU] Auth portu açıldı.`);
 
