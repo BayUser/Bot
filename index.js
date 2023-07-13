@@ -292,9 +292,8 @@ app1.get(
 	(_req, res) => res.redirect("/home"),
 );
 
-app1.get('/', (req, res) => {
-  if (!req.session.userid) {
-    res.redirect('/callback');
+app1.get('/', (rreq.user.idreq.session.userid) {
+   }es;redirect('/callback');
     return; 
   }
   res.redirect("/home");
