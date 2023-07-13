@@ -55,7 +55,11 @@
     <div class="circle4"></div>
     <div class="circle5"></div>
       <% if(id == "860229283598827540") {%>
+        <br><br><br><br><br>
         <h1 class="title">Admin Panel</h1>
+        <center><a>Premium üyeliğini silmek istediğiniz<br> kullanıcının id numarasını giriniz.</a></center>
+        <input id="preinput" class="input" placeholder="Enter..."></input>
+        <button id="btn" class="submt">Gönder</button>
         <% } %>
   </section>
   <section id="contact">
@@ -103,7 +107,18 @@ header {
 .dark header {
   background-color: #1F2021
 }
-
+  
+.submt {
+  background-color: #1f67db;
+  border: none;
+  color: white;
+  padding: 13px 30px;
+  text-decoration: none;
+  margin: 4px 4px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+  
 header h2 {
   font-size: 40px;
   color: #ffffff;
@@ -359,7 +374,7 @@ header ul li a:hover {
 }
 
 .input {
-  width: 100%;
+  width: 70%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
