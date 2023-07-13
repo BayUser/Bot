@@ -242,7 +242,7 @@ app1.get("/giris", (_req, res) =>
 res.redirect("/callback")
 );
 
-app1.get("/profile", (req, res) => {
+app1.get("/profile", (req, res, input) => {
   app1.set('view engine', 'ejs');
   app1.set('views', 'views')
 
@@ -252,6 +252,7 @@ app1.get("/profile", (req, res) => {
   avatar: req.user.avatar,
   id: req.user.id,
   pre: db.has("Premiums." + req.user.id),
+  dbd: db.delete(`Premiums.${input.value}`,`${input.value}`),
  } 
   res.render("profile", args)
 });
