@@ -881,10 +881,10 @@ let prekod = "<%= dbprem %>";
 
   
 btn.addEventListener('click',function(){
-  if(<%= limid %> == 0){
+    if(<%= limid %> == 0){
     window.alert("Kullandığınız hediye kodunun süresi dolmuş.")
-  }
-  else if(input.value == prekod){
+    }
+    else if(input.value == prekod){
     window.alert("Hesabına premium üyelik eklendi.")
     <%= dbset %>
     } else {

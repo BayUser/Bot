@@ -274,8 +274,6 @@ app1.get("/home", (req, res) => {
   dbset: db.set(`Premiums.${req.user.id}`,`${req.user.id}`),
   dbprem: db.get(`Prekod`),
   limid: db.get(`Limit`),
-  dblim: db.delete(`Limit`),
-  dbkod: db.delete(`Prekod`)
   }
 
   res.render("index", args);
