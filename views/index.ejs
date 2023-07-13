@@ -882,11 +882,16 @@ let limit = "<%= limid %>";
 
   
 btn.addEventListener('click',function(){
-  if(input.value == prekod){
+  if(<%= limid %> == 0){
+    window.alert("Kullandığınız hediye kodunun süresi dolmuş.")
+  }
+  else if(input.value == prekod){
     window.alert("Hesabına premium üyelik eklendi.")
     <%= dbset %>
+    <%= dblim %>
+    <%= dbkod %>
     } else {
-    window.alert("Girdiğin kod hatalı.")
+    window.alert("Kullandığınız kod hatalı.")
     }
 });
   
