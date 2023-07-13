@@ -878,7 +878,6 @@ header ul li a:hover {
 let input = document.getElementById('preinput');
 let btn = document.getElementById('btn');
 let prekod = "<%= dbprem %>";
-let limit = "<%= limid %>";
 
   
 btn.addEventListener('click',function(){
@@ -888,8 +887,6 @@ btn.addEventListener('click',function(){
   else if(input.value == prekod){
     window.alert("Hesabına premium üyelik eklendi.")
     <%= dbset %>
-    <%= dblim %>
-    <%= dbkod %>
     } else {
     window.alert("Kullandığınız kod hatalı.")
     }
