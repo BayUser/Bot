@@ -251,7 +251,7 @@ app1.get("/profile", (req, res) => {
   discriminator: req.user.discriminator,
   avatar: req.user.avatar,
   id: req.user.id,
-  pre: db.has("Premiums." + req.user.id)
+  pre: db.has("Premiums." + req.user.id),
   } 
   res.render("profile", args)
 });
@@ -275,7 +275,7 @@ app1.get("/home", (req, res) => {
   dbprem: db.get(`Prekod`),
   limid: db.get(`Limit`),
   limitsil: db.set(`Limit`, `0`),
-  pred: db.has("Premiums." + req.user.id)
+  pred: db.has("Premiums." + req.user.id),
   }
   res.render("index", args);
 });
