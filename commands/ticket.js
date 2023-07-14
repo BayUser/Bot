@@ -70,24 +70,19 @@ module.exports = {
             const menu = new Discord.EmbedBuilder()
             .setColor("#323338")
             .setTitle("Destek Talebi")
-            .setDescription("> Aşağıdaki butona basarak destek ta")
+            .setDescription("> Aşağıdaki butona basarak, destek talebinizi oluşturabilirsiniz.")
 			.setThumbnail(interaction.guild.iconURL({ dynamic: true }))
-            .setFooter({ text: "Silex" })
+            .setFooter({ text: "Mechatron | Ticket" })
   
         const row11 = new Discord.ActionRowBuilder()
   
             .addComponents(
                 new Discord.ButtonBuilder()
-                    .setEmoji("1044325577064190033")
-                    .setLabel("Destek Talebi Oluştur")
+                    .setEmoji("📜")
+                    .setLabel("Talep Oluştur")
                     .setStyle(Discord.ButtonStyle.Secondary)
                     .setCustomId("ticketolustur_everyone"),
-                new Discord.ButtonBuilder()
-                    .setEmoji("1039607065045385256")
-                    .setLabel("Nasıl oluşturabilirim?")
-                    .setStyle(Discord.ButtonStyle.Secondary)
-                    .setCustomId("ticketnasilacilir_everyone")
-            )
+               )
 
             ticketkanal.send({ embeds: [menu], components: [row11] })
         return interaction.reply({ embeds: [basarili], ephemeral: true }).catch((e) => { })
