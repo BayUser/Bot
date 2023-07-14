@@ -48,6 +48,44 @@ console.log(`[EVENT] ${name} eventi yüklendi.`)
 
 client.login(process.env.token)
 
+
+// Ticket oluşturma işlemini dinleme
+client.on('interactionCreate', async interaction => {
+  if (!interaction.isButton()) return;
+
+  if (interaction.customId === 'create_ticket') {
+    const guild = client.guilds.cache.get(interaction.guildId);
+    const member = guild.members.cache.get(interaction.user.id);
+
+    // Kanal oluşturma işlemleri
+    const channel = await guild.channels.create('ticket', {
+      type: 'text',
+      permissionOverwrites: [
+        {
+          id: guild.roles.everyone,
+          deny: ['VIEW_CHANNEL'],
+        },
+        {
+          id: member,
+          allow: ['VIEW_CHANNEL'],
+        },
+      ],
+    });
+
+    // Embed oluşturma
+    const ticketEmbed = new EmbedBuilder()
+      .setTitle('Yeni Ticket')
+      .setDescription(`Ticket oluşturuldu. Kanal: <#${channel.id}>`)
+      .setColor('#323338');
+
+    await interaction.reply({ embeds: [ticketEmbed], ephemeral: true });
+  }
+});
+
+// ...
+
+
+
 client.on("guildMemberAdd", async member => {
   const kanal = db.get(`greet_${member.guild.id}`)
   if(!kanal) return;
