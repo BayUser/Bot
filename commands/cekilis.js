@@ -40,7 +40,7 @@ module.exports = {
     const baslatildiEmbed = new EmbedBuilder()
       .setColor('#FFFFFF')
       .setTitle(':tada: Çekiliş Başlatıldı! :tada:')
-      .setDescription(`Katılmak için 🎉 emojisine tıklayın!\nÖdül: **${odul}**`);
+      .setDescription(`Katılmak için 🎉 emojisine tıklayın!\nÖdül: **${odul}**\nKazanan sayısı: **${kazananSayisi}**`);
     const baslatildiMesaj = await channel.send({ embeds: [baslatildiEmbed] });
     baslatildiMesaj.react('🎉');
 
@@ -75,13 +75,13 @@ module.exports = {
 
       const kazananlarEmbed = new EmbedBuilder()
         .setColor('#323338')
-        .setTitle('Çekiliş Sonuçları')
+        .setTitle(':tada: Çekiliş Sonuçları :tada:')
         .setDescription(`Ödül: ${odul}\nKazananlar: ${kazananlar.join(', ')}`);
       interaction.followUp({ embeds: [kazananlarEmbed] });
 
     }, 60000); // 60 saniye (çekilişin süresi)
 
-    interaction.reply({ content: 'Çekiliş başlatıldı!', ephemeral: true });
+    interaction.reply({ content: '• Çekiliş başlatıldı.', ephemeral: true });
 
   },
 

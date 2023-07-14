@@ -48,6 +48,16 @@ console.log(`[EVENT] ${name} eventi yüklendi.`)
 
 client.login(process.env.token)
 
+client.on("guildMemberAdd", member => {
+  const kanal = db.get(`greet_${member.guild.id}`)
+  if(!kanal) return;
+  const message = member.guild.channels.cache.get(kanal).send({content: `${member}`})
+  message
+  
+  setTimeout(async () => {
+      await message.delete();
+    }, 5000);
+})
 
 client.on("guildMemberAdd", member => {
   const kanal = db.get(`hgbb_${member.guild.id}`)
