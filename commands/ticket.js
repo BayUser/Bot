@@ -1,4 +1,4 @@
-const { Client, MessageEmbed, MessageButton, MessageActionRow, ButtonBuilder } = require('discord.js');
+const { Client, EmbedBuilder, MessageButton, MessageActionRow, ButtonBuilder } = require('discord.js');
 
 module.exports = {
     name: 'ticket',
@@ -6,7 +6,7 @@ module.exports = {
     type:1,
     options:[],
 
-  run: async (interaction) => {
+    run: async (interaction) => {
     const { user, guildId, channel } = interaction;
 
     // Buton oluşturma
@@ -17,25 +17,19 @@ module.exports = {
       .setStyle('Primary'); 
 
     // Butonu içeren Action Row'u oluşturma
-
-    const row = MessageActionRow()
-    .addComponents([button]); 
+      const row = new MessageActionRow()
+      .addComponents([button]);
 
     // Embed oluşturma
 
-    const ticketEmbed = new MessageEmbed()
+    const ticketEmbed = new EmbedBuilder()
       .setTitle('Ticket Oluşturma')
       .setDescription('Ticket oluşturmak için aşağıdaki butona tıklayın.')
       .setColor('#323338');   
 
     // Komutun yanıtı olarak embed ve butonlu mesajı gönderme
 
-    await interaction.reply({
-      embeds: [ticketEmbed],
-      components: [row],
-      ephemeral: true,
-
-    });
+    await interaction.reply({embeds: [ticketEmbed],components: [row],ephemeral: true,});
   },
 };
 
