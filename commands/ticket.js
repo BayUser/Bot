@@ -1,4 +1,4 @@
-const { Client, MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
+const { Client, MessageEmbed, MessageButton, MessageActionRow, ButtonBuilder } = require('discord.js');
 
 module.exports = {
     name: 'ticket',
@@ -11,14 +11,15 @@ module.exports = {
 
     // Buton oluşturma
 
-    const button = new MessageButton()
+    const button = new ButtonBuilder()
       .setCustomId('create_ticket')
       .setLabel('Ticket Oluştur')
-      .setStyle('PRIMARY'); 
+      .setStyle('Primary'); 
 
     // Butonu içeren Action Row'u oluşturma
 
-    const row = new MessageActionRow().addComponents(button); 
+    const row = MessageActionRow()
+    .addComponents([button]); 
 
     // Embed oluşturma
 
