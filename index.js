@@ -296,12 +296,15 @@ app1.get(
 },
 );
 
-app1.get("/test", (req, res) => {
+app1.get("/testing", (req, res) => {
   app1.set('view engine', 'ejs');
   app1.set('views', 'views')
   
   res.render("home");
 })
+app1.get("/", (req, res) => {
+  res.redirect("/callback")
+});
 
 app1.listen(port)
 console.log(`[SUNUCU] Sunucu dinleniyor ${port}.`);
