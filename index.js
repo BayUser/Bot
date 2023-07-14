@@ -51,6 +51,7 @@ client.login(process.env.token)
 
 
   client.on("interactionCreate", async (interaction) => {
+  
   const ticketSystem = db.fetch(`ticketSystem_${interaction.guild.id}`)
 
 
@@ -59,7 +60,7 @@ client.login(process.env.token)
   db.add(`ticketLvl_${interaction.guild.id}`, 1)
 
 
-  const ticketYetkili = await interaction.guild.roles.cache.find( ch => ch.id === ticketSystem.yetkili );
+  const ticketYetkili = await interaction.guild.roles.cache.find(ticketSystem.yetkili);
 
   const ticketCategory = db.fetch(`ticketCategory_${interaction.guild.id}`);
 
@@ -85,6 +86,7 @@ client.login(process.env.token)
  });
  const sebepTicket = new Discord.EmbedBuilder()
  .setDescription(`Neden talep açtınız?\n> \`${ticketsebep}\``)
+ .setColor("#323338")
  const ticketUserEmbed = new Discord.EmbedBuilder()
  .setAuthor({ name: `${interaction.user.username} | Talep açıldı`, iconURL: `${interaction.user.displayAvatarURL({ dynmaic: true })} ` })
  .setThumbnail(interaction.guild.iconURL({ dynmaic: true }))
@@ -93,7 +95,6 @@ client.login(process.env.token)
   { name: "Açılış zamanı:", value: `<t:${parseInt(channel.createdTimestamp / 1000)}:R>`, inline: true }
  ])
  .setColor('#32338')
- .setFooter({ text: `Oluşturan: ${client.user.tag}`, iconURL: `${client.user.displayAvatarURL({ dynmaic: true })}` })
  .setTimestamp()
  
  const row = new Discord.ActionRowBuilder()
