@@ -1,4 +1,4 @@
-const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
+const { Client, CommandInteraction, EmbedBuilder } = require('discord.js');
 
 module.exports = {
   name: 'cekilis',
@@ -8,16 +8,16 @@ module.exports = {
     {
 
       name: 'kazananlar',
-      description: 'Kazanan sayısını belirtin.',
-      type: 'INTEGER',
+      description: 'Çekiliş seçeneği.',
+      type: 4,
       required: true,
 
     },
     {
 
       name: 'odul',
-      description: 'Çekiliş ödülünü belirtin.',
-      type: 'STRING',
+      description: 'Çekiliş seçeneği.',
+      type: 3,
       required: true,
     },
   ],
@@ -31,16 +31,16 @@ module.exports = {
     if (kazananSayisi <= 0 || kazananSayisi > 10) {
 
       return interaction.reply({
-        content: 'Kazanan sayısı 1 ile 10 arasında olmalıdır.',
+        content: '• Kazanan sayısı 1 ile 10 arasında olmalıdır.',
         ephemeral: true,
       });
     }
     // Çekiliş başlatıldı mesajı
 
-    const baslatildiEmbed = new MessageEmbed()
-      .setColor('#323338')
-      .setTitle('Çekiliş Başlatıldı!')
-      .setDescription(`Katılmak için 🎉 emojisine tıklayın!\nÖdül: ${odul}`);
+    const baslatildiEmbed = new EmbedBuilder()
+      .setColor('#FFFFFF')
+      .setTitle(':tada: Çekiliş Başlatıldı! :tada:')
+      .setDescription(`Katılmak için 🎉 emojisine tıklayın!\nÖdül: **${odul}**`);
     const baslatildiMesaj = await channel.send({ embeds: [baslatildiEmbed] });
     baslatildiMesaj.react('🎉');
 
@@ -57,7 +57,7 @@ module.exports = {
       });
       if (katilanlar.length < kazananSayisi) {
         return interaction.followUp({
-          content: 'Yeterli katılım olmadığı için çekiliş iptal edildi.',
+          content: '• Yeterli katılım olmadığı için çekiliş iptal edildi.',
         });
       }
       // Kazananları seç
@@ -73,7 +73,7 @@ module.exports = {
 
       // Kazananları açıkla
 
-      const kazananlarEmbed = new MessageEmbed()
+      const kazananlarEmbed = new EmbedBuilder()
         .setColor('#323338')
         .setTitle('Çekiliş Sonuçları')
         .setDescription(`Ödül: ${odul}\nKazananlar: ${kazananlar.join(', ')}`);
