@@ -51,7 +51,8 @@ client.login(process.env.token)
 
 
   client.on("interactionCreate", async (interaction) => {
-  
+  if(interaction.customId === 'ticketform'){
+    
   const ticketSystem = db.fetch(`ticketSystem_${interaction.guild.id}`)
 
 
@@ -114,7 +115,7 @@ client.login(process.env.token)
   channel.send({ content: `<@${interaction.user.id}> | ${ticketYetkili}`, embeds: [ticketUserEmbed] })
   return channel.send({ embeds: [sebepTicket], components: [row]  })
 
-});
+}});
 
 
 
