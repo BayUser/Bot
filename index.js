@@ -283,6 +283,7 @@ app1.get('/logout', function(req, res, next){
 
 app1.get("/home", (req, res) => {
   if(!req.user){
+    return
     res.redirect("/giris");
     } else {
   app1.set('view engine', 'ejs');
@@ -292,7 +293,9 @@ app1.get("/home", (req, res) => {
   username: req.user.username,
   discriminator: req.user.discriminator,
   id: req.user.id,
-  }}
+  }
+  res.render("index", args)
+  }
 });
 
 app1.get(
