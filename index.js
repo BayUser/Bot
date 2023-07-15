@@ -260,6 +260,11 @@ res.redirect("/callback")
 );
 
 app1.get("/profile", (req, res, input) => {
+  if(!req.user){
+    return
+    res.redirect("/giris");
+    
+    } else {
   app1.set('view engine', 'ejs');
   app1.set('views', 'views')
 
@@ -272,6 +277,7 @@ app1.get("/profile", (req, res, input) => {
   dbd: db.delete(`Premiums.${input.value}`,`${input.value}`),
  } 
   res.render("profile", args)
+      }
 });
 
 app1.get('/logout', function(req, res, next){
