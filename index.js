@@ -282,6 +282,9 @@ app1.get('/logout', function(req, res, next){
 });
 
 app1.get("/home", (req, res) => {
+  if(!req.user){
+    res.redirect("/giris");
+    } else {
   app1.set('view engine', 'ejs');
   app1.set('views', 'views')
   console.log(`${req.user.username} Adlı kullanıcı siteye giriş yaptı.`)
@@ -289,7 +292,7 @@ app1.get("/home", (req, res) => {
   username: req.user.username,
   discriminator: req.user.discriminator,
   id: req.user.id,
-  }
+  }}
 });
 
 app1.get(
