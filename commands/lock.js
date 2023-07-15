@@ -1,27 +1,23 @@
 const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
-    name:'lock'),
-    description:('Kanala erişimi kapatır.'),
+    name: "lock",
+    description: "Lock komutu.",
+    type: 7,
+    options:[],
 
-  async execute(interaction) {
-
+    run: async (interaction) => {
+      
     const channel = interaction.channel;
-
     if (channel.permissionsFor(interaction.guild.roles.everyone).has('SEND_MESSAGES')) {
-
       await channel.permissionOverwrites.create(interaction.guild.roles.everyone, {
 
         SEND_MESSAGES: false
 
       });
-
-      await interaction.reply('Kanal başarıyla kilitlendi.');
-
+      await interaction.reply('• Kanal kilitlendi.');
     } else {
-
-      await interaction.reply('Kanal zaten kilitli.');
-
+      await interaction.reply('• Kanal zaten kilitli.');
     }
 
   },
