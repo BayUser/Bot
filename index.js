@@ -290,7 +290,6 @@ app1.get("/home", (req, res) => {
   discriminator: req.user.discriminator,
   id: req.user.id,
   }
-  res.render("index", args);
 });
 
 app1.get(
