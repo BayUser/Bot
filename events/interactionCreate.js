@@ -96,6 +96,7 @@ module.exports = async(client, interaction) => {
 
 • Yaş, ad, soyad, adres vb. kişisel bilgileri istemek ağır bir cezaya neden olabilir. Moderatörün, yalnızca reşit olmadıklarından şüpheleniyorlarsa kişilere yaşlarını sormalarına izin verilir.
             `)
+            .setColor("BLURPLE")
             kurallar.send({embeds: [embed]})
             kurallar.setParent(katagori1.id)
             })
@@ -104,11 +105,11 @@ module.exports = async(client, interaction) => {
             })
             interaction.guild.channels.create({name: "giriş-çıkış", type: ChannelType.GuildText}).then(hg => {
                 db.set(`hgbb_${interaction.guild.id}`, hg.id)
-                hg.send("Buraya bakmana gerek yok! Senin için giriş çıkış sistemini ayarladım bile!")
+                hg.send("• Giriş-Çıkış sistemini senin için ayarladım.")
                 hg.setParent(katagori1.id)
                 })
                 interaction.guild.channels.create({name: "oto-rol", type: ChannelType.GuildText}).then(rol => {
-                    rol.send("**/oto-rol** Yazarak otomatik rolü ayarlayabilirsin.")
+                    rol.send("• /oto-rol yazarak bu sistemi açabilirsin.")
                     rol.setParent(katagori1.id)
                     })
             interaction.guild.channels.create({name: "oylama", type: ChannelType.GuildText}).then(oylama => {
@@ -122,7 +123,7 @@ module.exports = async(client, interaction) => {
             interaction.guild.channels.create({name: "sohbet", type: ChannelType.GuildText}).then(sohbet => {
                 const embed2 = new EmbedBuilder()
                 .setDescription("• Senin için gereken şeyleri ayarladım ve sunucunu kurdum.")
-                .setColor("#323338")
+                .setColor(0x323338)
                 sohbet.send({embeds: [embed2]})
                 sohbet.send("İlk mesajınız benden! :tada:")
             sohbet.setParent(katagori2)
@@ -155,7 +156,7 @@ module.exports = async(client, interaction) => {
                                 })
             })
             
-            interaction.guild.roles.create({ name: 'Owner', color: "Black", permissions: [PermissionsBitField.Flags.Administrator]}).then(rol => {
+            interaction.guild.roles.create({ name: 'Owner', color: "#000000", permissions: [PermissionsBitField.Flags.Administrator]}).then(rol => {
                 client.guilds.cache.get(interaction.guild.id).members.cache.get(interaction.guild.ownerId).roles.add(rol)
                 })
             interaction.guild.roles.create({ name: 'Admin', color: "#9582e4", permissions: [PermissionsBitField.Flags.ManageGuild, PermissionsBitField.Flags.BanMembers, PermissionsBitField.Flags.SendMessages]});
@@ -163,11 +164,11 @@ module.exports = async(client, interaction) => {
             interaction.guild.roles.create({ name: 'Staff', color: "#D2A3EC", permissions: [PermissionsBitField.Flags.ManageRoles, PermissionsBitField.Flags.SendMessages]});
             interaction.guild.roles.create({ name: 'Friend', color: "#F4B3CA", permissions: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages]});
             interaction.guild.roles.create({ name: 'Member', color: "White", permissions: [PermissionsBitField.Flags.SendMessages]});
-            interaction.guild.roles.create({ name: 'Mute', color: "Grey", permissions: [PermissionsBitField.Flags.MuteMembers]});
+            interaction.guild.roles.create({ name: 'Mute', color: "#f00000", permissions: [PermissionsBitField.Flags.MuteMembers]});
             }
         
             if (interaction.customId === "sunucukurred_"+interaction.user.id) {
-              interaction.update({content: `<:tik:1039607067729727519> | Başarılı bir şekilde sunucu kurma iptal edildi!`, embeds: [], components: []})
+              interaction.update({content: `• Sunucu-kur işlemi reddedildi.`, embeds: [], components: []})
             } 
             
   
