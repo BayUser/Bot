@@ -31,12 +31,12 @@ module.exports = async(client, interaction) => {
     if(!interaction.member.roles.cache.has(butonrol)) {    
 
       interaction.member.roles.add(butonrol)
-      interaction.reply({content: "<:tik:1039607067729727519> | Rol Başarıyla Verildi!", ephemeral: true})
+      interaction.reply({content: `• Butona tıkladığın için sana ${butonrol} rolünü verdim.`, ephemeral: true})
 
     } else {      
 
       interaction.member.roles.remove(butonrol)
-      interaction.reply({content: "<:carpi:1040649840394260510> | Rol Başarıyla Alındı!", ephemeral: true})
+      interaction.reply({content: `• Butona tıkladığın için senden ${butonrol} rolünü geri aldım.`, ephemeral: true})
 
     }
     }  

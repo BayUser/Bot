@@ -16,7 +16,7 @@ module.exports = {
         required: true
     },
     {
-      name: "yazı",
+      name: "acıklama",
       description: "Buton-Rol seçeneği.",
       type: 3,
       required: true
