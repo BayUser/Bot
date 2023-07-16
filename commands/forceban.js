@@ -17,15 +17,10 @@ module.exports = {
   if (!interaction.member.permissions.has("BAN_MEMBERS")) {
   return interaction.reply("• Bu komut için yeterli yetkiye sahip değilsin.");
    }
-
-    
-    
-    if (!args[0]) return interaction.reply("• Birşeyler ters gitti.");
-
-    let kisi = args[0];
+    let kisi = interaction.options.getMember('user');
 
     interaction.guild.members.ban(kisi).then(() => {
-    interaction.reply(`**<:emoji_6:1126458236711731200> | ${kisi}** ID numaralı kullanıcı yasaklandı.`)
+    interaction.reply(`**<:emoji_6:1126458236711731200> | ${kisi}** Adlı kullanıcı yasaklandı.`)
 
     
 
