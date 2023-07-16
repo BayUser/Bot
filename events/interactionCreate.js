@@ -96,7 +96,6 @@ module.exports = async(client, interaction) => {
 
 • Yaş, ad, soyad, adres vb. kişisel bilgileri istemek ağır bir cezaya neden olabilir. Moderatörün, yalnızca reşit olmadıklarından şüpheleniyorlarsa kişilere yaşlarını sormalarına izin verilir.
             `)
-            .setColor("#323338")
             kurallar.send({embeds: [embed]})
             kurallar.setParent(katagori1.id)
             })
