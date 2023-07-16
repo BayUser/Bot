@@ -41,7 +41,7 @@ readdirSync('./events').forEach(e => {
   const name = e.split(".")[0];
 
   client.on(name, (...args) => {
-            eve(client, ...args)
+          eve(client, ...args)
         });
 console.log(`[EVENT] ${name} eventi yüklendi.`)
 });
