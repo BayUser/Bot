@@ -57,21 +57,46 @@ module.exports = async(client, interaction) => {
               interaction.guild.channels.create({name: "özel-chat", type: ChannelType.GuildText}).then(channel => {
                 channel.permissionOverwrites.create(channel.guild.roles.everyone, { ViewChannel: false });
                         })
-                        interaction.guild.channels.create({name: "▬▬ ÖNEMLİ ▬▬", type: ChannelType.GuildCategory}).then(katagori1 => {
-                            interaction.guild.channels.create({name: "📜・Kurallar", type: ChannelType.GuildText}).then(kurallar => {
+                        interaction.guild.channels.create({name: "📍 • Bilgilendirme", type: ChannelType.GuildCategory}).then(katagori1 => {
+                            interaction.guild.channels.create({name: "kurallar", type: ChannelType.GuildText}).then(kurallar => {
                                 const embed = new EmbedBuilder()
-            .setTitle(':blue_book:  Sunucu Kuralları  :blue_book:')
+            .setTitle(`${interaction.guild.name} Kuralları;`)
             .setDescription(`
-            **__${interaction.guild.name} Sunucu Kuralları__**                                    
-            \`1)\` :blue_book: **・ Yetkililere Etiket Atmak Yasak! ・\`Mute\`・**
-            \`2)\` :blue_book: **・ Küfür, Argo Kullanımı Yasak! ・\`Mute\`・**
-            \`3)\` :blue_book: **・ Siyaset, Irkçılık ve Dini Konuları Konuşmak Yasak!  ・\`Ban\`・**
-            \`4)\` :blue_book: **・ Reklam Yapmak Yasak! ・\`Ban\`・**
-            \`5)\` :blue_book: **・ Flood Yapmak Yasak! ・\`Mute\`・**
-            \`6)\` :blue_book: **・ Caps Lock ile Yazmak Yasak! ・\`Mute\`・**
-            \`7)\` :blue_book: **・ Yetkilileri Dinlememek Yasak! ・\`Mute\`・**
-            \`8)\` :blue_book: **・**\`Kurallara Herkes Uymak Zorundadır. Kuralları Okumayanlar, Bilmeyenler Yetkililerimizin Gözünde Okumuş Olarak Kabul Edilecektir.\`
+            ||
+
+||*Biz bir topluluğuz, topluluk olarak bize katılmaya karar veren herkes için güvenli bir ortam sağlamalıyız. Bununla birlikte sunucu yapısını kuran kurallarımız var. Bu sunucu kuralları gelecekte değiştirilebilir. Ceza, suça göre değişiklik gösterebilir.*
+
+**__#1. Nefret Söylemine İzin Verilmiyor__**
+
+• Bu sunucuyu herhangi bir şekilde nefret söylemi yaymak için kullanan herkes sunucudan uzaklaştırılacaktır.
+
+• Bir grup insanı yaşam tarzlarına, ırklarına, cinsiyetlerine, cinsel yönelimlerine/kimliklerine vb. göre tehdit edici açıklamalar yapmayın.
+
+• Bu kategoriye giren "şakalar" yapılmasına da izin verilmez. Tarihteki trajik olayları küçümseyen karanlık/acımasız şakalar yapmaktan muaf değilsiniz.
+
+**__#2. Kışkırtıcı/Kaba Davranışlara İzin Verilmez__**
+
+• Kişisel sorunları bu Discord sunucusuna taşımayın. Başka bir sunucu üyesiyle herhangi bir çatışmaya girerseniz cezalandırılırsınız.
+
+• Buna siyaset, inançlar vb. gibi konulardan bahsetmek de dahildir. Bir personel size konuyu bırakmanız için bir şans verir, uymamanız ceza almanıza neden olur.
+
+**__#3. Spam Gönderme/Reklam Yapılmasına İzin Verilmez__**
+
+• Metin kanallarının reklam/saçmalıklarla dolup taşmasına izin verilmez. İnsanların düzgün bir şekilde sohbet edebilmesini engeller.
+
+• Gereksiz spoiler, aşırı CaPs lOcK, epilepsiye neden olabilecek emoji, gif kullanılmasına izin verilmez.
+
+• Reklama izin verilmez, nokta. Kişilerin doğrudan mesajları yoluyla reklam yapmak da yasaklanmanızla sonuçlanacaktır. Uyarı değil, sessize alma değil, yasaklama.
+
+• Flood yapmanıza da spam yapmanız şeklinde bakacağız.
+
+**__#4. Doxxing'e İzin Verilmiyor__**
+
+• İnsanların gizliliğini ciddiye alıyoruz, kişisel bilgilerinizi ifşa ederken yakalanırsanız yasaklanacaksınız. Discord'un Hizmet Şartlarına aykırıdır.
+
+• Yaş, ad, soyad, adres vb. kişisel bilgileri istemek ağır bir cezaya neden olabilir. Moderatörün, yalnızca reşit olmadıklarından şüpheleniyorlarsa kişilere yaşlarını sormalarına izin verilir.
             `)
+            .setColor("#323338")
             kurallar.send({embeds: [embed]})
             kurallar.setParent(katagori1.id)
             })
@@ -90,11 +115,11 @@ module.exports = async(client, interaction) => {
             interaction.guild.channels.create({name: "oylama", type: ChannelType.GuildText}).then(oylama => {
                 oylama.setParent(katagori1.id)
                 })
-                interaction.guild.channels.create({name: "giveaway", type: ChannelType.GuildText}).then(giveaway => {
+                interaction.guild.channels.create({name: "çekiliş", type: ChannelType.GuildText}).then(giveaway => {
                     giveaway.setParent(katagori1.id)
                     })
             })
-            interaction.guild.channels.create({name: "📍 • GENEL", type: ChannelType.GuildCategory}).then(katagori2 => {
+            interaction.guild.channels.create({name: "📍 • Genel", type: ChannelType.GuildCategory}).then(katagori2 => {
             interaction.guild.channels.create({name: "sohbet", type: ChannelType.GuildText}).then(sohbet => {
                 const embed2 = new EmbedBuilder()
                 .setDescription("• Senin için gereken şeyleri ayarladım ve sunucunu kurdum.")
