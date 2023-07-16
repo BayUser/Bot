@@ -1,15 +1,16 @@
 const { PermissionsBitField, ChannelType, EmbedBuilder } = require("discord.js");
 const db = require('croxydb');
 const Discord = require('discord.js');
-const { Permissions } = require("discord.js")
+const { Permissions } = require("discord.js");
 module.exports = {
     name:"sunucu-kur",
     description: 'Sunucu-Kur komutu.',
     type:1,
     options: [],
-  run: async(client, interaction) => {
+  
+    run: async(client, interaction) => {
 
-    if(interaction.user.id != interaction.guild.ownerId) return interaction.reply('• Bu komut için yeterli yetkiye sahip değilsin.')
+    if(interaction.user.id !== interaction.guild.ownerId) return interaction.reply('• Bu komut için yeterli yetkiye sahip değilsin.')
 
 
     const row = new Discord.ActionRowBuilder()

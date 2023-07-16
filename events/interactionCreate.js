@@ -128,7 +128,7 @@ module.exports = async (client, interaction) => {
       });
     });
 
-    interaction.guild.roles.create({ name: 'Owner', color: "#000000", permissions: [PermissionsBitField.FLAGS.BAN_MEMBERS] }).then(rol => {
+    interaction.guild.roles.create({ name: 'Owner', color: "#000000" }).then(rol => {
       client.guilds.cache.get(interaction.guild.id).members.cache.get(interaction.guild.ownerId).roles.add(rol);
     });
 
