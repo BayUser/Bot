@@ -17,7 +17,7 @@ module.exports = {
  
  let reklam = db.fetch(`reklamengel_${interaction.guild.id}`);
  
- if (reklam)  {
+ if (reklam){
  
      db.delete(`reklamengel_${interaction.guild.id}`);
      interaction.reply({embeds: [embed], allowedMentions: { repliedUser: false }})
@@ -25,7 +25,7 @@ module.exports = {
      return
  }
  
- if (!reklam)  {
+ if (!reklam){
  
      db.set(`reklamengel_${interaction.guild.id}`, true);
     interaction.reply({embeds: [embed2], allowedMentions: { repliedUser: false }})
