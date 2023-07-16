@@ -1,33 +1,37 @@
-const Discord = require('discord.js');
-const { Client, EmbedBuilder } = require("discord.js");
+// kick.js
+
+const { CommandInteraction } = require('discord.js');
 
 module.exports = {
-  name: 'kick',
-  description: 'Kick komutu.',
-  type:1,
-  options:[
-    {
-    name:"user",
-    description:"Kick seçeneği.",
-    type:6,
-    required:true
-    }
-  ],
+    name: 'kick',
+    description: 'Kick komutu.',
+    options: [
+        {
+            name: 'user',
+            description: 'Kick seçeneği.',
+            type:6,
+            required: true,
+        },
+        {
+            name: 'reason',
+            description: 'Kick seçeneği.',
+            type:3,
+            required: false,
+        },
+    ],
+    run: async(interaction = CommandInteraction) => {
+        const member = interaction.options.getMember('user');
+        const reason = interaction.options.getString('reason') || 'Sebep girilmedi.';
 
-  run: async(client, interaction, args) => {
+        if (!member.kickable) {
+            return interaction.reply('• Birşeyler ters gitti.');
+        }
 
-  if (!interaction.member.permissions.has("BAN_MEMBERS")) {
-  return interaction.reply("• Bu komut için yeterli yetkiye sahip değilsin.");
-   }
-    let kisi = interaction.options.getMember('user');
-
-    interaction.guild.members.kick(kisi).then(() => {
-    interaction.reply(`• ${kisi} Adlı kullanıcı sunucudan atıldı.`)
-
-    
-
-    }).catch(err => {
-        interaction.reply("• Birşeyler ters gitti.");
-    })
-}
-}
+        try {
+            await member.kick(reason);
+            interaction.reply(`• ${member.user.tag} Adlı kullanıcı sunucudan atıldı.`);
+        } catch (error) {
+            interaction.reply('• Birşeyler ters gitti.');
+        }
+    },
+};
