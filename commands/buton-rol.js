@@ -35,15 +35,9 @@ module.exports = {
 
   const rol = interaction.options.getRole('rol')
 
-  const yazı = interaction.options.getString('yazı')
+  const yazı = interaction.options.getString('acıklama')
 
 
-
-  const embed = new EmbedBuilder()
-
-  .setAuthor({ name:"Mechatron | Button Role" })
-  .setDescription(`${yazı}`)
-  .setColor("#323338")
 
   const row = new Discord.ActionRowBuilder()
 
@@ -59,7 +53,7 @@ module.exports = {
 
   )
 
-  interaction.reply({ embeds: [embed], components: [row] })
+  interaction.reply({ content: `${yazı}`, components: [row] })
 
 
 
