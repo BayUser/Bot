@@ -21,13 +21,10 @@ module.exports = async(client, interaction) => {
 
       }
     });
-
-  }
-
+    }
+  
     const butonrol = db.fetch(`buton_rol${interaction.guild.id}`)
 
-    if(butonrol)
-    if (!interaction.isButton()) return;
     if(interaction.customId === "rol") {
     if(!interaction.member.roles.cache.has(butonrol)) { 
       
@@ -37,5 +34,5 @@ module.exports = async(client, interaction) => {
       interaction.member.roles.remove(butonrol)
       interaction.reply({content: "<:carpi:1040649840394260510> | Rol Başarıyla Alındı!", ephemeral: true})
     }
-      }  
+  }  
 };
