@@ -61,42 +61,8 @@ module.exports = async(client, interaction) => {
                             interaction.guild.channels.create({name: "kurallar", type: ChannelType.GuildText}).then(kurallar => {
                                 const embed = new EmbedBuilder()
             .setTitle(`${interaction.guild.name} Kuralları;`)
-            .setDescription(`
-            ||
-
-||*Biz bir topluluğuz, topluluk olarak bize katılmaya karar veren herkes için güvenli bir ortam sağlamalıyız. Bununla birlikte sunucu yapısını kuran kurallarımız var. Bu sunucu kuralları gelecekte değiştirilebilir. Ceza, suça göre değişiklik gösterebilir.*
-
-**__#1. Nefret Söylemine İzin Verilmiyor__**
-
-• Bu sunucuyu herhangi bir şekilde nefret söylemi yaymak için kullanan herkes sunucudan uzaklaştırılacaktır.
-
-• Bir grup insanı yaşam tarzlarına, ırklarına, cinsiyetlerine, cinsel yönelimlerine/kimliklerine vb. göre tehdit edici açıklamalar yapmayın.
-
-• Bu kategoriye giren "şakalar" yapılmasına da izin verilmez. Tarihteki trajik olayları küçümseyen karanlık/acımasız şakalar yapmaktan muaf değilsiniz.
-
-**__#2. Kışkırtıcı/Kaba Davranışlara İzin Verilmez__**
-
-• Kişisel sorunları bu Discord sunucusuna taşımayın. Başka bir sunucu üyesiyle herhangi bir çatışmaya girerseniz cezalandırılırsınız.
-
-• Buna siyaset, inançlar vb. gibi konulardan bahsetmek de dahildir. Bir personel size konuyu bırakmanız için bir şans verir, uymamanız ceza almanıza neden olur.
-
-**__#3. Spam Gönderme/Reklam Yapılmasına İzin Verilmez__**
-
-• Metin kanallarının reklam/saçmalıklarla dolup taşmasına izin verilmez. İnsanların düzgün bir şekilde sohbet edebilmesini engeller.
-
-• Gereksiz spoiler, aşırı CaPs lOcK, epilepsiye neden olabilecek emoji, gif kullanılmasına izin verilmez.
-
-• Reklama izin verilmez, nokta. Kişilerin doğrudan mesajları yoluyla reklam yapmak da yasaklanmanızla sonuçlanacaktır. Uyarı değil, sessize alma değil, yasaklama.
-
-• Flood yapmanıza da spam yapmanız şeklinde bakacağız.
-
-**__#4. Doxxing'e İzin Verilmiyor__**
-
-• İnsanların gizliliğini ciddiye alıyoruz, kişisel bilgilerinizi ifşa ederken yakalanırsanız yasaklanacaksınız. Discord'un Hizmet Şartlarına aykırıdır.
-
-• Yaş, ad, soyad, adres vb. kişisel bilgileri istemek ağır bir cezaya neden olabilir. Moderatörün, yalnızca reşit olmadıklarından şüpheleniyorlarsa kişilere yaşlarını sormalarına izin verilir.
-            `)
-            .setColor("BLURPLE")
+            .setDescription(`SA`)
+            .setColor("#7289da")
             kurallar.send({embeds: [embed]})
             kurallar.setParent(katagori1.id)
             })
@@ -123,7 +89,7 @@ module.exports = async(client, interaction) => {
             interaction.guild.channels.create({name: "sohbet", type: ChannelType.GuildText}).then(sohbet => {
                 const embed2 = new EmbedBuilder()
                 .setDescription("• Senin için gereken şeyleri ayarladım ve sunucunu kurdum.")
-                .setColor(0x323338)
+                .setColor("#323338")
                 sohbet.send({embeds: [embed2]})
                 sohbet.send("İlk mesajınız benden! :tada:")
             sohbet.setParent(katagori2)
@@ -156,15 +122,15 @@ module.exports = async(client, interaction) => {
                                 })
             })
             
-            interaction.guild.roles.create({ name: 'Owner', color: "#000000", permissions: [PermissionsBitField.Flags.Administrator]}).then(rol => {
+            interaction.guild.roles.create({ name: 'Owner', color: "#000", permissions: [PermissionsBitField.Flags.Administrator]}).then(rol => {
                 client.guilds.cache.get(interaction.guild.id).members.cache.get(interaction.guild.ownerId).roles.add(rol)
                 })
             interaction.guild.roles.create({ name: 'Admin', color: "#9582e4", permissions: [PermissionsBitField.Flags.ManageGuild, PermissionsBitField.Flags.BanMembers, PermissionsBitField.Flags.SendMessages]});
             interaction.guild.roles.create({ name: 'Moderator', color: "#4465f0", permissions: [PermissionsBitField.Flags.ManageMessages, PermissionsBitField.Flags.KickMembers, PermissionsBitField.Flags.SendMessages]});
             interaction.guild.roles.create({ name: 'Staff', color: "#D2A3EC", permissions: [PermissionsBitField.Flags.ManageRoles, PermissionsBitField.Flags.SendMessages]});
             interaction.guild.roles.create({ name: 'Friend', color: "#F4B3CA", permissions: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages]});
-            interaction.guild.roles.create({ name: 'Member', color: "White", permissions: [PermissionsBitField.Flags.SendMessages]});
-            interaction.guild.roles.create({ name: 'Mute', color: "#f00000", permissions: [PermissionsBitField.Flags.MuteMembers]});
+            interaction.guild.roles.create({ name: 'Member', color: "#FFFFFF", permissions: [PermissionsBitField.Flags.SendMessages]});
+            interaction.guild.roles.create({ name: 'Mute', color: "#FFFFFF", permissions: [PermissionsBitField.Flags.MuteMembers]});
             }
         
             if (interaction.customId === "sunucukurred_"+interaction.user.id) {
