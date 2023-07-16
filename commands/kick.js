@@ -1,25 +1,33 @@
-const { PermissionsBitField } = require("discord.js");
+const Discord = require('discord.js');
+const { Client, EmbedBuilder } = require("discord.js");
+
 module.exports = {
-    name:"kick",
-    description: 'Kick komutu.',
-    type:1,
-    options: [
-        {
-            name:"user",
-            description:"Atılacak kullanıcıyı seçin.",
-            type:6,
-            required:true
-        },
-       
-    ],
-  run: async(client, interaction) => {
+  name: 'kick',
+  description: 'Kick komutu.',
+  type:1,
+  options:[
+    {
+    name:"user",
+    description:"Kick seçeneği.",
+    type:6,
+    required:true
+    }
+  ],
 
-    if(!interaction.member.permissions.has(PermissionsBitField.Flags.KickMembers)) return interaction.reply({content: "• Bu komut için yeterli yetkiye sahip değilsin.", ephemeral: true})
-    const user = interaction.options.getMember('user')
-    if(user.permissions.has(PermissionsBitField.Flags.BanMembers)) return interaction.reply({content:"• Bu kullanıcı sunucu admini olduğu için sunucudan atılamadı.",ephemeral:true})
-    user.kick();
-    interaction.reply({content: "• Üye sunucudan atıldı."})
+  run: async(client, interaction, args) => {
+
+  if (!interaction.member.permissions.has("BAN_MEMBERS")) {
+  return interaction.reply("• Bu komut için yeterli yetkiye sahip değilsin.");
+   }
+    let kisi = interaction.options.getMember('user');
+
+    interaction.guild.members.kick(kisi).then(() => {
+    interaction.reply(`• ${kisi} Adlı kullanıcı sunucudan atıldı.`)
+
+    
+
+    }).catch(err => {
+        interaction.reply("• Birşeyler ters gitti.");
+    })
 }
-
-};
-//ANKA CODE
+}
