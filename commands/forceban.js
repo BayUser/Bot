@@ -18,6 +18,8 @@ module.exports = {
   return interaction.reply("• Bu komut için yeterli yetkiye sahip değilsin.");
    }
 
+    
+    
     if (!args[0]) return interaction.reply("• Birşeyler ters gitti.");
 
     let kisi = args[0];
