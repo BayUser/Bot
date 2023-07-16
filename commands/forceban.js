@@ -5,7 +5,12 @@ module.exports = {
   name: 'forceban',
   description: 'Forceban komutu.',
   type:1,
-  options:[],
+  options:[{
+    name:"user",
+    description:"Forceban seçeneği.",
+    type:6,
+    required:true
+  }],
 
   run: async(client, interaction, args) => {
 
@@ -18,12 +23,12 @@ module.exports = {
     let kisi = args[0];
 
     interaction.guild.members.ban(kisi).then(() => {
-    interaction.reply(`**${kisi}** I`)
+    interaction.reply(`**<:emoji_6:1126458236711731200> | ${kisi}** ID numaralı kullanıcı yasaklandı.`)
 
     
 
     }).catch(err => {
-        interaction.reply("Bir hata oluştu.");
+        interaction.reply("• Birşeyler ters gitti.");
     })
 }
 }
