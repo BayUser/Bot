@@ -1,7 +1,7 @@
 const { Client, CommandInteraction, EmbedBuilder } = require('discord.js');
 
 module.exports = {
-  name: 'cekilis',
+  name: 'çekilis',
   description: 'Çekiliş komutu.',
   type: 1,
   options: [
