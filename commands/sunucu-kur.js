@@ -9,7 +9,7 @@ module.exports = {
     options: [],
   run: async(client, interaction) => {
 
-    if(interaction.user.id !== interaction.guild.ownerId) return interaction.reply('• Bu komut için yeterli yetkiye sahip değilsin.')
+    if(interaction.user.id != interaction.guild.ownerId) return interaction.reply('• Bu komut için yeterli yetkiye sahip değilsin.')
 
 
     const row = new Discord.ActionRowBuilder()
