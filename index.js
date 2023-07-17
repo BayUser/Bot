@@ -1,9 +1,11 @@
 const { Client, GatewayIntentBits, Partials, EmbedBuilder, TextInputBuilder, TextInputStyle, InteractionType, SelectMenuInteraction, ButtonBuilder, SelectMenuBuilder, ModalBuilder, ActionRowBuilder } = require("discord.js");
 const INTENTS = Object.values(GatewayIntentBits);
 const PARTIALS = Object.values(Partials);
-const Discord = require("discord.js")
-const db = require("croxydb")
+const Discord = require("discord.js");
+const db = require("croxydb");
 const config = require("./config.json");
+const express = require("express");
+const port = 8080;
 const client = new Client({
     intents: INTENTS,
     allowedMentions: {
@@ -56,6 +58,13 @@ client.on("guildMemberAdd", async member => {
       message.delete();
     }, 10000);
 })
+
+const app = express();
+app.get("/", (req, res) => {
+  res.send("OK")
+})
+app.listen(port)
+console.log("Mechatron Aktif.")
 
 client.on("guildMemberAdd", member => {
   const kanal = db.get(`hgbb_${member.guild.id}`)
@@ -203,118 +212,3 @@ interaction.reply({embeds: [embed], components: [], ephemeral: true})
     interaction.reply({embeds: [embed3], components: [], ephemeral: true})
   }
 })
-
-
-const passport = require("passport");
-const express = require("express");
-const session = require("express-session");
-const { Strategy } = require("passport-discord");
-const app1 = express();
-const port = 3000;
-
-const isAuthenticated = false;
-const requireAuth = (req, res, next) => {
-  if (isAuthenticated) {
-    next();
-  } else {
-    res.redirect('/giris');
-  }
-};
-
-passport.serializeUser((user, done) => done(null, user));
-passport.deserializeUser((user, done) => done(null, user));
-
-const secret = process.env.Secret
-const strategy = new Strategy(
-
-	{		
-    clientID: "1090346236655173712",
-    clientSecret: secret,
-		callbackURL: `https://giddy-dirt-lavender.glitch.me/callback`,
-		scope: ["identify"],
-
-	},
-
-	(_access_token, _refresh_token, user, done) =>
-	process.nextTick(() => done(null, user)),
-
-);
-
-passport.use(strategy);
-app1.use(
-	session({
-
-		secret: "secret",
-		resave: false,
-		saveUninitialized: false,
-
-	}),
-
-);
-
-app1.use(passport.session());
-app1.use(passport.initialize());
-
-app1.get("/giris", (_req, res) => 
-res.redirect("/callback")
-);
-
-app1.get("/profile", (req, res, input) => {
-  if(!req.user){
-    res.redirect("/giris");
-    } else {
-  app1.set('view engine', 'ejs');
-  app1.set('views', 'views')
-
-  let args = {
-  username: req.user.username,
-  discriminator: req.user.discriminator,
-  avatar: req.user.avatar,
-  id: req.user.id,
-  pre: db.has("Premiums." + req.user.id),
-  dbd: db.delete(`Premiums.${input.value}`,`${input.value}`),
- } 
-  res.render("profile", args)
-      }
-});
-
-app1.get('/logout', function(req, res, next){
-  req.logout(function(err) {
-    if (err) { return next(err); }
-    res.redirect('/');
-  });
-});
-
-app1.get("/home", (req, res) => {
-  if(!req.user){
-    res.redirect("/giris");
-    } else {
-  app1.set('view engine', 'ejs');
-  app1.set('views', 'views')
-  let args = {
-  username: req.user.username,
-  discriminator: req.user.discriminator,
-  id: req.user.id,
-  }
-  res.render("index", args)
-}
-});
-
-app1.get(
-	"/callback",
-	passport.authenticate("discord", {
-    
-		failureRedirect: "/hata",
-	}),
-	(_req, res) => {
-  res.redirect("/home")
-},
-);
-
-app1.get("/", (req, res) => {
-  res.redirect("/home")
-});
-
-app1.listen(port)
-console.log(`[SUNUCU] Sunucu dinleniyor ${port}.`);
-
