@@ -33,7 +33,7 @@
     <div class="left">
       <% if (id == 860229283598827540) { %>
       <span>Welcome the,</span>
-      <h3><%= username %>#<%= discriminator %><img src="icons/admin.png" class="badge"></img></h3>
+      <h3><%= username %>#<%= discriminator %></h3><img class="badge" src="../views/icons/admin.png" ></img>
       <span class="des">Profile.</span>
       <% } else { %>
           <span>Welcome the,</span>
@@ -194,14 +194,11 @@ header ul li a:hover {
   
 .badge {
   border-radius: 50%;
-  height: 300px;
-  width: 250px;
+  height: 50px;
+  width: 50px;
   object-fit: cover;  
-  box-shadow:0 7px 25px #1b1b1b;
-   max-width:100%;
-   position:relative;
-   background:#222222;
-   animation: hover 5s ease-in-out infinite;
+  max-width:100%;
+  position:relative;
 }
   
 .dark {
