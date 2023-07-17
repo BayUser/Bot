@@ -291,7 +291,6 @@ app1.get("/home", (req, res) => {
     } else {
   app1.set('view engine', 'ejs');
   app1.set('views', 'views')
-  console.log(`${req.user.username} Adlı kullanıcı siteye giriş yaptı.`)
   let args = {
   username: req.user.username,
   discriminator: req.user.discriminator,
