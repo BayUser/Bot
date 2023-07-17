@@ -18,7 +18,7 @@
       <li><a href="/home" id="nav1">Ana Sayfa</a></li>
       <li><a href="https://discord.com/oauth2/authorize?client_id=1090346236655173712&scope=bot&permissions=8" id="nav2">Davet Et</a></li>
       <li><a href="https://discord.gg/MWBMqd7jjz" id="nav3">Discord</a></li>
-      <li><a href="/profile" id="nav4"><%= username %>#<%= discriminator %></a></li>
+      <li><a href="/profile" id="nav4"><%= username %></a></li>
       <li>
         <div class="switch">
           <div class="switchcircle">
@@ -31,15 +31,15 @@
   </header>
   <section id="home">
     <div class="left">
-      <% if (id == 860229283598827540) { %>
+      <% if(id == 860229283598827540) { %>
       <span>Welcome the,</span>
-      <h3> <%= username %>#<%= discriminator %> <img class="badge" src=""></h3>
+      <h3> <%= username %> <img class="badge" src="https://media.discordapp.net/attachments/1125194165513375804/1130542233016356975/discotools-xyz-icon-1.png"></h3>
       <span class="des">Profile.</span>
       <% } else { %>
           <span>Welcome the,</span>
-          <h3><%= username %>#<%= discriminator %></h3>
+          <h3> <%= username %> <img class="badge" src="https://media.discordapp.net/attachments/1125194165513375804/1130542232768888923/discotools-xyz-icon-2.png"></h3>
           <span class="des">Profile.</span> 
-      <% } %>
+      <% }; %>
       </div>
     <div class="right">
       <img class="profile" src="https://cdn.discordapp.com/avatars/<%= id %>/<%= avatar %>.webp?size=1024">
